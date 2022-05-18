@@ -1,4 +1,4 @@
-import React, { ChangeEvent, SyntheticEvent, useState } from "react";
+import React, { SyntheticEvent, } from "react";
 import { phaseArray, regionenArray, Phase, Regionen } from '../../utils/TS/interface';
 // @mui
 import { Grid, Typography } from '@mui/material';
@@ -11,7 +11,7 @@ import CropSquareRoundedIcon from '@mui/icons-material/CropSquareRounded';
 import SquareRoundedIcon from '@mui/icons-material/SquareRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 // _mock_
-import { _mockProjekts } from '../../_mock/referenzen/referenzen';
+
 
 interface Props {
     sorted: boolean,

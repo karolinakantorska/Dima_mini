@@ -31,7 +31,7 @@ import { CollapseDrawerProvider } from '../contexts/CollapseDrawerContext';
 // theme
 import ThemeProvider from '../theme';
 // components
-import ThemeSettings from '../components/settings';
+
 import { SettingsValueProps } from '../components/settings/type';
 import ProgressBar from '../components/ProgressBar';
 import MotionLazyContainer from '../components/animate/MotionLazyContainer';

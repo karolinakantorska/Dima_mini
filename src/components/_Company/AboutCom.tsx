@@ -1,15 +1,12 @@
-import { Box, Container, Grid, Typography } from '@mui/material';
+import { Container, Grid, Typography } from '@mui/material';
 
-import useResponsive from '../../hooks/useResponsive';
+//import useResponsive from '../../hooks/useResponsive';
 // components
 
-// _mock_
-import { _carouselsMembers } from '../../_mock/_others';
-import { _mockProjekts } from 'src/_mock/referenzen/referenzen';
 
 export function AboutCom() {
-    const isDesktop = useResponsive('up', 'lm');
-    const isSmall = useResponsive('down', 'sm');
+    //const isDesktop = useResponsive('up', 'lm');
+    //const isSmall = useResponsive('down', 'sm');
 
     return (
         <Container>

@@ -1,4 +1,4 @@
-import { useState, ReactNode, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { m, } from 'framer-motion';
 // next
 import NextLink from 'next/link';
@@ -12,7 +12,7 @@ import { useRouter } from 'next/router';
 import { ProjektCardCom } from './ProjektCardCom';
 
 // _mock_
-import { _mockProjekts } from '../../_mock/referenzen/referenzen';
+//import { _mockProjekts } from '../../_mock/referenzen/referenzen';
 // utils
 import { useForm } from 'src/utils/myUtils/useForm';
 import { filter } from 'src/utils/myUtils/filterFunction';
@@ -52,8 +52,8 @@ export function ReferenzenListCom(
     }
     setXPosition(position())
     setYPosition(728 - ((1700 - window.innerWidth) * 0.37))
-  })
-
+  }, [])
+  // TODO SOLVE IT 
   useEffect(() => {
     if (inputs.param !== initialInputs.param) {
       setSorted(true);

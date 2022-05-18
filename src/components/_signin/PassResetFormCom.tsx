@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 // @mui
-import { Link, Stack, Alert, IconButton, InputAdornment, Container, Grid } from '@mui/material';
+import { Link, Stack, Alert, Grid } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 // routes
 import { PATH_LOGIN } from 'src/routes/paths';
@@ -15,9 +15,9 @@ import { PATH_LOGIN } from 'src/routes/paths';
 import useAuth from 'src/utils/firebaseAuth/useAuth';
 import useIsMountedRef from 'src/hooks/useIsMountedRef';
 // components
-import { FormProvider, RHFTextField, RHFCheckbox } from 'src/components/hook-form';
+import { FormProvider, RHFTextField, } from 'src/components/hook-form';
 import { styled } from '@mui/material/styles';
-import ResetPass from '../../pages/reset_password';
+
 
 
 // ----------------------------------------------------------------------

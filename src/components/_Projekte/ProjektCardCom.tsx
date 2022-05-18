@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 
 // components
 import { varHover, varTranHover } from '../animate';
-import Image from '../../components/Image';
+import Image from '../Image';
 // hooks
 import useResponsive from '../../hooks/useResponsive';
 import Link from 'next/link';
