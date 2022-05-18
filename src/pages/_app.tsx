@@ -10,8 +10,19 @@ import cookie from 'cookie';
 import { ReactElement, ReactNode } from 'react';
 // next
 import { NextPage } from 'next';
+import { useRouter } from 'next/router';
+
+
 import Head from 'next/head';
 import App, { AppProps, AppContext } from 'next/app';
+// @mui
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+
+//Auth
+import { AuthProvider } from '../contexts/FirebaseContext';
+import { AnimatePresence } from 'framer-motion';
+
 // utils
 import { getSettings } from '../utils/getSettings';
 // contexts
@@ -38,8 +49,8 @@ interface MyAppProps extends AppProps {
 
 export default function MyApp(props: MyAppProps) {
   const { Component, pageProps, settings } = props;
+  const router = useRouter();
 
-  const getLayout = Component.getLayout ?? ((page) => page);
 
   return (
     <>
@@ -47,18 +58,25 @@ export default function MyApp(props: MyAppProps) {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
 
-      <CollapseDrawerProvider>
-        <SettingsProvider defaultSettings={settings}>
-          <MotionLazyContainer>
-            <ThemeProvider>
-              <ThemeSettings>
-                <ProgressBar />
-                {getLayout(<Component {...pageProps} />)}
-              </ThemeSettings>
-            </ThemeProvider>
-          </MotionLazyContainer>
-        </SettingsProvider>
-      </CollapseDrawerProvider>
+      <AuthProvider>
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <CollapseDrawerProvider>
+            <SettingsProvider defaultSettings={settings}>
+              <MotionLazyContainer>
+                <ThemeProvider>
+                  <ProgressBar />
+                  <AnimatePresence
+                    exitBeforeEnter
+                  //onExitComplete={handleExitComplete}
+                  >
+                    <Component {...pageProps} key={router.route} />
+                  </AnimatePresence>
+                </ThemeProvider>
+              </MotionLazyContainer>
+            </SettingsProvider>
+          </CollapseDrawerProvider>
+        </LocalizationProvider>
+      </AuthProvider>
     </>
   );
 }
