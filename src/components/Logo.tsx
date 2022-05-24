@@ -57,7 +57,6 @@ const Logo = forwardRef<any, Props>(({ disabledLink = false, sx }, ref) => {
       </svg>
     </Box>
   );
-
   if (disabledLink) {
     return <>{logo}</>;
   }

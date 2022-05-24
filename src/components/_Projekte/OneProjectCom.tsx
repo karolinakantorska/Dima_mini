@@ -21,7 +21,7 @@ export function OneProjectCom({ project }: { project: ProjectType }) {
     { name: 'standort', data: project.location },
     { name: 'bauherschaft', data: project.client },
     { name: 'bauzeit', data: project.year },
-    project.cooperation && { name: project.cooperation.service, data: project.cooperation.company },
+    //project.cooperation && { name: project.cooperation.service, data: project.cooperation.company },
   ];
   return (
     <Container disableGutters={true}>
@@ -67,10 +67,16 @@ export function OneProjectCom({ project }: { project: ProjectType }) {
               </Table>
             </Grid>
             <Grid item
-
             >
               <Typography variant="h5" component="h2" paragraph color="dima">
                 {firstLettersBig(project.title)}
+              </Typography>
+              <Typography variant="caption" component="p" paragraph color="text.secondary">
+                {project.objektType.map((type, i) =>
+                  `${writeObiektTypeInGerman(type)}${(i + 1 === project.objektType.length)
+                    ? ', '
+                    : ' und '}`)}
+                {project.objektAlter}, {project.size}&#13217;
               </Typography>
               <Typography variant="body1" component="p" paragraph color="text.secondary">
                 {parse(project.description)}
