@@ -24,7 +24,7 @@ export default function ImageMetadataInputCom({
 ) {
 
     const [edit, setEdit] = useState(false);
-    const { inputs, handleInputChange } = useForm({ title: 'image.title', alt: 'image.alt' });
+    const { inputs, handleInputChange } = useForm({ alt: 'image.alt' });
 
     async function handleClick() {
         if (!loading) {
@@ -52,22 +52,11 @@ export default function ImageMetadataInputCom({
             <Grid item>
                 {image && !edit && (
                     <>
-                        <Typography variant="body1" component="p">{image.title}</Typography>
                         <Typography variant="body2" component="p">{image.alt}</Typography>
                     </>
                 )}
                 {edit && (
                     <FormControl>
-                        <TextField
-                            name="title"
-                            onChange={handleInputChange}
-                            defaultValue={image.title}
-                            disabled={loading}
-                            margin="dense"
-                            label="Bildtitel"
-                            type="text"
-                            variant="outlined"
-                        />
                         <TextField
                             name="alt"
                             onChange={handleInputChange}
