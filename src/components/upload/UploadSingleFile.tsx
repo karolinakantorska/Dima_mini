@@ -60,7 +60,7 @@ export default function UploadSingleFile({
         {file && (
           <Image
             alt="file preview"
-            src={typeof file === 'string' ? file : file.preview}
+            src={typeof file === 'string' ? file : file.url}
             sx={{
               top: 8,
               left: 8,

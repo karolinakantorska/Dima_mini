@@ -62,7 +62,7 @@ declare module '@mui/material' {
 
 // SETUP COLORS
 const PRIMARY = {
-  lighter: '##f6cebc',
+  lighter: '#f6cebc',
   light: '#eb9166',
   main: 'rgb(232, 123, 69)',// #e87b45
   dark: '#e56825',
@@ -106,23 +106,23 @@ const ERROR = {
 
 const GREY = {
   0: '#fffaf2',
-  100: '#fffaf2',
-  200: '#fffaf2',
-  300: '#fdf5ed',
-  400: '#f8f0e8',
-  500: '#eee5dd',// shadows from this color
-  600: '#cbc3bb',
-  700: '#ada59d',
-  800: '#837b74',
-  900: 'rgb(110, 103, 96)', // # 6E6760 soll  bei 700 sein
-  500_8: alpha('#eee5dd', 0.08),
-  500_12: alpha('#eee5dd', 0.12),
-  500_16: alpha('#eee5dd', 0.16),
-  500_24: alpha('#eee5dd', 0.24),
-  500_32: alpha('#eee5dd', 0.32),
-  500_48: alpha('#eee5dd', 0.48),
-  500_56: alpha('#eee5dd', 0.56),
-  500_80: alpha('#eee5dd', 0.8),
+  100: '#fdf5ed',
+  200: '#f8f0e8',
+  300: '#eee5dd',
+  400: '#cbc3bb',
+  500: '#ada59d',// shadows from this color
+  600: '#837b74',
+  700: 'rgb(110, 103, 96)',// dima
+  800: '#4e4841',
+  900: '#2c2620',
+  500_8: alpha('#ada59d', 0.08),
+  500_12: alpha('#ada59d', 0.12),
+  500_16: alpha('#ada59d', 0.16),
+  500_24: alpha('#ada59d', 0.24),
+  500_32: alpha('#ada59d', 0.32),
+  500_48: alpha('#ada59d', 0.48),
+  500_56: alpha('#ada59d', 0.56),
+  500_80: alpha('#ada59d', 0.8),
 };
 
 const GRADIENTS = {
@@ -167,18 +167,18 @@ const COMMON = {
 const palette = {
   light: {
     ...COMMON,
-    mode: 'light',
-    text: { primary: GREY[800], secondary: GREY[600], disabled: GREY[500] },
+    mode: 'light', 
+      
     background: { paper: '#fff', default: '#fff', neutral: GREY[200] },
     action: { active: GREY[600], ...COMMON.action },
   },
-  // THIS WILL BE OUR PALETTE
   dark: {
-    ...COMMON,
+    ...COMMON, 
     mode: 'dark',
     text: { primary: '#fff', secondary: GREY[500], disabled: GREY[600] },
     background: { paper: GREY[800], default: GREY[900], neutral: GREY[500_16] },
     action: { active: GREY[500], ...COMMON.action },
+    dima:PRIMARY.main 
   },
 } as const;
 

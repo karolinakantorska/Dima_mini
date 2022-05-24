@@ -15,7 +15,6 @@ import { ReactElement, ReactNode } from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 
-
 import Head from 'next/head';
 import App, { AppProps, AppContext } from 'next/app';
 // @mui
@@ -53,7 +52,6 @@ interface MyAppProps extends AppProps {
 export default function MyApp(props: MyAppProps) {
   const { Component, pageProps, settings } = props;
   const router = useRouter();
-
 
   return (
     <>

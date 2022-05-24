@@ -2,6 +2,7 @@
 import { useFormContext, Controller } from 'react-hook-form';
 // @mui
 import { FormHelperText } from '@mui/material';
+import { ImageType } from '../../utils/TS/interface';
 // type
 import {
   UploadMultiFile,
@@ -26,19 +27,22 @@ export function RHFUploadSingleFile({ name, ...other }: Props) {
         const checkError = !!error && !field.value;
 
         return (
-          <UploadSingleFile
-            accept={{ onDragLeave: ["image/*"] }}
-            file={field.value}
-            error={checkError}
-            helperText={
-              checkError && (
-                <FormHelperText error sx={{ px: 2 }}>
-                  {error.message}
-                </FormHelperText>
-              )
-            }
-            {...other}
-          />
+          <>
+            <UploadSingleFile
+              accept={{ onDragLeave: ["image/*"] }}
+              file={field.value}
+              error={checkError}
+              helperText={
+                checkError && (
+                  <FormHelperText error sx={{ px: 2 }}>
+                    {error.message}
+                  </FormHelperText>
+                )
+              }
+              {...other}
+            />
+          </>
+
         );
       }}
     />
@@ -60,7 +64,7 @@ export function RHFUploadMultiFile({ name, ...other }: RHFUploadMultiFileProps) 
       control={control}
       render={({ field, fieldState: { error } }) => {
         const checkError = !!error && field.value?.length === 0;
-
+        //const files: ImageType[] = Object.values(field.value[0])
         return (
           <UploadMultiFile
             accept={{ multiple: ["image/*"] }}

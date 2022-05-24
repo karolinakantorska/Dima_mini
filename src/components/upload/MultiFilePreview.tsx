@@ -25,12 +25,14 @@ export default function MultiFilePreview({
     <List disablePadding sx={{ ...(hasFile && { my: 3 }) }}>
       <AnimatePresence>
         {files.map((file, index) => {
-          const { key, name, size, preview } = getFileData(file, index);
-
+          //const { key, name, size, preview } = getFileData(file, index);
+          //console.log('file', file)
+          const { url, alt } = file;
           if (showPreview) {
             return (
               <ListItem
-                key={key}
+                key={url}
+                //key={key}
                 component={m.div}
                 {...varFade().inRight}
                 sx={{
@@ -45,7 +47,7 @@ export default function MultiFilePreview({
                   border: (theme) => `solid 1px ${theme.palette.divider}`,
                 }}
               >
-                <Image alt="preview" src={preview} ratio="1/1" />
+                <Image alt={alt} src={url} ratio="1/1" />
 
                 {onRemove && (
                   <IconButton
@@ -72,7 +74,7 @@ export default function MultiFilePreview({
 
           return (
             <ListItem
-              key={key}
+              key={url}
               component={m.div}
               {...varFade().inRight}
               sx={{
@@ -89,8 +91,8 @@ export default function MultiFilePreview({
               />
 
               <ListItemText
-                primary={typeof file === 'string' ? file : name}
-                secondary={typeof file === 'string' ? '' : fData(size || 0)}
+                primary={typeof file === 'string' ? file : alt}
+                //secondary={typeof file === 'string' ? '' : fData(size || 0)}
                 primaryTypographyProps={{ variant: 'subtitle2' }}
                 secondaryTypographyProps={{ variant: 'caption' }}
               />

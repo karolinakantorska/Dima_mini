@@ -4,6 +4,25 @@ import { SyntheticEvent, useState } from "react";
 import { DB } from "src/contexts/FirebaseContext";
 
 
+export function addProjestToFirestore(title: string, project: WithFieldValue<DocumentData>) {
+    console.log('I am adding a project', project);
+    return new Promise((resolve, reject) => {
+        addDoc(collection(DB, title), project)
+            .then(function (response: any) {
+                resolve(response._key.path.segments[1])
+                //console.log('response ', response._key.path.segments)
+                //setSavedProjectId(response._key.path.segments[1]);
+            })
+            .catch(function (error) {
+                reject(error)
+                console.log('error: ', error)
+            });
+    })
+}
+
+
+
+
 export function useAddProjestToFirestore() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<boolean | string>(false);

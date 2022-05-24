@@ -17,6 +17,7 @@ export interface ProjectType {
   client: string;
   size: number;
   architect: Company;
+  generalConstr: string,
   cooperation: {
     service: Services | string;
     company: Company;
@@ -33,7 +34,6 @@ export interface PropsProjects {
 
 export interface ImageType {
   url: string;
-  title: string;
   alt: string;
 }
 export type ImagesType = ImageType[];
@@ -48,7 +48,7 @@ export const regionenArray = [
 ] as const;
 export type Regionen = typeof regionenArray[number];
 
-export const objektAlterArray = ['Newbau', 'Sanierung'] as const;
+export const objektAlterArray = ['Newbau', 'Sanierung', 'Wettbewerb'] as const;
 export type ObjektAlter = typeof objektAlterArray[number];
 
 export const phaseArray = ['Entwicklung', 'Plannung', 'Realisierung',] as const;

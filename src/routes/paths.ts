@@ -31,7 +31,7 @@ export const PATH_UNTERNEHMEN = {
 };
 export const PATH_REFERENZEN = {
   referenzen: '/referenzen',
-  addProject: '/projekt_hinzugrifen'
+  addProject: '/referenz/neues'
 };
 export const PATH_KONTAKT = {
   kontakt: '/kontakt',

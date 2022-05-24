@@ -9,7 +9,6 @@ import {
 } from '../../utils/TS/interface';
 
 import { description } from './description';
-import { useOnePhotoUpload } from '../../utils/apis/uploadPhoto';
 
 export const _mockProjekts: ProjectsListType = [
   //
@@ -18,7 +17,6 @@ export const _mockProjekts: ProjectsListType = [
   {
     photo: {
       url: `/cover_1.jpg`,
-      title: `4 mehrfamilienhäuser ettersbüe`,
       alt: `4 mehrfamilienhäuser ettersbüe`,
     },
     photos: [],
@@ -35,6 +33,7 @@ export const _mockProjekts: ProjectsListType = [
     client: Kgp_Immobilien,
     size: 9999,
     architect: `ZFP Architektur AG, Bülach`,
+    generalConstr: dima,
     cooperation: {
       service: '',
       company: '',
@@ -47,7 +46,6 @@ export const _mockProjekts: ProjectsListType = [
   {
     photo: {
       url: `/cover_2.jpg`,
-      title: `neubau mehrfamilienhaus mettelacher`,
       alt: `neubau mehrfamilienhaus mettelacher`,
 
     },
@@ -65,6 +63,7 @@ export const _mockProjekts: ProjectsListType = [
     client: 'Mettelacher Immobilien AG, Wollerau',
     size: 9999,
     architect: 'Hamburger du Pfammatter Ferrandiz AG Architekten ETH SIA, Zürich',
+    generalConstr: dima,
     cooperation: {
       service: '',
       company: '',
@@ -76,7 +75,6 @@ export const _mockProjekts: ProjectsListType = [
   {
     photo: {
       url: `/cover_3.jpg`,
-      title: `neubau 2 einfamilienhäuser`,
       alt: `neubau 2 einfamilienhäuser`,
 
     },
@@ -94,6 +92,7 @@ export const _mockProjekts: ProjectsListType = [
     client: privat,
     size: 9999,
     architect: dima,
+    generalConstr: dima,
     cooperation: {
       service: '',
       company: '',
@@ -105,7 +104,6 @@ export const _mockProjekts: ProjectsListType = [
   {
     photo: {
       url: `/cover_4.jpg`,
-      title: `wohnüberbauung oberer gubel`,
       alt: `wohnüberbauung oberer gubel`,
 
     },
@@ -123,6 +121,7 @@ export const _mockProjekts: ProjectsListType = [
     client: Kgp_Immobilien,
     size: 9999,
     architect: Cadosch,
+    generalConstr: dima,
     cooperation: {
       service: '',
       company: '',
@@ -134,7 +133,6 @@ export const _mockProjekts: ProjectsListType = [
   {
     photo: {
       url: `/cover_5.jpg`,
-      title: `wohnüberbauung schachenmatt 2`,
       alt: `wohnüberbauung schachenmatt 2`,
 
     },
@@ -152,6 +150,7 @@ export const _mockProjekts: ProjectsListType = [
     client: 'Siedlungsgenossenschaft Eigengrund, Zürich',
     size: 9999,
     architect: 'Egli Rohr Partner AG, Baden',
+    generalConstr: dima,
     cooperation: {
       service: '',
       company: '',
@@ -163,7 +162,6 @@ export const _mockProjekts: ProjectsListType = [
   {
     photo: {
       url: `/cover_6.jpg`,
-      title: `neubau 4 mfh leisibüelpark`,
       alt: `neubau 4 mfh leisibüelpark`,
 
     },
@@ -181,6 +179,7 @@ export const _mockProjekts: ProjectsListType = [
     client: 'Leisibüelpark AG, Wollerau',
     size: 9999,
     architect: '',
+    generalConstr: dima,
     cooperation: { service: 'TU', company: 'Implenia Schweiz AG, Dietlikon' },
     location: 'Männedorf',
   },
@@ -190,7 +189,6 @@ export const _mockProjekts: ProjectsListType = [
   {
     photo: {
       url: `/cover_7.jpg`,
-      title: `neubau mehrfamilienhaus obere wallisellerstrasse`,
       alt: `neubau mehrfamilienhaus obere wallisellerstrasse`,
 
     },
@@ -208,6 +206,7 @@ export const _mockProjekts: ProjectsListType = [
     client: privat,
     size: 9999,
     architect: dima,
+    generalConstr: dima,
     cooperation: {
       service: '',
       company: '',
@@ -219,7 +218,6 @@ export const _mockProjekts: ProjectsListType = [
   {
     photo: {
       url: `/cover_8.jpg`,
-      title: `sanierung schwimmbad gründli`,
       alt: `sanierung schwimmbad gründli`,
 
     },
@@ -237,6 +235,7 @@ export const _mockProjekts: ProjectsListType = [
     client: 'Gemeinde Glarus',
     size: 9999,
     architect: '',
+    generalConstr: dima,
     cooperation: {
       service: '',
       company: '',
@@ -248,7 +247,6 @@ export const _mockProjekts: ProjectsListType = [
   {
     photo: {
       url: `/cover_9.jpg`,
-      title: `neubau Kongress- & Kulturzentrum  samsung hall`,
       alt: `neubau Kongress- & Kulturzentrum  samsung hall`,
 
     },
@@ -266,6 +264,7 @@ export const _mockProjekts: ProjectsListType = [
     client: '',
     size: 9999,
     architect: '',
+    generalConstr: dima,
     cooperation: {
       service: '',
       company: '',
@@ -277,7 +276,6 @@ export const _mockProjekts: ProjectsListType = [
   {
     photo: {
       url: `/cover_10.jpg`,
-      title: `neubau hauptsitz namics ag`,
       alt: `neubau hauptsitz namics ag`,
     },
     photos: [],
@@ -295,6 +293,7 @@ export const _mockProjekts: ProjectsListType = [
     client: 'Asga Pensionskasse St. Gallen',
     size: 9999,
     architect: 'Arge Menn / Ammann',
+    generalConstr: dima,
     cooperation: {
       service: '',
       company: '',
@@ -306,7 +305,6 @@ export const _mockProjekts: ProjectsListType = [
   {
     photo: {
       url: `/cover_11.jpg`,
-      title: `überbauung feldbreite`,
       alt: `überbauung feldbreite`,
 
     },
@@ -324,6 +322,7 @@ export const _mockProjekts: ProjectsListType = [
     client: BSS_M,
     size: 9999,
     architect: 'Stoffel Schneider Architekten AG',
+    generalConstr: dima,
     cooperation: { service: 'Bauleitung', company: 'Rhyner Baumanagement' },
     location: 'Emmenbrücke',
   },
@@ -333,7 +332,6 @@ export const _mockProjekts: ProjectsListType = [
   {
     photo: {
       url: `/cover_12.jpg`,
-      title: `neubau zugschleife, Feldpark `,
       alt: `neubau zugschleife, Feldpark `,
     },
 
@@ -352,6 +350,7 @@ export const _mockProjekts: ProjectsListType = [
     client: 'Peikert Immobilien AG, Zug + 4B Immobilien AG',
     size: 9999,
     architect: 'Valerio Olgiati, Flims + Axxes AG, Zug',
+    generalConstr: dima,
     cooperation: { service: 'TU', company: 'Toneatti AG, Bilten' },
     location: 'Zug',
   },
@@ -361,7 +360,6 @@ export const _mockProjekts: ProjectsListType = [
   {
     photo: {
       url: `/cover_13.jpg`,
-      title: `neubau 25 refh, wohnüberbauung pelicano, `,
       alt: `neubau 25 refh, wohnüberbauung pelicano, `,
 
     },
@@ -379,6 +377,7 @@ export const _mockProjekts: ProjectsListType = [
     client: BSS_M,
     size: 9999,
     architect: Hanimann_Naef,
+    generalConstr: dima,
     cooperation: {
       service: 'Ausführungsplanung',
       company: Hanimann_Naef,
@@ -391,7 +390,6 @@ export const _mockProjekts: ProjectsListType = [
   {
     photo: {
       url: `/cover_14.jpg`,
-      title: `sanierung & erweiterung multifunktionale sport-und kongressanlage, `,
       alt: `sanierung & erweiterung multifunktionale sport-und kongressanlage, `,
 
     },
@@ -409,6 +407,7 @@ export const _mockProjekts: ProjectsListType = [
     client: 'Gemeinde Arosa',
     size: 9999,
     architect: Hanimann_Naef,
+    generalConstr: dima,
     cooperation: {
       service: 'Betrieber',
       company: 'Arosa Tourismus',
@@ -421,7 +420,6 @@ export const _mockProjekts: ProjectsListType = [
   {
     photo: {
       url: `/cover_15.jpg`,
-      title: `umbau credit suisse ag, geschäftstelle und 3 stadtwohnungen`,
       alt: `umbau credit suisse ag, geschäftstelle und 3 stadtwohnungen`,
 
     },
@@ -439,6 +437,7 @@ export const _mockProjekts: ProjectsListType = [
     client: 'Credit Suisse AG, Zürich',
     size: 9999,
     architect: dima,
+    generalConstr: dima,
     cooperation: {
       service: '',
       company: '',

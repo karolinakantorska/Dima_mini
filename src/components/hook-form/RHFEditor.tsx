@@ -19,7 +19,7 @@ export default function RHFEditor({ name, ...other }: any) {
       name={name}
       control={control}
       render={({ field, fieldState: { error } }) => {
-        console.log(field.value); return (
+        return (
           <Editor
             id={name}
             value={field.value}

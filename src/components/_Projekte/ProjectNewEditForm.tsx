@@ -1,5 +1,3 @@
-
-
 import { useCallback, useEffect, useMemo } from 'react';
 // next
 //import { useRouter } from 'next/router';
@@ -30,11 +28,16 @@ import {
   RHFUploadSingleFile,
   RHFEditor,
 } from '../hook-form';
-import { objektAlterArray, ProjectType, regionenArray, ServicesArray, objektTypeArray } from 'src/utils/TS/interface';
+import { objektAlterArray, ProjectType, regionenArray, ServicesArray, objektTypeArray, ImageType } from 'src/utils/TS/interface';
 import { RHFMultiCheckboxCom } from '../hook-form/RHFMultiCheckboxCom';
 
 // utils
 import { fData } from '../../utils/formatNumber';
+import { deleteImage, uploadOnePhoto, uploadPhotos } from 'src/utils/apis/uploadPhoto';
+import { AnyObject } from 'yup/lib/object';
+import { ImagesType } from '../../utils/TS/interface';
+import { addProjestToFirestore } from 'src/utils/apis/addToFirestore';
+
 // components
 
 // ----------------------------------------------------------------------
@@ -77,7 +80,7 @@ export default function ProjectNewEditForm({ isEdit, currentProject }: Props) {
 
   const defaultValues = useMemo(
     () => ({
-      //photo: currentProject?.photo || { url: '', title: '', alt: '' },
+      photo: currentProject?.photo.url || {},
       photos: currentProject?.photos || [],
       photoAuthor: currentProject?.photoAuthor || '',
       title: currentProject?.title || '',
@@ -101,12 +104,12 @@ export default function ProjectNewEditForm({ isEdit, currentProject }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [currentProject]
   );
+  // Image Apis
 
   const methods = useForm<FormValuesProps>({
     resolver: yupResolver(NewProjectSchema),
     defaultValues,
   });
-
   const {
     reset,
     watch,
@@ -118,7 +121,7 @@ export default function ProjectNewEditForm({ isEdit, currentProject }: Props) {
   } = methods;
 
   const values = watch();
-  //console.log('values: ', values)
+  console.log('values', values)
   useEffect(() => {
     if (isEdit && currentProject) {
       reset(defaultValues);
@@ -130,7 +133,6 @@ export default function ProjectNewEditForm({ isEdit, currentProject }: Props) {
   }, [isEdit, currentProject]);
 
   const onSubmit = async (data: any) => {
-
     // ID ?? EDIT
     const cooperation = {
       cooperation: {
@@ -138,14 +140,20 @@ export default function ProjectNewEditForm({ isEdit, currentProject }: Props) {
         service: data.cooperation_service
       }
     }
+    const photo = { photo: { url: data.photo.url, alt: data.photo.alt } }
     const year = { year: data.year_form.getFullYear() }
     const newProject: any = { ...data }
     delete newProject.year_form;
     delete newProject.cooperation_company;
     delete newProject.cooperation_service;
+    delete newProject.photo;
     const projectToDB: ProjectType = {
-      ...newProject, ...cooperation, ...year,
+      ...newProject, ...cooperation, ...year, ...photo
     }
+    addProjestToFirestore('projects', projectToDB)
+      .then((response) => console.log('response', response))
+      .catch((error) => console.log('error', error))
+    /*
     try {
       console.log('projectToDB 2 ', projectToDB)
       //await new Promise((resolve) => setTimeout(resolve, 500));
@@ -155,49 +163,63 @@ export default function ProjectNewEditForm({ isEdit, currentProject }: Props) {
     } catch (error) {
       console.error(error);
     }
+    */
   };
+  /*
+    console.log('delete', values.photo?.url);
+    if (values.photo?.url) {
+      console.log('delete', values.photo?.url)
+      deleteImage(values.photo.url)
+    }
+  */
+  function handleDropImage(acceptedFiles: any) {
+    if (values.photo?.url) {
+      deleteImage(values.photo.url)
+    }
+    handleDropPhoto(acceptedFiles);
+  }
   const handleDropPhoto = useCallback(
     (acceptedFiles) => {
       const file = acceptedFiles[0];
-      if (file) {
-        setValue(
-          'photo',
-          Object.assign(file, {
-            preview: URL.createObjectURL(file),
-          })
-        );
-      }
+      uploadOnePhoto(file, "projects")
+        .then((result: any) => setValue(
+          'photo', { ...result }
+          /*Object.assign(file, {...result})*/
+        ))
+        .catch((error) => console.log('error', error))
     },
     [setValue]
   );
+
   const handleDrop = useCallback(
     (acceptedFiles) => {
+      const newPhotos = acceptedFiles;
       const photos = values.photos || [];
-      setValue('photos', [
-        ...photos,
-        ...acceptedFiles.map((file: Blob | MediaSource) =>
-          Object.assign(file, {
-            preview: URL.createObjectURL(file),
-          })
-        ),
-      ]);
+      uploadPhotos(newPhotos, 'photos')
+        .then((result: any) => {
+          const images: ImagesType = Object.values(result)
+          setValue('photos', [...photos, ...images]
+          )
+        })
+        .catch((error) => console.log('error', error))
     },
     [setValue, values.photos]
   );
 
   const handleRemoveAll = () => {
+    // TODO remove from DB
     setValue('photos', []);
   };
 
-  const handleRemove = (file: File | string) => {
-    const filteredItems = values.photos?.filter((_file) => _file.url !== file);
+  const handleRemove = (file: ImageType) => {
+    // TODO remove from DB
+    const filteredItems = values.photos?.filter((_file) => _file.url !== file.url);
     setValue('photos', filteredItems);
   };
 
   return (
     <>
       < Typography variant="h6" component="h2">{currentProject?.title ? currentProject.title : 'Neues Projekt Hinzugrifen'}</Typography>
-
       <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)} >
         <Grid container direction='row' spacing={3} sx={{ pt: 3 }}>
           <Grid item xs={12} md={8}  >
@@ -214,23 +236,10 @@ export default function ProjectNewEditForm({ isEdit, currentProject }: Props) {
                       name='photo'
                       accept={{ onDragLeave: ["image/*"] }}
                       maxSize={3145728}
-                      onDrop={handleDropPhoto}
-                      helperText={
-                        <Typography
-                          variant="caption"
-                          sx={{
-                            mt: 2,
-                            mx: 'auto',
-                            display: 'block',
-                            textAlign: 'center',
-                            color: 'text.secondary',
-                          }}
-                        >
-                          Allowed *.jpeg, *.jpg, *.png, *.gif
-                          <br /> max size of {fData(3145728)}
-                        </Typography>
-                      }
+                      onDrop={handleDropImage}
                     />
+                    {/*TODO Icons and text field to change metadata */}
+                    {values.photo?.alt && <p>{values.photo.alt}</p>}
                   </div>
                   <div>
                     <LabelStyle>Fotos</LabelStyle>
