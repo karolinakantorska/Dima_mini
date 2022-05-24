@@ -1,16 +1,17 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import Page from 'src/components/Page';
+import { RootStyle } from 'src/components/_Main/RootStyle';
+import Layout from 'src/layouts';
 
 // ----------------------------------------------------------------------
 
 export default function Index() {
-  const router = useRouter();
 
-  useEffect(() => {
-    if (router.pathname == '/') {
-      router.push('/dashboard/one');
-    }
-  });
-
-  return null;
+  return (
+    <Layout>
+      <Page title="Dima & Partner | Glarus Zurich Arosa">
+        <RootStyle>
+          <p>Home</p>
+        </RootStyle>
+      </Page>
+    </Layout>)
 }
