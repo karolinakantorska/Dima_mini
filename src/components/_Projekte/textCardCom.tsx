@@ -45,12 +45,7 @@ export function TextCardCom({ project, big, rewerseBig, authorPhoto }: {
     setOpen(false);
   };
   function handleDelete() {
-    deleteProjectFromFirestore('projects', id).then(() => {
-
-      push(PATH_REFERENZEN.referenzen)
-      //setSucces(response);
-      //setLoading(false);
-    })
+    deleteProjectFromFirestore('projects', id)
       .catch((error) => {
         console.log('error', error);
         //setError(error)
