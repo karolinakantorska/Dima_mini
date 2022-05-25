@@ -39,6 +39,7 @@ declare module '@mui/material/styles/createPalette' {
   interface Palette {
     gradients: GradientsPaletteOptions;
     chart: ChartPaletteOptions;
+    dima:PaletteColor
   }
   interface PaletteOptions {
     gradients: GradientsPaletteOptions;
