@@ -1,63 +1,35 @@
 
 import { doc, setDoc, addDoc, collection, WithFieldValue, DocumentData } from "firebase/firestore";
-import { SyntheticEvent, useState } from "react";
 import { DB } from "src/contexts/FirebaseContext";
 
-
 export function addProjestToFirestore(title: string, project: WithFieldValue<DocumentData>) {
-    console.log('I am adding a project', project);
+    //console.log('I am adding a project', project);
     return new Promise((resolve, reject) => {
         addDoc(collection(DB, title), project)
             .then(function (response: any) {
                 resolve(response._key.path.segments[1])
-                //console.log('response ', response._key.path.segments)
+                //console.log('response._key.path ', response._key.path.segments)
                 //setSavedProjectId(response._key.path.segments[1]);
             })
             .catch(function (error) {
                 reject(error)
-                console.log('error: ', error)
+            });
+    })
+}
+// ADD OF CREATE
+export function editProjectInFirestore(title: string, id: string, project: WithFieldValue<DocumentData>) {
+    return new Promise((resolve, reject) => {
+        setDoc(doc(DB, title, id), project)
+            .then(function (response: any) {
+                //console.log('response', response)
+                resolve(response)
+            })
+            .catch(function (error) {
+                reject(error)
             });
     })
 }
 
 
-
-
-export function useAddProjestToFirestore() {
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState<boolean | string>(false);
-
-    const [savedProjectId, setSavedProjectId] = useState('');
-
-    async function addProject(title: string, project: WithFieldValue<DocumentData>) {
-        setLoading(true);
-        console.log('I am adding a project', project);
-        await addDoc(collection(DB, title), project)
-            .then(function (response: any) {
-                //console.log('response ', response._key.path.segments)
-                setSavedProjectId(response._key.path.segments[1]);
-                setLoading(false);
-            })
-            .catch(function (error) {
-                //console.log('error: ', error)
-                setError(error.code);
-                setLoading(false);
-            });
-    }
-    async function edit(title: string, id: string, project: WithFieldValue<DocumentData>) {
-        setLoading(true);
-        await setDoc(doc(DB, title, id), project)
-            .then(function (response: any) {
-                //console.log('response ', response)
-                setLoading(false);
-            })
-            .catch(function (error) {
-                setError(error);
-                setLoading(false);
-            });
-    }
-
-    return { addProject, edit, loading, error, savedProjectId }
-}
 
 

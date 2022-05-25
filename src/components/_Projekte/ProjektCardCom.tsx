@@ -12,8 +12,7 @@ import useResponsive from '../../hooks/useResponsive';
 import Link from 'next/link';
 import { ProjectType } from 'src/utils/TS/interface';
 import { TextCardCom } from './textCardCom';
-
-
+import { CardActionArea } from '@mui/material';
 
 export function ProjektCardCom({
   project,
@@ -26,7 +25,7 @@ export function ProjektCardCom({
   big: boolean;
   rewerseBig: boolean;
 }) {
-  console.log('project', project)
+  //console.log('project', project)
   const { id, photo, photoAuthor } = project;
   //console.log('photoAuthor', photoAuthor)
   const isDesktop = useResponsive('up', 'lm');
@@ -59,7 +58,7 @@ export function ProjektCardCom({
   }
 
   return (!isDesktop ?
-    (<Link href={`/referenz/${id}`}  >
+    (
       <Box
         sx={{ ...boxSmallProps }}
         component={m.div}
@@ -71,37 +70,39 @@ export function ProjektCardCom({
           transition={varTranHover()}
           sx={{ ...cardSmallProps }}
         >
-          <Image src={photo.url} alt={photo.alt} ratio="16/9" />
+          <Link href={`/referenz/${id}`}  >
+            <CardActionArea >
+              <Image src={photo.url} alt={photo.alt} ratio="16/9" />
+            </CardActionArea>
+          </Link>
         </Card>
         <TextCardCom project={project} big={big} rewerseBig={rewerseBig} authorPhoto={photoAuthor ? photoAuthor : ''} />
       </Box>
-    </Link>
+
     )
     :
     (
-      <>
+      <Box
+        sx={big ? {
+          ...boxBigProps
+        } : { ...boxSmallProps }}
+        component={m.div}
+        whileHover="hover"
+      >
         <Link href={`/referenz/${id}`} >
-          <Box
-            sx={big ? {
-              ...boxBigProps
-            } : { ...boxSmallProps }}
+          <Card
             component={m.div}
-            whileHover="hover"
+            variants={varHover(1.05)}
+            transition={varTranHover()}
+            sx={big ? {
+              ...cardBigProps
+            } : { ...cardSmallProps }}
           >
-            <Card
-              component={m.div}
-              variants={varHover(1.05)}
-              transition={varTranHover()}
-              sx={big ? {
-                ...cardBigProps
-              } : { ...cardSmallProps }}
-            >
-              <Image src={photo.url} alt={photo.alt} ratio="16/9" />
-            </Card>
-            <TextCardCom project={project} big={big} rewerseBig={rewerseBig} authorPhoto={photoAuthor ? photoAuthor : ''} />
-          </Box>
+            <CardActionArea ><Image src={photo.url} alt={photo.alt} ratio="16/9" /></CardActionArea>
+          </Card>
         </Link>
-      </>
+        <TextCardCom project={project} big={big} rewerseBig={rewerseBig} authorPhoto={photoAuthor ? photoAuthor : ''} />
+      </Box>
     )
   );
 }

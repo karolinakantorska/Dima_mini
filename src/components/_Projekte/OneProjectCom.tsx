@@ -36,12 +36,12 @@ export function OneProjectCom({ project }: { project: ProjectType }) {
               position: 'relative',
 
             }}>
-            <Image
+            {project.photo.url && <Image
               src={project.photo.url}
               alt={project.photo.alt}
               width='1700px'
               height='956px'
-            />
+            />}
           </Container>
           <Grid
             container

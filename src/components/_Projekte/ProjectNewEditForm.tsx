@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useMemo } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 // next
+import { useRouter } from 'next/router';
 //import { useRouter } from 'next/router';
 // form
 import { useForm, Controller, } from 'react-hook-form';
@@ -15,6 +16,7 @@ import {
   TextField,
   Typography,
   InputAdornment,
+  Alert,
 } from '@mui/material';
 import DatePicker from '@mui/lab/DatePicker';
 // routes
@@ -34,9 +36,11 @@ import { RHFMultiCheckboxCom } from '../hook-form/RHFMultiCheckboxCom';
 // utils
 import { fData } from '../../utils/formatNumber';
 import { deleteImage, uploadOnePhoto, uploadPhotos } from 'src/utils/apis/uploadPhoto';
-import { AnyObject } from 'yup/lib/object';
 import { ImagesType } from '../../utils/TS/interface';
-import { addProjestToFirestore } from 'src/utils/apis/addToFirestore';
+import { addProjestToFirestore, editProjectInFirestore } from 'src/utils/apis/addToFirestore';
+import { Container } from '@mui/material';
+import { createProject } from 'src/utils/myUtils/createProject';
+import { PATH_REFERENZEN } from 'src/routes/paths';
 
 // components
 
@@ -61,7 +65,7 @@ const LabelStyle = styled(Typography)(({ theme }) => ({
 // ----------------------------------------------------------------------
 // make all properties optional
 
-interface FormValuesProps extends Partial<ProjectType> {
+export interface FormValuesProps extends Partial<ProjectType> {
   year_form: any;
   cooperation_company: string;
   cooperation_service: string;
@@ -73,14 +77,31 @@ type Props = {
 };
 
 export default function ProjectNewEditForm({ isEdit, currentProject }: Props) {
-  //const { push } = useRouter();
+  const { push } = useRouter();
   //console.log('currentProject', currentProject);
-  //const { enqueueSnackbar } = useSnackbar();
+  const [error, setError] = useState<null | { code: string, message: string }>(null)
+  const [succes, setSucces] = useState<boolean | string>(false)
+  const [loading, setLoading] = useState(false)
   const timestamp = Date.now()
+
+  useEffect(() => {
+    if (succes) {
+      setTimeout(() => setSucces(false), 5000);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [succes]);
+
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => setError(null), 9000);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [error]);
+
 
   const defaultValues = useMemo(
     () => ({
-      photo: currentProject?.photo.url || {},
+      photo: currentProject?.photo || { url: '', alt: '' },
       photos: currentProject?.photos || [],
       photoAuthor: currentProject?.photoAuthor || '',
       title: currentProject?.title || '',
@@ -94,17 +115,15 @@ export default function ProjectNewEditForm({ isEdit, currentProject }: Props) {
       client: currentProject?.client || '',
       size: currentProject?.size || 999,
       architect: currentProject?.architect || '',
-      cooperation_company: currentProject?.cooperation.company || '',
-      cooperation_service: currentProject?.cooperation.service || '',
+      cooperation_company: currentProject?.cooperation?.company || '',
+      cooperation_service: currentProject?.cooperation?.service || '',
       location: currentProject?.client || '',
       //constructionVideo: currentProject?.constructionVideo || '',
       //video: currentProject?.video || '',
-
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [currentProject]
   );
-  // Image Apis
 
   const methods = useForm<FormValuesProps>({
     resolver: yupResolver(NewProjectSchema),
@@ -121,7 +140,8 @@ export default function ProjectNewEditForm({ isEdit, currentProject }: Props) {
   } = methods;
 
   const values = watch();
-  console.log('values', values)
+  //console.log('values', values)
+  // TODO findout what is that
   useEffect(() => {
     if (isEdit && currentProject) {
       reset(defaultValues);
@@ -132,61 +152,61 @@ export default function ProjectNewEditForm({ isEdit, currentProject }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isEdit, currentProject]);
 
-  const onSubmit = async (data: any) => {
-    // ID ?? EDIT
-    const cooperation = {
-      cooperation: {
-        company: data.cooperation_company,
-        service: data.cooperation_service
-      }
+  const onSubmit = async (data: FormValuesProps) => {
+    setLoading(true);
+    const projectToDB = createProject(data);
+    if (currentProject?.id) {
+      //console.log('editProject');
+      editProjectInFirestore('projects', currentProject.id, projectToDB)
+        .then(() => {
+          //console.log('response', response);
+          setSucces(true);
+          setLoading(false);
+          reset();
+        })
+        .then(() => push(PATH_REFERENZEN.referenzen))
+        .catch((error) => {
+          //console.log('error', error);
+          setError(error)
+          setLoading(false);
+        })
+    } else {
+      addProjestToFirestore('projects', projectToDB)
+        .then((response: any) => {
+          //console.log('response', response);
+          setSucces(response);
+          setLoading(false);
+        })
+        .catch((error) => {
+          //console.log('error', error);
+          setError(error)
+          setLoading(false);
+        })
     }
-    const photo = { photo: { url: data.photo.url, alt: data.photo.alt } }
-    const year = { year: data.year_form.getFullYear() }
-    const newProject: any = { ...data }
-    delete newProject.year_form;
-    delete newProject.cooperation_company;
-    delete newProject.cooperation_service;
-    delete newProject.photo;
-    const projectToDB: ProjectType = {
-      ...newProject, ...cooperation, ...year, ...photo
-    }
-    addProjestToFirestore('projects', projectToDB)
-      .then((response) => console.log('response', response))
-      .catch((error) => console.log('error', error))
-    /*
-    try {
-      console.log('projectToDB 2 ', projectToDB)
-      //await new Promise((resolve) => setTimeout(resolve, 500));
-      //reset();
-      //enqueueSnackbar(!isEdit ? 'Create success!' : 'Update success!');
-      //push(PATH_DASHBOARD.eCommerce.list);
-    } catch (error) {
-      console.error(error);
-    }
-    */
   };
-  /*
-    console.log('delete', values.photo?.url);
-    if (values.photo?.url) {
-      console.log('delete', values.photo?.url)
-      deleteImage(values.photo.url)
-    }
-  */
+
   function handleDropImage(acceptedFiles: any) {
+    setLoading(true);
     if (values.photo?.url) {
       deleteImage(values.photo.url)
     }
     handleDropPhoto(acceptedFiles);
+    setLoading(false);
   }
   const handleDropPhoto = useCallback(
     (acceptedFiles) => {
       const file = acceptedFiles[0];
+      setLoading(true);
       uploadOnePhoto(file, "projects")
         .then((result: any) => setValue(
           'photo', { ...result }
           /*Object.assign(file, {...result})*/
-        ))
-        .catch((error) => console.log('error', error))
+        )).then(() => setLoading(false))
+        .catch((error) => {
+          //console.log('error', error);
+          setError(error);
+          setLoading(false);
+        })
     },
     [setValue]
   );
@@ -195,13 +215,18 @@ export default function ProjectNewEditForm({ isEdit, currentProject }: Props) {
     (acceptedFiles) => {
       const newPhotos = acceptedFiles;
       const photos = values.photos || [];
+      setLoading(true);
       uploadPhotos(newPhotos, 'photos')
         .then((result: any) => {
           const images: ImagesType = Object.values(result)
           setValue('photos', [...photos, ...images]
           )
+        }).then(() => setLoading(false))
+        .catch((error) => {
+          setError(error);
+          setLoading(false);
+          //console.log('error', error)
         })
-        .catch((error) => console.log('error', error))
     },
     [setValue, values.photos]
   );
@@ -219,7 +244,15 @@ export default function ProjectNewEditForm({ isEdit, currentProject }: Props) {
 
   return (
     <>
-      < Typography variant="h6" component="h2">{currentProject?.title ? currentProject.title : 'Neues Projekt Hinzugrifen'}</Typography>
+      <Container sx={{
+        position: 'sticky',
+        zIndex: 1200,
+        top: 88,
+      }}>
+        {succes && <Alert severity="success">Projekt erfolgreich hinzugrifen!</Alert>}
+        {error && <Alert severity="error" onClose={() => { setError(null) }} >Fehler:{error.message} </Alert>}
+      </Container>
+      < Typography variant="h6" component="h2">{currentProject?.title ? `${currentProject.title} Projekt bearbeiten` : 'Neues Projekt Hinzugrifen'}</Typography>
       <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)} >
         <Grid container direction='row' spacing={3} sx={{ pt: 3 }}>
           <Grid item xs={12} md={8}  >
@@ -345,13 +378,17 @@ export default function ProjectNewEditForm({ isEdit, currentProject }: Props) {
               </Card>
             </Stack>
           </Grid>
+
           <Grid item xs={12} md={12}>
+
             <LoadingButton
-              sx={{ width: '100%' }}
+              sx={{ width: '100%', mt: 2, mb: 5 }}
               type="submit"
               variant="contained"
               size="large"
-              loading={isSubmitting}>
+              loading={isSubmitting}
+              disabled={loading}
+            >
               {!isEdit ? 'Create Project' : 'Save Changes'}
             </LoadingButton>
           </Grid>

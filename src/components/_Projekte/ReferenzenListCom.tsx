@@ -38,10 +38,10 @@ export function ReferenzenListCom(
   const gtc = isDesktop ? 'repeat(3, 1fr)' : isSmall ? '1fr' : 'repeat(2, 1fr)';
   const { query } = useRouter();
   const { inputs, handleInputChange, } = useForm({ param: "Alle" });
-  const filteredProjects = filter(projectsList, inputs);
+  //const filteredProjects = filter(projectsList, inputs);
   const animatedPaths = () => projectsList.slice(0, 4).map((entry) => `/referenz/${entry.id}`)
   const isAnimated = animatedPaths().includes(`/referenz/${query.id}`);
-  //const filteredProjects = projectsList;
+  const filteredProjects = projectsList;
   // console.log('inputs', inputs)
   useEffect(() => {
     const position = () => {
@@ -78,30 +78,16 @@ export function ReferenzenListCom(
   };
   return (
     <>
-      <Box
-        component={m.div}
-        {...variantUp}
-        sx={{ backgroundColor: 'dima', position: 'absolute', zIndex: 1200 }}>
-      </Box>
-
-      <StickyBox >
-        <NextLink href={PATH_REFERENZEN.addProject} >
-          <Button variant="contained" startIcon={<Iconify icon={'eva:plus-fill'} />}>
-            Neues Projekt
-          </Button>
-        </NextLink>
-      </StickyBox>
-
       <Container disableGutters={true}>
         <Grid container direction="column" justifyContent="center" spacing={2} sx={{
           mt: 0
         }}>
           <Grid item>
-            <FilterReferenzenCom
+            {false && <FilterReferenzenCom
               sorted={sorted}
               inputs={inputs}
               handleInputChange={handleInputChange}
-            />
+            />}
             <Box
               display="grid"
               gridTemplateColumns={gtc}
@@ -135,8 +121,17 @@ export function ReferenzenListCom(
   );
 }
 /*
-<Box sx={{
-        position: 'fixed', zIndex: 1200, bottom: '100vh',
-        right: 0
-      }} className='tu jestem'>
+      <Box
+        component={m.div}
+        {...variantUp}
+        sx={{ backgroundColor: 'dima', position: 'absolute', zIndex: 1200 }}>
+      </Box>
+
+      <StickyBox >
+        <NextLink href={PATH_REFERENZEN.addProject} >
+          <Button variant="contained" startIcon={<Iconify icon={'eva:plus-fill'} />}>
+            Neues Projekt
+          </Button>
+        </NextLink>
+      </StickyBox>
       */
