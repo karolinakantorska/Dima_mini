@@ -37,7 +37,7 @@ type EditorToolbarProps = {
 
 export default function EditorToolbar({ id, isSimple, ...other }: EditorToolbarProps) {
   return (
-    <EditorToolbarStyle {...other}>
+    <EditorToolbarStyle {...other} sx={{ color: 'red' }}>
       <div id={id}>
         <div className="ql-formats">
           <select className="ql-header" defaultValue="">

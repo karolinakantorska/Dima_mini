@@ -78,6 +78,13 @@ export function ReferenzenListCom(
   };
   return (
     <>
+      <StickyBox >
+        <NextLink href={PATH_REFERENZEN.addProject} >
+          <Button variant="contained" startIcon={<Iconify icon={'eva:plus-fill'} />}>
+            Neues Projekt
+          </Button>
+        </NextLink>
+      </StickyBox>
       <Container disableGutters={true}>
         <Grid container direction="column" justifyContent="center" spacing={2} sx={{
           mt: 0

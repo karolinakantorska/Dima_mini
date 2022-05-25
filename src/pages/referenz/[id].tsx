@@ -5,9 +5,9 @@ import { useRouter } from 'next/router';
 import Page from '../../components/Page';
 import { RootStyle } from '../../components/_Main/RootStyle';
 import { _mockProjekts } from '../../_mock/referenzen/referenzen';
-import AnimatedStartLayout from '../../layouts/animated/AnimatedStartLayout';
+//import AnimatedStartLayout from '../../layouts/animated/AnimatedStartLayout';
 import { OneProjectCom } from '../../components/_Projekte/OneProjectCom';
-//import Layout from '../..//layouts';
+import Layout from '../..//layouts';
 import { getCollectionId, getCollectionDocument } from "src/utils/apis/apis";
 
 export default function Referenz({ data }: any) {
@@ -17,13 +17,14 @@ export default function Referenz({ data }: any) {
   //const project = _mockProjekts.filter((project) => project.id === id);
   //console.log('project', project);
   return (
-    <AnimatedStartLayout>
+    <Layout>
       <Page title="Projekte | Dima & Partner | Glarus Zurich Arosa">
         <RootStyle>
           <OneProjectCom project={data} />
         </RootStyle>
       </Page>
-    </AnimatedStartLayout>
+    </Layout>
+
   );
 }
 export const getStaticPaths: GetStaticPaths = async () => {
