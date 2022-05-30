@@ -34,7 +34,7 @@ export function OneProjectCom({ project }: { project: ProjectType }) {
             disableGutters={true}
             sx={{
               position: 'relative',
-
+              pt: 7,
             }}>
             {project.photo.url && <Image
               src={project.photo.url}

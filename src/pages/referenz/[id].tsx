@@ -32,8 +32,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = data.map((item) => ({
     params: { id: item.id },
   }));
-  console.log(paths);
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 };
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const { id } = params;
