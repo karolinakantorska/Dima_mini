@@ -13,6 +13,7 @@ import Link from 'next/link';
 import { ProjectType } from 'src/utils/TS/interface';
 import { TextCardCom } from './textCardCom';
 import { CardActionArea } from '@mui/material';
+import { PATH_PROJEKTE } from 'src/routes/paths';
 
 export function ProjektCardCom({
   project,
@@ -70,7 +71,7 @@ export function ProjektCardCom({
           transition={varTranHover()}
           sx={{ ...cardSmallProps }}
         >
-          <Link href={`/referenz/${id}`}  >
+          <Link href={`${PATH_PROJEKTE.projekt}/${id}`}  >
             <CardActionArea >
               <Image src={photo.url} alt={photo.alt} ratio="16/9" />
             </CardActionArea>
@@ -89,7 +90,7 @@ export function ProjektCardCom({
         component={m.div}
         whileHover="hover"
       >
-        <Link href={`/referenz/${id}`} >
+        <Link href={`${PATH_PROJEKTE.projekt}/${id}`} >
           <Card
             component={m.div}
             variants={varHover(1.05)}

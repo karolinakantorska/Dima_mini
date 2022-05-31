@@ -39,8 +39,7 @@ export function ReferenzenListCom(
   const { query } = useRouter();
   const { inputs, handleInputChange, } = useForm({ param: "Alle" });
   //const filteredProjects = filter(projectsList, inputs);
-  const animatedPaths = () => projectsList.slice(0, 4).map((entry) => `/referenz/${entry.id}`)
-  const isAnimated = animatedPaths().includes(`/referenz/${query.id}`);
+
   const filteredProjects = projectsList;
   // console.log('inputs', inputs)
   useEffect(() => {
