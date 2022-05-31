@@ -8,7 +8,7 @@ import { ReferenzenListCom } from '../components/_Projekte/ReferenzenListCom';
 import { getOrderedCollection } from "src/utils/apis/apis";
 import AnimatedExitLayout from '../layouts/animated/AnimatedLayoutExit';
 
-export default function Referenzen(props: any) {
+export default function Projekte(props: any) {
   const { data, user } = props;
   return (
     <AnimatedExitLayout>

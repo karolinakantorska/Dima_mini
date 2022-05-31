@@ -13,7 +13,7 @@ import { styled } from '@mui/material/styles';
 import { IconButton, Container, Grid, CardActions, CardContent, CardActionArea, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button, Alert } from '@mui/material';
 import { deleteProjectFromFirestore } from 'src/utils/apis/deleteFromFirestore';
 import { useRouter } from 'next/router';
-import { PATH_REFERENZEN } from '../../routes/paths';
+
 
 export function TextCardCom({ project, big, rewerseBig, authorPhoto }: {
   project: ProjectType, big: boolean, rewerseBig: boolean

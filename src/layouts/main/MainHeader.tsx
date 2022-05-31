@@ -2,7 +2,7 @@
 import { useRouter } from 'next/router';
 // @mui
 import { styled, useTheme } from '@mui/material/styles';
-import { Box, AppBar, Toolbar, Container } from '@mui/material';
+import { Box, AppBar, Toolbar, Container, Stack, Typography, Grid } from '@mui/material';
 // hooks
 import useOffSetTop from '../../hooks/useOffSetTop';
 import useResponsive from '../../hooks/useResponsive';
@@ -16,6 +16,8 @@ import Logo from '../../components/Logo';
 import MenuDesktop from './MenuDesktop';
 import MenuMobile from './MenuMobile';
 import { menuConfigMain, menuConfigSecond } from './MenuConfig';
+import PhoneNrCom from './PhoneNrCom';
+import { dimaContact } from 'src/utils/dima';
 
 // ----------------------------------------------------------------------
 
@@ -46,15 +48,23 @@ const ToolbarShadowStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function MainHeader() {
+
   const isOffset = useOffSetTop(HEADER.MAIN_DESKTOP_HEIGHT);
   const theme = useTheme();
   const { pathname } = useRouter();
-  //const isDesktop = useResponsive('up', 'md');
-  const isUpToMiddleScreen = useResponsive('up', 'sm');
+
+  const isUpToMiddleScreen = useResponsive('up', 'lg');
   const isHome = pathname === '/';
+  const isDesktop = useResponsive('up', 'lm');
+  const isSmall = useResponsive('down', 'sm');
+  const gtc = isDesktop ? 'repeat(3, 1fr)' : isSmall ? '1fr' : 'repeat(2, 1fr)';
+  const gc = isDesktop ? 'span 2' : 'span 1';
+  //const gtc = isUpToMiddleScreen ? 'repeat(3, 1fr)' : 'repeat(2, 1fr)';
+  //const gc = isUpToMiddleScreen ? 'span 2' : 'span 1';
   return (
     <AppBar sx={{ boxShadow: 0, bgcolor: 'transparent' }}>
       <ToolbarStyle
+
         disableGutters
         sx={{
           ...(isOffset && {
@@ -65,30 +75,29 @@ export default function MainHeader() {
       >
         <Container
           sx={{
-            display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-between',
+            display: "grid",
+            gridAutoFlow: 'column',
+            gridTemplateColumns: gtc,
+            columnGap: "12px",
+            rowGap: "20px",
           }}
-        >
-          <Logo />
-          <Box sx={{ flexGrow: 1 }} />
-          {isUpToMiddleScreen && (
-            <>
-              <MenuDesktop
-                isOffset={isOffset}
-                isHome={isHome}
-                navConfig={menuConfigMain}
-              />
-              <MenuMobile
-                isOffset={isOffset}
-                isHome={isHome}
-                navConfig={menuConfigSecond} />
-            </>
-          )}
-          {!isUpToMiddleScreen && <MenuMobile isOffset={isOffset} isHome={isHome} navConfig={[...menuConfigMain, ...menuConfigSecond]} />}
+        ><Box sx={{ gridColumn: gc }}>
+            <Logo />
+          </Box>
+
+
+          <Box sx={{
+            display: "grid",
+            gridAutoFlow: 'column',
+            justifyContent: 'space-between'
+          }}>
+            {!isSmall && <PhoneNrCom />}
+            <MenuMobile isOffset={isOffset} isHome={isHome} navConfig={[...menuConfigSecond]} />
+          </Box>
+
         </Container>
       </ToolbarStyle>
-
       {isOffset && <ToolbarShadowStyle />}
     </AppBar>
   );

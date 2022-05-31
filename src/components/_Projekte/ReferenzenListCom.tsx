@@ -19,7 +19,7 @@ import { filter } from 'src/utils/myUtils/filterFunction';
 import { FilterReferenzenCom } from './FilterReferenzenCom';
 import { ProjectsListType, User } from '../../utils/TS/interface';
 import Iconify from '../Iconify';
-import { PATH_REFERENZEN } from 'src/routes/paths';
+import { PATH_PROJEKTE } from 'src/routes/paths';
 
 // TODO use location instead use route
 export function ReferenzenListCom(
@@ -69,7 +69,7 @@ export function ReferenzenListCom(
   return (
     <>
       <StickyBox >
-        <NextLink href={PATH_REFERENZEN.addProject} >
+        <NextLink href={PATH_PROJEKTE.addProject} >
           <Button variant="contained" startIcon={<Iconify icon={'eva:plus-fill'} />}>
             Neues Projekt
           </Button>
