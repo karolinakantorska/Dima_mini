@@ -40,7 +40,7 @@ import { ImagesType } from '../../utils/TS/interface';
 import { addProjestToFirestore, editProjectInFirestore } from 'src/utils/apis/addToFirestore';
 import { Container } from '@mui/material';
 import { createProject } from 'src/utils/myUtils/createProject';
-import { PATH_REFERENZEN } from 'src/routes/paths';
+import { PATH_PROJEKTE } from 'src/routes/paths';
 
 // components
 
@@ -164,7 +164,7 @@ export default function ProjectNewEditForm({ isEdit, currentProject }: Props) {
           setLoading(false);
           reset();
         })
-        .then(() => push(PATH_REFERENZEN.referenzen))
+        .then(() => push(PATH_PROJEKTE.projekte))
         .catch((error) => {
           //console.log('error', error);
           setError(error)
