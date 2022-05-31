@@ -1,12 +1,12 @@
 import { GetStaticProps } from "next";
 // layouts
-import Layout from '../layouts';
+import AnimatedExitLayout from "src/layouts/main/animatedExit";
 // components
 import Page from '../components/Page';
 import { RootStyle } from '../components/_Main/RootStyle';
 import { ReferenzenListCom } from '../components/_Projekte/ReferenzenListCom';
 import { getOrderedCollection } from "src/utils/apis/apis";
-import AnimatedExitLayout from "src/layouts/main/animatedExit";
+
 
 export default function Projekte(props: any) {
   const { data, user } = props;

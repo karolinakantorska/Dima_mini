@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { m, } from 'framer-motion';
 // next
 import NextLink from 'next/link';
 // @mui
@@ -7,7 +6,6 @@ import { Box, Container, Grid, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 // hooks
 import useResponsive from '../../hooks/useResponsive';
-import { useRouter } from 'next/router';
 // components
 import { ProjektCardCom } from './ProjektCardCom';
 
@@ -15,9 +13,9 @@ import { ProjektCardCom } from './ProjektCardCom';
 
 // utils
 import { useForm } from 'src/utils/myUtils/useForm';
-import { filter } from 'src/utils/myUtils/filterFunction';
+//import { filter } from 'src/utils/myUtils/filterFunction';
 import { FilterReferenzenCom } from './FilterReferenzenCom';
-import { ProjectsListType, User, dima } from '../../utils/TS/interface';
+import { ProjectsListType, User, } from '../../utils/TS/interface';
 import Iconify from '../Iconify';
 import { PATH_PROJEKTE } from 'src/routes/paths';
 
@@ -33,7 +31,7 @@ export function ReferenzenListCom(
   //const [xPosition, setXPosition] = useState(200);
   //const [yPosition, setYPosition] = useState(728);
   const isDesktop = useResponsive('up', 'lm');
-  const isSmallDesktop = useResponsive('up', 'lg');
+  //const isSmallDesktop = useResponsive('up', 'lg');
   const isSmall = useResponsive('down', 'sm');
   const gtc = isDesktop ? 'repeat(3, 1fr)' : isSmall ? '1fr' : 'repeat(2, 1fr)';
   //const { query } = useRouter();

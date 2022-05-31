@@ -1,15 +1,13 @@
 //import { useState, ReactNode, useEffect } from 'react';
 
 // @mui
-import { Box, Container, Grid, Table, TableBody, TableRow, TableCell, Typography } from '@mui/material';
+import { Container, Grid, Table, TableBody, TableRow, TableCell, Typography } from '@mui/material';
 // React Parser
 import parse from 'html-react-parser';
 // _mock_
 import Image from 'next/image';
 import { ProjectType } from '../../utils/TS/interface';
 import { firstLettersBig, writeObiektTypeInGerman, writeServiceInGerman } from '../../utils/Text/textUtils';
-
-
 
 export function OneProjectCom({ project }: { project: ProjectType }) {
   const row2 = () => {
