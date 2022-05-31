@@ -3,7 +3,7 @@ import { m, } from 'framer-motion';
 // @mui
 import { Box, Container, Stack } from '@mui/material';
 
-import MainHeader from './MainHeader';
+import MainHeader from '../main/MainHeader';
 
 // ----------------------------------------------------------------------
 
