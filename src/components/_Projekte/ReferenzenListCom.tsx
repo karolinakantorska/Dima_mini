@@ -26,7 +26,7 @@ export function ReferenzenListCom(
     user: User
   }) {
 
-  const initialInputs = { param: "Alle" }
+  //const initialInputs = { param: "Alle" }
   const [sorted, setSorted] = useState(false);
   //const [xPosition, setXPosition] = useState(200);
   //const [yPosition, setYPosition] = useState(728);
@@ -43,12 +43,13 @@ export function ReferenzenListCom(
   // console.log('inputs', inputs)
 
   // TODO SOLVE IT 
+  /*
   useEffect(() => {
     if (inputs.param !== initialInputs.param) {
       setSorted(true);
     }
   }, [inputs])
-
+*/
   const StickyBox = styled(Box)(({ theme }) => ({
     position: 'sticky',
     zIndex: 1200,
@@ -63,7 +64,7 @@ export function ReferenzenListCom(
   return (
     <>
       <StickyBox >
-        <NextLink href={PATH_PROJEKTE.addProject} >
+        <NextLink href={PATH_PROJEKTE.addProject} passHref >
           <Button variant="contained" startIcon={<Iconify icon={'eva:plus-fill'} />}>
             Neues Projekt
           </Button>

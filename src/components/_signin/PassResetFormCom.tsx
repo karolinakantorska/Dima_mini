@@ -18,8 +18,6 @@ import useIsMountedRef from 'src/hooks/useIsMountedRef';
 import { FormProvider, RHFTextField, } from 'src/components/hook-form';
 import { styled } from '@mui/material/styles';
 
-
-
 // ----------------------------------------------------------------------
 
 type FormValuesProps = {
@@ -39,7 +37,7 @@ export const GridStyle = styled(Grid)(({ theme }) => ({
 
 export default function PassResetFormCom() {
   const { resetPassword } = useAuth();
-  const router = useRouter();
+  //const router = useRouter();
   const isMountedRef = useIsMountedRef();
   const [success, setSuccess] = useState<false | string>(false)
   const LoginSchema = Yup.object().shape({

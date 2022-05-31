@@ -9,16 +9,19 @@ import { getCollectionId, getCollectionDocument } from "src/utils/apis/apis";
 
 import AnimatedIntroLayout from "src/layouts/main/animatedIntro";
 import { ProjectType } from "src/utils/TS/interface";
+import Layout from "src/layouts";
 
 export default function Referenz({ data }: { data: ProjectType }) {
   return (
-    <AnimatedIntroLayout>
+
+    <Layout>
       <Page title="Projekte | Dima & Partner | Glarus Zurich Arosa">
         <RootStyle>
           <OneProjectCom project={data} />
         </RootStyle>
       </Page>
-    </AnimatedIntroLayout>
+    </Layout>
+
 
   );
 }

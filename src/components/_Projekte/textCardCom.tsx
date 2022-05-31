@@ -10,7 +10,7 @@ import useResponsive from '../../hooks/useResponsive';
 import { firstLettersBig } from '../../utils/Text/textUtils';
 import { Box } from '@mui/system';
 import { styled } from '@mui/material/styles';
-import { IconButton, Container, Grid, CardActions, CardContent, CardActionArea, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button, Alert } from '@mui/material';
+import { IconButton, Grid, CardActions, CardContent, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button, Alert } from '@mui/material';
 import { deleteProjectFromFirestore } from 'src/utils/apis/deleteFromFirestore';
 import { useRouter } from 'next/router';
 import { PATH_PROJEKTE } from '../../routes/paths';
@@ -20,7 +20,7 @@ export function TextCardCom({ project, big, rewerseBig, authorPhoto }: {
   , authorPhoto: string
 }) {
 
-  const { push } = useRouter();
+  //const { push } = useRouter();
   const [open, setOpen] = useState(false);
   const [error, setError] = useState<null | { code: string, message: string }>(null);
   const { title, location, id } = project;
@@ -55,7 +55,7 @@ export function TextCardCom({ project, big, rewerseBig, authorPhoto }: {
   };
   const Icons = () => (
     <>
-      <Link href={`${PATH_PROJEKTE.projekt}/edit/${id}`}  >
+      <Link href={`${PATH_PROJEKTE.projekt}/edit/${id}`} passHref >
         <IconButton aria-label={'edit'}>
           <EditRoundedIcon />
         </IconButton>
