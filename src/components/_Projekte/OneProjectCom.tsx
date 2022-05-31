@@ -27,7 +27,6 @@ export function OneProjectCom({ project }: { project: ProjectType }) {
   }
 
   return (
-
     <>
       <Container
         disableGutters={true}
@@ -35,7 +34,7 @@ export function OneProjectCom({ project }: { project: ProjectType }) {
           position: 'relative',
           pt: 7,
         }}>
-        {project.photo.url && <Image
+        {project.photo?.url && <Image
           src={project.photo.url}
           alt={project.photo.alt}
           width='1700px'
