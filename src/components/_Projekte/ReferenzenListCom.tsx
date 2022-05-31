@@ -66,16 +66,6 @@ export function ReferenzenListCom(
     justifyContent: 'end'
   }));
 
-  const variantUp = {
-    initial: isSmallDesktop
-      ? { height: '4px', width: 0, y: 728, x: 0 }
-      : { height: '4px', width: 0, yPosition, x: 0 },
-    animate: isSmallDesktop
-      ? { x: -xPosition, transition: { duration: .1 } }
-      : { y: yPosition, x: -xPosition, transition: { duration: .1 } },
-    exit: isAnimated && { width: ['0.1vw', '101.5vw', '101.5vw'], scaleY: [1, 1, 400] },
-    transition: { duration: 1 },
-  };
   return (
     <>
       <StickyBox >
@@ -127,18 +117,3 @@ export function ReferenzenListCom(
     </>
   );
 }
-/*
-      <Box
-        component={m.div}
-        {...variantUp}
-        sx={{ backgroundColor: 'dima', position: 'absolute', zIndex: 1200 }}>
-      </Box>
-
-      <StickyBox >
-        <NextLink href={PATH_REFERENZEN.addProject} >
-          <Button variant="contained" startIcon={<Iconify icon={'eva:plus-fill'} />}>
-            Neues Projekt
-          </Button>
-        </NextLink>
-      </StickyBox>
-      */

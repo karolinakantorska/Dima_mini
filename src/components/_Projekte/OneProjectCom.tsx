@@ -27,7 +27,7 @@ export function OneProjectCom({ project }: { project: ProjectType }) {
   }
 
   return (
-    <Container disableGutters={true}>
+    <Container disableGutters={true} key="OneProjectCom">
       {project &&
         <>
           <Container
