@@ -9,6 +9,7 @@ import { _mockProjekts } from '../../_mock/referenzen/referenzen';
 import { OneProjectCom } from '../../components/_Projekte/OneProjectCom';
 import Layout from '../..//layouts';
 import { getCollectionId, getCollectionDocument } from "src/utils/apis/apis";
+import AnimatedIntroLayout from "src/layouts/animated/AnimatetLayoutEnter";
 
 export default function Referenz({ data }: any) {
   const router = useRouter();
@@ -17,13 +18,14 @@ export default function Referenz({ data }: any) {
   //const project = _mockProjekts.filter((project) => project.id === id);
   //console.log('project', project);
   return (
-    <Layout>
+    <AnimatedIntroLayout>
       <Page title="Projekte | Dima & Partner | Glarus Zurich Arosa">
         <RootStyle>
           <OneProjectCom project={data} />
         </RootStyle>
       </Page>
-    </Layout>
+    </AnimatedIntroLayout>
+
 
   );
 }
