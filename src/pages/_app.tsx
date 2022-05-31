@@ -28,13 +28,12 @@ import { AnimatePresence } from 'framer-motion';
 // utils
 import { getSettings } from '../utils/getSettings';
 // contexts
-import { SettingsProvider } from '../contexts/SettingsContext';
 import { CollapseDrawerProvider } from '../contexts/CollapseDrawerContext';
 // theme
 import ThemeProvider from '../theme';
 // components
 
-import { SettingsValueProps } from '../components/settings/type';
+
 import ProgressBar from '../components/ProgressBar';
 import MotionLazyContainer from '../components/animate/MotionLazyContainer';
 
@@ -45,12 +44,12 @@ type NextPageWithLayout = NextPage & {
 };
 
 interface MyAppProps extends AppProps {
-  settings: SettingsValueProps;
+
   Component: NextPageWithLayout;
 }
 
 export default function MyApp(props: MyAppProps) {
-  const { Component, pageProps, settings } = props;
+  const { Component, pageProps, } = props;
   const router = useRouter();
 
   return (
@@ -62,19 +61,19 @@ export default function MyApp(props: MyAppProps) {
       <AuthProvider>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <CollapseDrawerProvider>
-            <SettingsProvider defaultSettings={settings}>
-              <MotionLazyContainer>
-                <ThemeProvider>
-                  <ProgressBar />
-                  <AnimatePresence
-                    exitBeforeEnter
-                  //onExitComplete={handleExitComplete}
-                  >
-                    <Component {...pageProps} key={router.route} />
-                  </AnimatePresence>
-                </ThemeProvider>
-              </MotionLazyContainer>
-            </SettingsProvider>
+
+            <MotionLazyContainer>
+              <ThemeProvider>
+                <ProgressBar />
+                <AnimatePresence
+                  exitBeforeEnter
+                //onExitComplete={handleExitComplete}
+                >
+                  <Component {...pageProps} key={router.route} />
+                </AnimatePresence>
+              </ThemeProvider>
+            </MotionLazyContainer>
+
           </CollapseDrawerProvider>
         </LocalizationProvider>
       </AuthProvider>

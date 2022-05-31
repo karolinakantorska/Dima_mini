@@ -43,6 +43,7 @@ export const cookiesKey = {
   themeColorPresets: 'themeColorPresets',
 };
 
+
 export const defaultSettings: SettingsValueProps = {
   themeMode: 'light',
   themeDirection: 'ltr',
