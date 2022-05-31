@@ -6,17 +6,18 @@ import Page from '../components/Page';
 import { RootStyle } from '../components/_Main/RootStyle';
 import { ReferenzenListCom } from '../components/_Projekte/ReferenzenListCom';
 import { getOrderedCollection } from "src/utils/apis/apis";
+import AnimatedExitLayout from "src/layouts/main/animatedExit";
 
-export default function Referenzen(props: any) {
+export default function Projekte(props: any) {
   const { data, user } = props;
   return (
-    <Layout>
+    <AnimatedExitLayout>
       <Page title="Dima & Partner | Glarus Zurich Arosa">
         <RootStyle>
           <ReferenzenListCom projectsList={data} user={user} />
         </RootStyle>
       </Page>
-    </Layout>
+    </AnimatedExitLayout>
   );
 }
 export const getStaticProps: GetStaticProps = async (context) => {

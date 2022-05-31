@@ -70,7 +70,7 @@ export function ProjektCardCom({
           transition={varTranHover()}
           sx={{ ...cardSmallProps }}
         >
-          <Link href={`/referenz/${id}`}  >
+          <Link href={`/projekt/${id}`}  >
             <CardActionArea >
               <Image src={photo.url} alt={photo.alt} ratio="16/9" />
             </CardActionArea>
@@ -89,7 +89,7 @@ export function ProjektCardCom({
         component={m.div}
         whileHover="hover"
       >
-        <Link href={`/referenz/${id}`} >
+        <Link href={`/projekt/${id}`} >
           <Card
             component={m.div}
             variants={varHover(1.05)}

@@ -1,5 +1,5 @@
 // routes
-import { PATH_AUTH, PATH_KONTAKT, PATH_LINKS, PATH_NEWS, PATH_PARTNER, PATH_REFERENZEN, PATH_UNTERNEHMEN } from '../../routes/paths';
+import { PATH_AUTH, PATH_KONTAKT, PATH_LINKS, PATH_NEWS, PATH_PROJEKTE, PATH_UNTERNEHMEN, PATH_WEBCAMS } from '../../routes/paths';
 // components
 //import { PATH_AFTER_LOGIN } from '../../config';
 // components
@@ -9,11 +9,14 @@ import { PATH_AUTH, PATH_KONTAKT, PATH_LINKS, PATH_NEWS, PATH_PARTNER, PATH_REFE
 
 export const menuConfigMain = [
   {
-    title: 'Referenzen',
-    path: PATH_REFERENZEN.referenzen,
+    title: 'Projekte',
+    path: PATH_PROJEKTE.projekte,
   },
+];
+
+export const menuConfigSecond = [
   {
-    title: 'Unternehmen',
+    title: 'Dima',
     path: '/unternehmen',
     children: [
       {
@@ -29,19 +32,20 @@ export const menuConfigMain = [
     ],
   },
   {
-    title: 'Kontakt',
-    path: PATH_KONTAKT.kontakt,
-  },
-];
-export const menuConfigSecond = [
-  {
-    title: 'Partner',
-    path: PATH_PARTNER.partner,
+    title: 'Projekte',
+    path: PATH_PROJEKTE.projekte,
   },
   {
     title: 'News',
     path: PATH_NEWS.news,
   },
-
+  {
+    title: 'Webcams',
+    path: PATH_WEBCAMS.webcams,
+  },
+  {
+    title: 'Kontakt',
+    path: PATH_KONTAKT.kontakt,
+  },
 ];
 

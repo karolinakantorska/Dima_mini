@@ -1,6 +1,7 @@
-import { useState, ReactNode, useEffect } from 'react';
+import { ReactNode, } from 'react';
+
 // next
-//import { useRouter } from 'next/router';
+
 // @mui
 import { Box, Container, Stack } from '@mui/material';
 
@@ -16,15 +17,14 @@ type Props = {
 
 export default function MainLayout({ children }: Props) {
   return (
-    <>
-      <Container >
-        <Stack sx={{ minHeight: 1 }}>
-          <MainHeader />
-          {children}
-          <Box sx={{ flexGrow: 1 }} />
-        </Stack>
-      </Container>
-    </>
+    <Container >
+      <Stack sx={{ minHeight: 1 }}>
+        <MainHeader />
+        {children}
+        <Box sx={{ flexGrow: 1 }} />
+      </Stack>
+    </Container>
+
   );
 }
 

@@ -67,8 +67,7 @@ export default function MyApp(props: MyAppProps) {
                 <ThemeProvider>
                   <ProgressBar />
                   <AnimatePresence
-                    exitBeforeEnter
-                  //onExitComplete={handleExitComplete}
+                    exitBeforeEnter={true}
                   >
                     <Component {...pageProps} key={router.route} />
                   </AnimatePresence>
