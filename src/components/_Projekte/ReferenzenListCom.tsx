@@ -59,60 +59,66 @@ export function ReferenzenListCom(
     }
   }, [inputs])
 
-  const StickyBox = styled(Box)(({ theme }) => ({
-    position: 'sticky', zIndex: 1200, top: 88, width: '100%', display: 'flex',
-    alignItems: 'end',
-    justifyContent: 'end'
-  }));
+  function calculateMargin(vw: number): number { return (1700 - vw) / 2 };
+
 
   return (
     <>
-      <StickyBox >
-        <NextLink href={PATH_PROJEKTE.addProject} >
-          <Button variant="contained" startIcon={<Iconify icon={'eva:plus-fill'} />}>
-            Neues Projekt
-          </Button>
-        </NextLink>
-      </StickyBox>
-      <Container disableGutters={true}>
-        <Grid container direction="column" justifyContent="center" spacing={2} sx={{
-          mt: 0
-        }}>
-          <Grid item>
-            {false && <FilterReferenzenCom
-              sorted={sorted}
-              inputs={inputs}
-              handleInputChange={handleInputChange}
-            />}
-            <Box
-              display="grid"
-              gridTemplateColumns={gtc}
-              //justifyItems='stretch'
-              //gridAutoFlow="dense"
-              columnGap="12px"
-              rowGap="20px"
-            >
-              {filteredProjects.map((project, i) => {
-                const divideIn2 = i % 2 == 0 ? true : false;
-                const divideIn4 = (i + 1) % 4 == 0 ? true : false;
-                const divideIn8 = (i + 1) % 8 == 0 ? true : false;
-                return (
+      <NextLink href={PATH_PROJEKTE.addProject} >
+        <Button
+          variant="contained"
+          sx={{
+            bottom: 80,
+            right: 0,
+            width: 200,
+            position: "fixed",
+            zIndex: 1200
+          }}
+          startIcon={<Iconify icon={'eva:plus-fill'} />}
+        >
+          Neues Projekt
+        </Button>
+      </NextLink>
 
-                  <ProjektCardCom
-                    key={project.id}
-                    project={project}
-                    gridRow={divideIn2 ? '1' : '2'}
-                    big={divideIn4 ? true : false}
-                    //big={false}
-                    rewerseBig={divideIn8 ? true : false}
-                  />
+      {/*<StickyBox >
+        
+  </StickyBox>*/}
+      <Grid container direction="column" justifyContent="center" spacing={2} >
+        <Grid item>
+          {false && <FilterReferenzenCom
+            sorted={sorted}
+            inputs={inputs}
+            handleInputChange={handleInputChange}
+          />}
+          <Box
+            display="grid"
+            gridTemplateColumns={gtc}
+            //justifyItems='stretch'
+            //gridAutoFlow="dense"
+            columnGap="12px"
+            rowGap="20px"
+          >
+            {filteredProjects.map((project, i) => {
+              const divideIn2 = i % 2 == 0 ? true : false;
+              const divideIn4 = (i + 1) % 4 == 0 ? true : false;
+              const divideIn8 = (i + 1) % 8 == 0 ? true : false;
+              return (
 
-                );
-              })}
-            </Box>
-          </Grid>
-        </Grid >
-      </Container >
+                <ProjektCardCom
+                  key={project.id}
+                  project={project}
+                  gridRow={divideIn2 ? '1' : '2'}
+                  big={divideIn4 ? true : false}
+                  //big={false}
+                  rewerseBig={divideIn8 ? true : false}
+                />
+
+              );
+            })}
+          </Box>
+        </Grid>
+      </Grid >
+
     </>
   );
 }

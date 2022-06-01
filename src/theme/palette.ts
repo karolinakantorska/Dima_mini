@@ -107,6 +107,9 @@ const ERROR = {
 
 const GREY = {
   0: '#fffaf2',
+  0o12: alpha('#fffaf2', 0.12),
+  0o24: alpha('#fffaf2', 0.24),
+  0o56: alpha('#fffaf2', 0.56),
   100: '#fdf5ed',
   200: '#f8f0e8',
   300: '#eee5dd',
@@ -166,6 +169,7 @@ const COMMON = {
 };
 
 const palette = {
+ 
   light: {
     ...COMMON,
     mode: 'light', 
@@ -173,13 +177,21 @@ const palette = {
     action: { active: GREY[600], ...COMMON.action },
     dima:PRIMARY.main 
   },
+  
   dark: {
     ...COMMON, 
     mode: 'dark',
-    text: { white:'#fff' ,primary: GREY[0], secondary: GREY[500], disabled: GREY[600] },
+    text: { 
+      white:'#fff' ,
+      primary: GREY[0], 
+      secondary: GREY[500], 
+      disabled: GREY[600],
+      opacity:GREY[0o24]
+    },
     background: { paper: GREY[800], default: GREY[900], neutral: GREY[500_16] },
     action: { active: GREY[500], ...COMMON.action },
-    dima:PRIMARY.main 
+    dima:PRIMARY.main ,
+    
   },
 } as const;
 

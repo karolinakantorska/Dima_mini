@@ -18,6 +18,7 @@ import MenuMobile from './MenuMobile';
 import { menuConfigMain, menuConfigSecond } from './MenuConfig';
 import PhoneNrCom from './PhoneNrCom';
 import { dimaContact } from 'src/utils/dima';
+import { Item } from 'framer-motion/types/components/Reorder/Item';
 
 // ----------------------------------------------------------------------
 
@@ -58,7 +59,8 @@ export default function MainHeader() {
   const isDesktop = useResponsive('up', 'lm');
   const isSmall = useResponsive('down', 'sm');
   const gtc = isDesktop ? 'repeat(3, 1fr)' : isSmall ? '1fr' : 'repeat(2, 1fr)';
-  const gc = isDesktop ? 'span 2' : 'span 1';
+  //const gc = '2/3'
+  const gc = isDesktop ? '3/4' : '2/3';
   //const gtc = isUpToMiddleScreen ? 'repeat(3, 1fr)' : 'repeat(2, 1fr)';
   //const gc = isUpToMiddleScreen ? 'span 2' : 'span 1';
   return (
@@ -82,20 +84,18 @@ export default function MainHeader() {
             columnGap: "12px",
             rowGap: "20px",
           }}
-        ><Box sx={{ gridColumn: gc }}>
-            <Logo />
-          </Box>
-
-
+        >
           <Box sx={{
+            grid: 'item',
             display: "grid",
+            gridColumn: gc,
             gridAutoFlow: 'column',
             justifyContent: 'space-between'
           }}>
             {!isSmall && <PhoneNrCom />}
+
             <MenuMobile isOffset={isOffset} isHome={isHome} navConfig={[...menuConfigSecond]} />
           </Box>
-
         </Container>
       </ToolbarStyle>
       {isOffset && <ToolbarShadowStyle />}

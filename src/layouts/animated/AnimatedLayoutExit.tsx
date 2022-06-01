@@ -4,13 +4,18 @@ import { m, } from 'framer-motion';
 import { Box, Container, Stack } from '@mui/material';
 
 import MainHeader from '../main/MainHeader';
-
+import { styled } from '@mui/material/styles';
+import useResponsive from 'src/hooks/useResponsive';
 // ----------------------------------------------------------------------
 
 type Props = {
     children: ReactNode;
 };
+
+
 export default function AnimatedExitLayout({ children }: Props) {
+    const isMiddle = useResponsive('up', 'md');
+    const top = isMiddle ? 72 : 60;
     const transition = {
         type: 'tween',
         ease: 'linear',
@@ -33,7 +38,7 @@ export default function AnimatedExitLayout({ children }: Props) {
                 {...variantRec}
                 sx={{
                     backgroundColor: 'dima',
-                    top: 72,
+                    top: top,
                     width: '30vw',
                     height: '100vh',
                     position: "fixed",

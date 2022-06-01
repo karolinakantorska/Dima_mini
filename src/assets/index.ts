@@ -12,6 +12,7 @@ export { default as ComingSoonIllustration } from './illustration_coming_soon';
 export { default as MaintenanceIllustration } from './illustration_maintenance';
 export { default as OrderCompleteIllustration } from './illustration_order_complete';
 
+
 export { default as SentIcon } from './icon_sent';
 export { default as PlanFreeIcon } from './icon_plan_free';
 export { default as PlanStarterIcon } from './icon_plan_starter';

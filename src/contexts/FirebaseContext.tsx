@@ -80,8 +80,8 @@ function AuthProvider({ children }: AuthProviderProps) {
   useEffect(
     () =>
       onAuthStateChanged(AUTH, async (user) => {
-        console.log('AUTH', AUTH)
-        console.log('AUTH.currentUser', AUTH.currentUser)
+        //console.log('AUTH', AUTH)
+        //console.log('AUTH.currentUser', AUTH.currentUser)
         AUTH.languageCode = 'de';
         if (user) {
           console.log('user', user)
@@ -97,7 +97,7 @@ function AuthProvider({ children }: AuthProviderProps) {
             payload: { isAuthenticated: true, user },
           });
         } else {
-          console.log('no user')
+          //console.log('no user')
           dispatch({
             type: Types.Initial,
             payload: { isAuthenticated: false, user: null },
