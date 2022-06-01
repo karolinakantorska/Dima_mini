@@ -25,11 +25,11 @@ export function OneProjectTestCom({ project }: { project: ProjectType }) {
     }
     return arr
   }
-  const photosCarusel = [];
-  photosCarusel.push(project.photos.map((entry) => { console.log('entry', entry); if (entry) { return entry } }))
+  //const photosCarusel = [];
+  project.photos.map((entry) => { if (entry) { console.log('entry', entry); return entry; } })
 
   //photosCarusel = project.photos.concat([project.photo]);
-  console.log('photosCarusel', photosCarusel)
+  //console.log('photosCarusel', photosCarusel)
   return (
     <>
       <p>Hallo</p>
