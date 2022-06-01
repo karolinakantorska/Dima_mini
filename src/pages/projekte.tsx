@@ -14,7 +14,7 @@ export default function Projekte(props: any) {
     <AnimatedExitLayout>
       <Page title="Dima & Partner | Glarus Zurich Arosa">
         <RootStyle>
-          <ReferenzenListCom projectsList={data} user={user} />
+          <ReferenzenListCom projectsList={data} />
         </RootStyle>
       </Page>
     </AnimatedExitLayout>
