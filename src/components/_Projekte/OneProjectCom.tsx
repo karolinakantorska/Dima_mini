@@ -28,7 +28,7 @@ export function OneProjectCom({ project }: { project: ProjectType }) {
   const photosCarusel = project.photos.concat([project.photo]);
   return (
     <>
-      <Box sx={{}}>
+      <Box >
         <CarouselBasic3 photos={photosCarusel} />
       </Box>
       <Grid

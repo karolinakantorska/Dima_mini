@@ -23,11 +23,14 @@ import { PATH_PROJEKTE } from 'src/routes/paths';
 
 // TODO use location instead use route
 export function ReferenzenListCom(
-  { projectsList, user }: {
+  { projectsList }: {
     projectsList: ProjectsListType,
-    user: User
-  }) {
 
+  }) {
+  projectsList.map((project) => {
+    const photosCarusel = project.photos.concat([project.photo]);
+    console.log('photosCarusel', photosCarusel)
+  })
   const initialInputs = { param: "Alle" }
   const [sorted, setSorted] = useState(false);
   const [xPosition, setXPosition] = useState(200);
@@ -59,7 +62,7 @@ export function ReferenzenListCom(
     }
   }, [inputs])
 
-  function calculateMargin(vw: number): number { return (1700 - vw) / 2 };
+  //function calculateMargin(vw: number): number { return (1700 - vw) / 2 };
 
 
   return (

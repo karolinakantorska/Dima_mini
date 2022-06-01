@@ -84,7 +84,7 @@ function AuthProvider({ children }: AuthProviderProps) {
         //console.log('AUTH.currentUser', AUTH.currentUser)
         AUTH.languageCode = 'de';
         if (user) {
-          console.log('user', user)
+          //console.log('user', user)
           const userRef = doc(DB, 'users', user.uid);
           const docSnap = await getDoc(userRef);
 
