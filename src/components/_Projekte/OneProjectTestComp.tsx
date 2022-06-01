@@ -25,14 +25,20 @@ export function OneProjectTestCom({ project }: { project: ProjectType }) {
     }
     return arr
   }
+  if (project) {
+    const photosCarusel = () => project.photos.map((entry) => entry)
+    console.log('photosCarusel', photosCarusel())
+    return (
+      <>
+        <p>Hallo</p>
+      </>
+    )
+
+  } else { return null }
   //const photosCarusel = [];
-  //project.photos.map((entry) => { if (entry) { console.log('entry', entry); return entry; } })
-  //project.photos.map((entry) => console.log('entry', entry))
+  ///project.map((entry) => {   console.log('entry', entry); return entry; })
+  //project.photos.map((entry) => console.log('entry'))
   //photosCarusel = project.photos.concat([project.photo]);
-  //console.log('photosCarusel', photosCarusel)
-  return (
-    <>
-      <p>Hallo</p>
-    </>
-  )
+
+
 }

@@ -9,7 +9,7 @@ import { getOrderedCollection } from "src/utils/apis/apis";
 import AnimatedExitLayout from '../layouts/animated/AnimatedLayoutExit';
 
 export default function Projekte(props: any) {
-  const { data, user } = props;
+  const { data } = props;
   return (
     <AnimatedExitLayout>
       <Page title="Dima & Partner | Glarus Zurich Arosa">

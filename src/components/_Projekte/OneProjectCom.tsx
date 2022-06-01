@@ -25,11 +25,11 @@ export function OneProjectCom({ project }: { project: ProjectType }) {
     }
     return arr
   }
-  const photosCarusel = project.photos.concat([project.photo]);
+  //const photosCarusel = project.photos.concat([project.photo]);
   return (
     <>
       <Box >
-        <CarouselBasic3 photos={photosCarusel} />
+        {/*<CarouselBasic3 photos={photosCarusel} />*/}
       </Box>
       <Grid
         container
