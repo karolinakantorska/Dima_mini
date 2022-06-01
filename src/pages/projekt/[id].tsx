@@ -22,7 +22,8 @@ export default function Referenz({ data }: any) {
     <AnimatedIntroLayout>
       <Page title="Projekte | Dima & Partner | Glarus Zurich Arosa">
         <RootStyle>
-          <OneProjectTestCom></OneProjectTestCom>
+          <OneProjectTestCom project={data} />
+
         </RootStyle>
       </Page>
     </AnimatedIntroLayout>

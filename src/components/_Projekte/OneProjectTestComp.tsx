@@ -11,8 +11,21 @@ import { firstLettersBig, writeObiektTypeInGerman, writeServiceInGerman } from '
 import CarouselBasic3 from '../carousel/CarouselBasic3';
 
 
-export function OneProjectTestCom() {
-
+export function OneProjectTestCom({ project }: { project: ProjectType }) {
+  const row2 = () => {
+    const arr = [
+      { name: 'realisation', data: project.generalConstr },
+      { name: 'bauprojekt', data: project.architect },
+      { name: 'standort', data: project.location },
+      { name: 'bauherschaft', data: project.client },
+      { name: 'bauzeit', data: project.year.toString() },
+    ]
+    if (project?.cooperation) {
+      arr.push({ name: project.cooperation.service, data: project.cooperation.company })
+    }
+    return arr
+  }
+  console.log('row2', row2)
   return (
     <>
       <p>Hallo</p>
