@@ -10,6 +10,7 @@ import { OneProjectCom } from '../../components/_Projekte/OneProjectCom';
 import Layout from '../../layouts';
 import { getCollectionId, getCollectionDocument } from "src/utils/apis/apis";
 import AnimatedIntroLayout from "src/layouts/animated/AnimatetLayoutEnter";
+import { OneProjectTestCom } from "src/components/_Projekte/OneProjectTestComp";
 
 export default function Referenz({ data }: any) {
   const router = useRouter();
@@ -21,7 +22,7 @@ export default function Referenz({ data }: any) {
     <AnimatedIntroLayout>
       <Page title="Projekte | Dima & Partner | Glarus Zurich Arosa">
         <RootStyle>
-          <OneProjectCom project={data} />
+          <OneProjectTestCom></OneProjectTestCom>
         </RootStyle>
       </Page>
     </AnimatedIntroLayout>

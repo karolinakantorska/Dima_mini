@@ -1,7 +1,7 @@
 //import { useState, ReactNode, useEffect } from 'react';
 //import { m, useAnimation } from 'framer-motion';
 // @mui
-import { Box, Container, Grid, Table, TableBody, TableRow, TableCell, Typography, Card, CardHeader, CardContent } from '@mui/material';
+import { Box, Grid, Table, TableBody, TableRow, TableCell, Typography, } from '@mui/material';
 // React Parser
 import parse from 'html-react-parser';
 // _mock_
@@ -9,9 +9,7 @@ import parse from 'html-react-parser';
 import { ProjectType } from '../../utils/TS/interface';
 import { firstLettersBig, writeObiektTypeInGerman, writeServiceInGerman } from '../../utils/Text/textUtils';
 import CarouselBasic3 from '../carousel/CarouselBasic3';
-import * as logo from "/public/assets/bg_gradient.jpeg"
-import Image from '../Image';
-import { DimaName } from 'src/utils/dima';
+
 
 export function OneProjectCom({ project }: { project: ProjectType }) {
   const row2 = () => {
@@ -28,8 +26,6 @@ export function OneProjectCom({ project }: { project: ProjectType }) {
     return arr
   }
   const photosCarusel = project.photos.concat([project.photo]);
-  console.log('photosCarusel', photosCarusel)
-
   return (
     <>
       <Box sx={{}}>
@@ -83,19 +79,3 @@ export function OneProjectCom({ project }: { project: ProjectType }) {
     </>
   )
 }
-
-/*
-      <Container
-        disableGutters={true}
-        sx={{
-          position: 'relative',
-          pt: 7,
-        }}>
-        {project.photo.url && <Image
-          src={project.photo.url}
-          alt={project.photo.alt}
-          width='1700px'
-          height='956px'
-        />}
-      </Container>
-      */

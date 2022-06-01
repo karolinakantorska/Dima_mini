@@ -54,15 +54,14 @@ export default function MainHeader() {
   const theme = useTheme();
   const { pathname } = useRouter();
 
-  const isUpToMiddleScreen = useResponsive('up', 'lg');
+
   const isHome = pathname === '/';
   const isDesktop = useResponsive('up', 'lm');
   const isSmall = useResponsive('down', 'sm');
   const gtc = isDesktop ? 'repeat(3, 1fr)' : isSmall ? '1fr' : 'repeat(2, 1fr)';
-  //const gc = '2/3'
+
   const gc = isDesktop ? '3/4' : '2/3';
-  //const gtc = isUpToMiddleScreen ? 'repeat(3, 1fr)' : 'repeat(2, 1fr)';
-  //const gc = isUpToMiddleScreen ? 'span 2' : 'span 1';
+
   return (
     <AppBar sx={{ boxShadow: 0, bgcolor: 'transparent' }}>
       <ToolbarStyle
