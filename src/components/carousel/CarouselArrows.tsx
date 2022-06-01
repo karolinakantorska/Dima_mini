@@ -44,7 +44,7 @@ export default function CarouselArrows({
     width: '100%',
     color: 'text.opacity',
     '&:hover': {
-      backgroundColor: theme.palette.grey[500_8],
+      backgroundColor: theme.palette.grey[900_12],
     },
   }
   const arrowStyle = {

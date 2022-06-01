@@ -110,6 +110,7 @@ const GREY = {
   0o12: alpha('#fffaf2', 0.12),
   0o24: alpha('#fffaf2', 0.24),
   0o56: alpha('#fffaf2', 0.56),
+  0o6: alpha('#fff', 0.7),
   100: '#fdf5ed',
   200: '#f8f0e8',
   300: '#eee5dd',
@@ -119,6 +120,7 @@ const GREY = {
   700: 'rgb(110, 103, 96)',// dima
   800: '#4e4841',
   900: '#2c2620',
+  900_12: alpha('#2c2620', 0.12),
   500_8: alpha('#ada59d', 0.08),
   500_12: alpha('#ada59d', 0.12),
   500_16: alpha('#ada59d', 0.16),
@@ -186,7 +188,7 @@ const palette = {
       primary: GREY[0], 
       secondary: GREY[500], 
       disabled: GREY[600],
-      opacity:GREY[0o56]
+      opacity:GREY[0o6]
     },
     background: { paper: GREY[800], default: GREY[900], neutral: GREY[500_16] },
     action: { active: GREY[500], ...COMMON.action },
