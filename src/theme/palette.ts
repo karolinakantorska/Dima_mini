@@ -186,7 +186,7 @@ const palette = {
       primary: GREY[0], 
       secondary: GREY[500], 
       disabled: GREY[600],
-      opacity:GREY[0o24]
+      opacity:GREY[0o56]
     },
     background: { paper: GREY[800], default: GREY[900], neutral: GREY[500_16] },
     action: { active: GREY[500], ...COMMON.action },
