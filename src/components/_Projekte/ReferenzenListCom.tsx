@@ -27,10 +27,6 @@ export function ReferenzenListCom(
     projectsList: ProjectsListType,
 
   }) {
-  projectsList.map((project) => {
-    const photosCarusel = project.photos.concat([project.photo]);
-    console.log('photosCarusel', photosCarusel)
-  })
   const initialInputs = { param: "Alle" }
   const [sorted, setSorted] = useState(false);
   const [xPosition, setXPosition] = useState(200);
