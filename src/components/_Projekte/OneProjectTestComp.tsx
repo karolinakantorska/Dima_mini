@@ -26,19 +26,59 @@ export function OneProjectTestCom({ project }: { project: ProjectType }) {
     return arr
   }
   if (project) {
-    const photosCarusel = () => project.photos.map((entry) => entry)
-    console.log('photosCarusel', photosCarusel())
+    const photosCarusel = [project.photo, ...project.photos]
     return (
       <>
-        <p>Hallo</p>
+        <Box >
+          <CarouselBasic3 photos={photosCarusel} />
+        </Box>
+        <Grid
+          container
+          direction="row"
+          justifyContent="space-around"
+        >
+          <Grid item sx={{ pr: 12, maxWidth: 800, mt: 9 }} >
+            <Table >
+              <TableBody>
+                {row2().map((row) => (
+                  <TableRow
+                    key={row.name}
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  >
+                    <TableCell component="td" sx={{ pr: 17, pt: 3.5, pb: 2.5 }} >
+                      <Typography variant="body1" component="p" color="dima">
+                        {row.name.toUpperCase()}
+                      </Typography>
+                    </TableCell>
+                    <TableCell align="left" >
+                      <Typography variant="body1" component="p" color="text.primary">
+                        {row.data}
+                      </Typography>
+                    </TableCell>
+                  </TableRow>
+                ))}
+
+              </TableBody>
+            </Table>
+          </Grid>
+          <Grid item sx={{ pl: 0, pt: 3.5, maxWidth: 800, mt: 9 }}            >
+            <Typography variant="h5" component="h2" paragraph color="dima">
+              {firstLettersBig(project.title)}
+              <Typography variant="caption" component="p" paragraph color="text.secondary">
+                {project.objektType.map((type, i) =>
+                  `${writeObiektTypeInGerman(type)}${(i + 1 === project.objektType.length)
+                    ? ', '
+                    : ' und '}`)}
+                {project.objektAlter}, {project.size}&#13217;
+              </Typography>
+            </Typography>
+            <Typography variant="body1" component="p" paragraph color="text.primary">
+              {parse(project.description)}
+            </Typography>
+          </Grid>
+        </Grid>
       </>
     )
 
   } else { return null }
-  //const photosCarusel = [];
-  ///project.map((entry) => {   console.log('entry', entry); return entry; })
-  //project.photos.map((entry) => console.log('entry'))
-  //photosCarusel = project.photos.concat([project.photo]);
-
-
 }
