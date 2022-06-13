@@ -11,14 +11,12 @@ import cssStyles from '../../utils/cssStyles';
 // config
 import { HEADER } from '../../config';
 // components
-import Logo from '../../components/Logo';
+
 //
-import MenuDesktop from './MenuDesktop';
 import MenuMobile from './MenuMobile';
-import { menuConfigMain, menuConfigSecond } from './MenuConfig';
+import { menuConfigSecond } from './MenuConfig';
 import PhoneNrCom from './PhoneNrCom';
-import { dimaContact } from 'src/utils/dima';
-import { Item } from 'framer-motion/types/components/Reorder/Item';
+
 
 // ----------------------------------------------------------------------
 

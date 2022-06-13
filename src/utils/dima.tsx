@@ -1,6 +1,7 @@
+import { description } from '../_mock/referenzen/description';
 export const dimaContact = {
     glarus: {
-        phone: '+41 55 646 80 00',
+        phone: ' + 41 55 646 80 00',
         town: 'Glarus',
         kanton: 'Glarus',
         street: 'gewerbezentrum holenstein',
@@ -8,7 +9,7 @@ export const dimaContact = {
         post: '8750'
     },
     zurich: {
-        phone: '+41 44 461 89 89',
+        phone: ' + 41 44 461 89 89',
         town: 'Zürich',
         kanton: 'Zürich',
         street: 'Grubenstrasse',
@@ -21,4 +22,27 @@ export const DimaName = {
     short: 'DIMA',
     whole: 'DIMA & Partner',
     withAG: 'DIMA & Partner AG'
+}
+
+export const layoutHeader = {
+    teams: {
+        title: 'teams',
+        untertitle: 'Die Menschen hinter der Umsetzung.',
+        description: 'Menschen stehen im Mittelpunkt unserer Dienstleistung. Ihre Kompetenz, Kreativität, Intuition und Engagement zeichnen unser Team aus.'
+    },
+    webcam: {
+        title: 'webcam',
+        untertitle: 'Unsere aktuellsten Projekte im Work in Progress.',
+        description: 'Unsere Architekten arbeiten ebenso leidenschaftlich wie effizient. Architektur mit hohem ästatischen Anspruch, nachhaltigkeit, ökologisch und wirtschaftlich.'
+    },
+    jobs: {
+        title: 'jobs',
+        untertitle: 'Wir bieten Ihnen einen modernen Arbeitsplatz.',
+        description: 'Wir bieten Ihnen einen modernen Arbeitsplatz in winwm jungen Team sowie spannende Projekte und die besten Möglichkeiten, sich weiter zu entwickeln.'
+    },
+    news: {
+        title: 'news',
+        untertitle: 'Aktuelles über uns.',
+        description: 'Projekte, Mitarbeiter, Wettbewerbe, Wissenswertes, Presse. Alles was gerade bei uns passiert.'
+    },
 }

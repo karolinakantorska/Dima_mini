@@ -4,6 +4,7 @@ import NextLink from 'next/link';
 import { useTheme } from '@mui/material/styles';
 import { Box, BoxProps } from '@mui/material';
 
+
 // ----------------------------------------------------------------------
 
 interface Props extends BoxProps {
@@ -13,17 +14,24 @@ interface Props extends BoxProps {
 const Logo = forwardRef<any, Props>(({ disabledLink = false, sx }, ref) => {
   const theme = useTheme();
 
-  const PRIMARY_LIGHT = theme.palette.primary.light;
-
-  const PRIMARY_MAIN = theme.palette.primary.main;
-
-  const PRIMARY_DARK = theme.palette.primary.dark;
-
   // OR
-  // const logo = '/logo/logo_single.svg';
+  //const logo = '/logo/Dima_logo.svg';
 
   const logo = (
-    <Box ref={ref} sx={{ width: 40, height: 40, cursor: 'pointer', ...sx }}>
+    <Box ref={ref} sx={{ width: 120, height: 120, pt: 3, cursor: 'pointer', ...sx }}>
+      {/*<img src={'/logo/Dima.jpg'} />*/}
+    </Box>
+  );
+
+  if (disabledLink) {
+    return <>{logo}</>;
+  }
+
+  return <NextLink href="/">{logo}</NextLink>;
+});
+
+export default Logo;
+/*
       <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 512 512">
         <defs>
           <linearGradient id="BG1" x1="100%" x2="50%" y1="9.946%" y2="50%">
@@ -55,13 +63,4 @@ const Logo = forwardRef<any, Props>(({ disabledLink = false, sx }, ref) => {
           />
         </g>
       </svg>
-    </Box>
-  );
-  if (disabledLink) {
-    return <>{logo}</>;
-  }
-
-  return <NextLink href="/">{logo}</NextLink>;
-});
-
-export default Logo;
+      */

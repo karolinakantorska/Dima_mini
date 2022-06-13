@@ -10,7 +10,7 @@ export default function Kontakt() {
   //const { themeStretch } = useSettings();
   return (
     <Layout>
-      <Page title="Dima & Partner | Glarus Zurich Arosa">
+      <Page title="Kontakt | Dima & Partner">
         <RootStyle>
           <ContactCom />
         </RootStyle>

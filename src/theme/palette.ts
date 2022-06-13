@@ -107,7 +107,8 @@ const ERROR = {
 
 const GREY = {
   0: '#fffaf2',
-  0o6: alpha('#fff', 0.7),
+  0o6: alpha('#fff', 0.56),
+  0o7: alpha('#fff', 0.08),
   100: '#fdf5ed',
   200: '#f8f0e8',
   300: '#eee5dd',
@@ -187,7 +188,7 @@ const palette = {
       disabled: GREY[600],
       opacity:GREY[0o6]
     },
-    background: { paper: GREY[800], default: GREY[900], neutral: GREY[500_16], opacity: GREY[900_12]},
+    background: { paper: GREY[800], default: GREY[900], neutral: GREY[500_16], opacity: GREY[0o7]},
     action: { active: GREY[500], ...COMMON.action },
     dima:PRIMARY.main ,
     

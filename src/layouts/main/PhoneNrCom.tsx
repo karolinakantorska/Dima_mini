@@ -1,30 +1,41 @@
 import { Grid, Stack, Typography } from "@mui/material";
 import { dimaContact } from "src/utils/dima";
-
+import { pxToRem } from 'src/utils/getFontValue';
 // ----------------------------------------------------------------------
+const textProps = {
+    fontSize: pxToRem(13),
+}
+const Adress = ({ text }: any) => {
+    const { town, phone } = text;
+    return (
+        <Grid
+            container direction='row' justifyContent="space-between">
 
+            <Typography
+                variant="body2"
+                component="span"
+                sx={{ ...textProps }}
+            >
+                {town}
+            </Typography>
+
+
+            <Typography
+                variant="body2"
+                component="span"
+                sx={{ ...textProps }}
+            >
+                {phone}
+            </Typography>
+
+        </Grid>)
+}
 export default function PhoneNrCom() {
 
     return (
         <Stack sx={{ maxWidth: '200px' }}  >
-            <Grid container direction='row' spacing={1} justifyContent="space-between">
-                <Grid item >
-                    <Typography variant="body2" component="span">{dimaContact.glarus.town}</Typography>
-                </Grid>
-                <Grid item >
-                    <Typography variant="body2" component="span">{dimaContact.glarus.phone}</Typography>
-                </Grid>
-            </Grid>
-
-            <Grid container direction='row' spacing={2} justifyContent="space-between">
-                <Grid item >
-                    <Typography variant="body2" component="span">{dimaContact.zurich.town}</Typography>
-                </Grid>
-                <Grid item >
-                    <Typography variant="body2" component="span">{dimaContact.zurich.phone}</Typography>
-                </Grid>
-            </Grid>
-
+            <Adress text={dimaContact.glarus} />
+            <Adress text={dimaContact.zurich} />
         </Stack>
     );
 }

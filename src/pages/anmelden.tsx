@@ -9,7 +9,7 @@ import LoginForm from 'src/components/_signin/LoginForm';
 export default function Anmelden() {
   return (
     <Layout>
-      <Page title="Dima & Partner | Glarus Zurich Arosa">
+      <Page title="Anmelden | Dima & Partner">
         <RootStyle>
           <LoginForm />
         </RootStyle>

@@ -12,7 +12,7 @@ export default function Projekte(props: any) {
   const { data } = props;
   return (
     <AnimatedExitLayout>
-      <Page title="Dima & Partner | Glarus Zurich Arosa">
+      <Page title="Projekte | Dima & Partner">
         <RootStyle>
           <ReferenzenListCom projectsList={data} />
         </RootStyle>

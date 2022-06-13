@@ -10,7 +10,7 @@ import PassResetFormCom from 'src/components/_signin/PassResetFormCom';
 export default function ResetPass() {
   return (
     <Layout>
-      <Page title="Dima & Partner | Glarus Zurich Arosa">
+      <Page title="Dima & Partner">
         <RootStyle>
 
           <PassResetFormCom />

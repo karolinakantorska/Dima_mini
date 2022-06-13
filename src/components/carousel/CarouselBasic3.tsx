@@ -25,12 +25,11 @@ const RootStyle = styled(Box)(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function CarouselBasic3({ photos }: { photos: ImagesType }) {
-  console.log('logo', logo.default.src)
   const carouselRef = useRef<Slider | null>(null);
   const settings = {
     dots: false,
     arrows: false,
-    autoplay: false,
+    autoplay: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     rtl: false,
@@ -58,15 +57,8 @@ export default function CarouselBasic3({ photos }: { photos: ImagesType }) {
     return (
       <RootStyle>
         <CarouselArrows
-          filled
           onNext={handleNext}
           onPrevious={handlePrevious}
-          sx={{
-            '& .arrow': {
-              '&.left': { left: 16 },
-              '&.right': { right: 16 },
-            },
-          }}
         >
           <Slider ref={carouselRef} {...settings}>
             {photos.map((photo) => (
@@ -93,10 +85,3 @@ function CarouselItem({ item }: { item: CarouselItemProps }) {
 
   return <Image alt={title} src={image} ratio="16/9" />;
 }
-/*
-<Image alt={DimaName.whole} src={logo.default.src} ratio="16/9" />
-const photo = {
-      url: photos[0].url ? photos[0].url : logo.default.src,
-      alt: photos[0].alt ? photos[0].alt : DimaName.whole
-    }
-*/

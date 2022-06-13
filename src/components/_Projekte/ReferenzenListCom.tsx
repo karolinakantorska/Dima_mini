@@ -27,37 +27,36 @@ export function ReferenzenListCom(
     projectsList: ProjectsListType,
 
   }) {
-  const initialInputs = { param: "Alle" }
+  //const initialInputs = { param: "Alle" }
   const [sorted, setSorted] = useState(false);
-  const [xPosition, setXPosition] = useState(200);
-  const [yPosition, setYPosition] = useState(728);
+  const [xPosition, setXPosition] = useState(0);
   const isDesktop = useResponsive('up', 'lm');
-  const isSmallDesktop = useResponsive('up', 'lg');
+
   const isSmall = useResponsive('down', 'sm');
   const gtc = isDesktop ? 'repeat(3, 1fr)' : isSmall ? '1fr' : 'repeat(2, 1fr)';
-  const { query } = useRouter();
+  //const { query } = useRouter();
   const { inputs, handleInputChange, } = useForm({ param: "Alle" });
   //const filteredProjects = filter(projectsList, inputs);
 
   const filteredProjects = projectsList;
   // console.log('inputs', inputs)
-  useEffect(() => {
-    const position = () => {
-      if ((window.innerWidth - 1700) > 0) {
-        return (window.innerWidth - 1700) * 0.5 + 50
-      }
-      else return 50
-    }
-    setXPosition(position())
-    setYPosition(728 - ((1700 - window.innerWidth) * 0.37))
-  }, [])
+
+  const addButtonProps = {
+    top: 100,
+    right: 0,
+    width: 200,
+    position: "fixed",
+    zIndex: 1200
+
+  }
   // TODO SOLVE IT 
+  /*
   useEffect(() => {
     if (inputs.param !== initialInputs.param) {
       setSorted(true);
     }
   }, [inputs])
-
+*/
   //function calculateMargin(vw: number): number { return (1700 - vw) / 2 };
 
 
@@ -66,22 +65,13 @@ export function ReferenzenListCom(
       <NextLink href={PATH_PROJEKTE.addProject} >
         <Button
           variant="contained"
-          sx={{
-            bottom: 80,
-            right: 0,
-            width: 200,
-            position: "fixed",
-            zIndex: 1200
-          }}
+          sx={{ ...addButtonProps }}
           startIcon={<Iconify icon={'eva:plus-fill'} />}
         >
           Neues Projekt
         </Button>
       </NextLink>
 
-      {/*<StickyBox >
-        
-  </StickyBox>*/}
       <Grid container direction="column" justifyContent="center" spacing={2} >
         <Grid item>
           {false && <FilterReferenzenCom

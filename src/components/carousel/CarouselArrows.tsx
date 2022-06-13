@@ -13,7 +13,7 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 type IProps = BoxProps & StackProps;
 
 interface Props extends IProps {
-  filled?: boolean;
+
   children?: ReactNode;
   customIcon?: IconifyIcon | string;
   onNext?: VoidFunction;
@@ -21,7 +21,7 @@ interface Props extends IProps {
 }
 
 export default function CarouselArrows({
-  filled = true,
+
   customIcon, // Set icon right
   onNext,
   onPrevious,
@@ -29,7 +29,7 @@ export default function CarouselArrows({
   ...other
 }: Props) {
   const theme = useTheme();
-  const isRTL = false;
+
 
   const style = {
     position: 'absolute',
@@ -42,13 +42,16 @@ export default function CarouselArrows({
   const buttonStyle = {
     height: '100%',
     width: '100%',
+    padding: 0,
     color: 'text.opacity',
     '&:hover': {
       backgroundColor: 'background.opacity',
+      color: 'text.white',
     },
   }
   const arrowStyle = {
     fontSize: 60,
+    fontWeight: 300,
     [theme.breakpoints.down('mobile')]: {
       fontSize: 20,
     },
@@ -118,5 +121,5 @@ export default function CarouselArrows({
   );
 }
 
-// ----------------------------------------------------------------------
+
 

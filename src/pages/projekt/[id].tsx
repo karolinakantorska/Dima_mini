@@ -20,16 +20,12 @@ export default function Referenz({ data }: any) {
   //console.log('project', project);
   return (
     <AnimatedIntroLayout>
-      <Page title="Projekte | Dima & Partner | Glarus Zurich Arosa">
+      <Page title={`${data.title} | Dima & Partner`}>
         <RootStyle>
-
           <OneProjectCom project={data} />
-
         </RootStyle>
       </Page>
     </AnimatedIntroLayout>
-
-
   );
 }
 export const getStaticPaths: GetStaticPaths = async () => {
