@@ -11,20 +11,16 @@ type Props = {
   children: ReactNode;
   variant?: 'main' | 'dashboard';
 };
-export default function Layout({ variant = 'dashboard', children }: Props) {
+export default function LayoutLanding({ variant = 'dashboard', children }: Props) {
 
   return (
-    <Container >
-      <Stack sx={{ minHeight: 1 }}>
-        <MainHeader />
-        {children}
-        <Box sx={{ flexGrow: 1 }} />
-      </Stack>
-    </Container>
+
+    <Stack sx={{ minHeight: 1 }}>
+      <MainHeader />
+      {children}
+      <Box sx={{ flexGrow: 1 }} />
+    </Stack>
+
   )
 }
-/*
-<AuthGuard>
-      <DashboardLayout> {children} </DashboardLayout>
-    </AuthGuard>
-    */
+

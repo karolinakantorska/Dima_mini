@@ -47,7 +47,7 @@ export default function AnimatedExitLayout({ children }: Props) {
             </Box>
             <Container component={m.div} {...variant}>
                 <Stack sx={{ minHeight: 1 }}>
-                    <MainHeader />
+                    <MainHeader logo={false} />
                     {children}
                     <Box sx={{ flexGrow: 1 }} />
                 </Stack>

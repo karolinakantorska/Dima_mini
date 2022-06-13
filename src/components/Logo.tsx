@@ -18,8 +18,8 @@ const Logo = forwardRef<any, Props>(({ disabledLink = false, sx }, ref) => {
   //const logo = '/logo/Dima_logo.svg';
 
   const logo = (
-    <Box ref={ref} sx={{ width: 120, height: 120, pt: 3, cursor: 'pointer', ...sx }}>
-      {/*<img src={'/logo/Dima.jpg'} />*/}
+    <Box ref={ref} sx={{ width: 120, height: 120, pt: 5, cursor: 'pointer', ...sx }}>
+      <img src={'/logo/Dima.jpg'} />
     </Box>
   );
 

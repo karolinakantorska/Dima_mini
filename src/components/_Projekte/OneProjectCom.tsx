@@ -9,6 +9,7 @@ import parse from 'html-react-parser';
 import { ProjectType } from '../../utils/TS/interface';
 import { firstLettersBig, writeObiektTypeInGerman, writeServiceInGerman } from '../../utils/Text/textUtils';
 import CarouselBasic3 from '../carousel/CarouselBasic3';
+import Logo from '../Logo';
 
 
 export function OneProjectCom({ project }: { project: ProjectType }) {
@@ -29,6 +30,8 @@ export function OneProjectCom({ project }: { project: ProjectType }) {
     const photosCarusel = [project.photo, ...project.photos]
     return (
       <>
+
+        <Logo sx={{ mt: -13 }} />
         <Box >
           <CarouselBasic3 photos={photosCarusel} />
         </Box>

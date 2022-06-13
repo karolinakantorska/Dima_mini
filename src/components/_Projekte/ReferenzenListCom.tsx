@@ -20,6 +20,7 @@ import { FilterReferenzenCom } from './FilterReferenzenCom';
 import { ProjectsListType, User } from '../../utils/TS/interface';
 import Iconify from '../Iconify';
 import { PATH_PROJEKTE } from 'src/routes/paths';
+import Logo from '../Logo';
 
 // TODO use location instead use route
 export function ReferenzenListCom(
@@ -71,7 +72,7 @@ export function ReferenzenListCom(
           Neues Projekt
         </Button>
       </NextLink>
-
+      <Logo sx={{ mt: -13 }} />
       <Grid container direction="column" justifyContent="center" spacing={2} >
         <Grid item>
           {false && <FilterReferenzenCom

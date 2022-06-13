@@ -16,6 +16,7 @@ import { HEADER } from '../../config';
 import MenuMobile from './MenuMobile';
 import { menuConfigSecond } from './MenuConfig';
 import PhoneNrCom from './PhoneNrCom';
+import Logo from 'src/components/Logo';
 
 
 // ----------------------------------------------------------------------
@@ -46,7 +47,7 @@ const ToolbarShadowStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function MainHeader() {
+export default function MainHeader({ logo = true }: { logo?: boolean }) {
 
   const isOffset = useOffSetTop(HEADER.MAIN_DESKTOP_HEIGHT);
   const theme = useTheme();
@@ -81,6 +82,7 @@ export default function MainHeader() {
             rowGap: "20px",
           }}
         >
+          {logo && <Logo />}
           <Box sx={{
             grid: 'item',
             display: "grid",
@@ -88,8 +90,8 @@ export default function MainHeader() {
             gridAutoFlow: 'column',
             justifyContent: 'space-between'
           }}>
-            {!isSmall && <PhoneNrCom />}
 
+            {!isSmall && <PhoneNrCom />}
             <MenuMobile isOffset={isOffset} isHome={isHome} navConfig={[...menuConfigSecond]} />
           </Box>
         </Container>

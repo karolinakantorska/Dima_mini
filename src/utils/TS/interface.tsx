@@ -94,6 +94,18 @@ export interface UserData {
   uid: string;
 }
 
+export interface Person {
+  photo: string;
+  name: string;
+  surname: string;
+  title: string[];
+  job: string[];
+  displayOrder: number;
+  email: string;
+}
+export type Team = Person[];
+
+
 export const Cadosch = `Cadosch & Zimmermann GmbH, Zürich`;
 export const Kgp_Immobilien = `KPG Immobilien AG, Wollerau`;
 export const Hanimann_Naef = `Hanimann - Flückiger AG, Egg | Naef Partner AG, Zürich`;

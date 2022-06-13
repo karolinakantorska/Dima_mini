@@ -14,9 +14,7 @@ export default function Index() {
   return (
     <Layout>
       <Page title="Dima & Partner | Glarus Zurich Arosa">
-
         <LandingVideo />
-
       </Page>
     </Layout>)
 }
