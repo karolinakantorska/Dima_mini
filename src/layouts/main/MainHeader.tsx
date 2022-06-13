@@ -63,7 +63,6 @@ export default function MainHeader() {
   return (
     <AppBar sx={{ boxShadow: 0, bgcolor: 'transparent' }}>
       <ToolbarStyle
-
         disableGutters
         sx={{
           ...(isOffset && {

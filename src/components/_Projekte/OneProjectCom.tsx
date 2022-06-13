@@ -80,5 +80,5 @@ export function OneProjectCom({ project }: { project: ProjectType }) {
       </>
     )
 
-  } else { return null }
+  } else { return <p>whats up?</p> }
 }

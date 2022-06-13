@@ -5,8 +5,6 @@ import Page from '../components/Page';
 import { RootStyle } from 'src/components/_Main/RootStyle';
 import { ContactCom } from 'src/components/_Dima/ContactCom';
 
-
-
 export default function Kontakt() {
   //const { themeStretch } = useSettings();
   return (
