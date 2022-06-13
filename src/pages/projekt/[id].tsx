@@ -20,7 +20,7 @@ export default function Referenz({ data }: any) {
   //console.log('project', project);
   return (
     <AnimatedIntroLayout>
-      <Page title={`${data.title} | Dima & Partner`}>
+      <Page title={`Dima & Partner`}>
         <RootStyle>
           <OneProjectCom project={data} />
         </RootStyle>
