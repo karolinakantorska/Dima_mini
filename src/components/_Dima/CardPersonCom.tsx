@@ -55,7 +55,7 @@ export function CardPersonCom({ person }: { person: Person }) {
                         >
                             {`${name.toUpperCase()} ${surname.toUpperCase()}`}
                         </Typography>
-                        {title.map(() => <Typography variant="subtitle1" component="p" >{title}</Typography>)}
+                        {title.map((title) => <Typography key={title} variant="subtitle1" component="p" >{title}</Typography>)}
                     </Grid>
                     {openAlert && <Alert severity="success">
                         Copied: {email}
@@ -66,7 +66,7 @@ export function CardPersonCom({ person }: { person: Person }) {
                             justifyContent="space-between"
                             alignItems="flex-end"
                         >
-                            {job.map(() => <Typography variant="body1" component="p" >{job}</Typography>)}
+                            {job.map((job) => <Typography key={job} variant="body1" component="p" >{job}</Typography>)}
                             <MailOutlineSharpIcon
                                 sx={{ fontSize: '36px' }}
                                 aria-owns={open ? email : undefined}

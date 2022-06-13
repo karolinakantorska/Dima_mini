@@ -33,7 +33,7 @@ export function TeamListCom() {
         rowGap="20px"
         sx={{ mt: 6 }}
       >
-        {team.map((person) => <CardPersonCom person={person} />)}
+        {team.map((person) => <CardPersonCom key={person.name + person.surname + person.title} person={person} />)}
       </Box>
 
     </>
