@@ -34,6 +34,7 @@ export const PATH_NEWS = {
 };
 export const PATH_JOBS = {
   jobs: '/jobs',
+  job: '/job',
 };
 export const PATH_KONTAKT = {
   kontakt: '/kontakt',

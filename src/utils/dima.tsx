@@ -38,7 +38,7 @@ export const layoutHeader = {
     jobs: {
         title: 'jobs',
         untertitle: 'Wir bieten Ihnen einen modernen Arbeitsplatz.',
-        description: 'Wir bieten Ihnen einen modernen Arbeitsplatz in winwm jungen Team sowie spannende Projekte und die besten Möglichkeiten, sich weiter zu entwickeln.'
+        description: 'Wir bieten Ihnen einen modernen Arbeitsplatz in einem jungen Team sowie spannende Projekte und die besten Möglichkeiten, sich weiter zu entwickeln.'
     },
     news: {
         title: 'news',

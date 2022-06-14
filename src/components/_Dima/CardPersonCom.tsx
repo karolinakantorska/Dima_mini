@@ -5,6 +5,7 @@ import { Person } from 'src/utils/TS/interface';
 import MailOutlineSharpIcon from '@mui/icons-material/MailOutlineSharp';
 // hooks
 import useResponsive from '../../hooks/useResponsive';
+import { Mail } from "../_Reusable/Mail";
 
 
 
@@ -67,35 +68,7 @@ export function CardPersonCom({ person }: { person: Person }) {
                             alignItems="flex-end"
                         >
                             {job.map((job) => <Typography key={job} variant="body1" component="p" >{job}</Typography>)}
-                            <MailOutlineSharpIcon
-                                sx={{ fontSize: '36px' }}
-                                aria-owns={open ? email : undefined}
-                                aria-haspopup="true"
-                                onMouseEnter={handleOpen}
-                                onMouseLeave={handleClose}
-                                onClick={() => copyText(email)}
-                            />
-
-                            <Popover
-                                id="mouse-over-popover"
-                                sx={{
-                                    pointerEvents: 'none',
-                                }}
-                                open={open}
-                                anchorEl={anchorEl}
-                                anchorOrigin={{
-                                    vertical: 'bottom',
-                                    horizontal: 'left',
-                                }}
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'left',
-                                }}
-                                onClose={handleClose}
-                                disableRestoreFocus
-                            >
-                                <Typography sx={{ p: 1 }}>{email}</Typography>
-                            </Popover>
+                            <Mail email={email} />
 
                         </Stack>
                     </Grid>

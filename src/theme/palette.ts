@@ -115,8 +115,9 @@ const GREY = {
   400: '#cbc3bb',
   500: '#ada59d',// shadows from this color
   600: '#837b74',
-  700: 'rgb(110, 103, 96)',// dima
+  700: 'rgb(110, 103, 96)',// dima 	6E6760
   800: '#4e4841',
+  850: '#39322B',
   900: '#2c2620',
   900_12: alpha('#2c2620', 0.12),
   500_8: alpha('#ada59d', 0.08),
@@ -169,16 +170,14 @@ const COMMON = {
 };
 
 const palette = {
- 
-  light: {
+   light: {
     ...COMMON,
     mode: 'light', 
     background: { paper: '#fff', default: '#fff', neutral: GREY[200] },
     action: { active: GREY[600], ...COMMON.action },
     dima:PRIMARY.main 
   },
-  
-  dark: {
+    dark: {
     ...COMMON, 
     mode: 'dark',
     text: { 
@@ -188,11 +187,12 @@ const palette = {
       disabled: GREY[600],
       opacity:GREY[0o6]
     },
-    background: { paper: GREY[800], default: GREY[900], neutral: GREY[500_16], opacity: GREY[0o7]},
+    background: { paper: GREY[800], default: GREY[900],between: GREY[850],neutral: GREY[500_16], opacity: GREY[0o7],},
     action: { active: GREY[500], ...COMMON.action },
     dima:PRIMARY.main ,
+
     
-  },
+  },//
 } as const;
 
 export default palette;

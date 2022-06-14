@@ -95,6 +95,7 @@ export interface UserData {
 }
 
 export interface Person {
+  id: string,
   photo: string;
   name: string;
   surname: string;
@@ -103,7 +104,20 @@ export interface Person {
   displayOrder: number;
   email: string;
 }
-export type Team = Person[];
+export interface Job {
+  id: string,
+  announcment: Date,
+  start: Date,
+  dedline: Date,
+  location: string,
+  title: string,
+  procentMin?: number,
+  procent: number,
+  description: string,
+  kontaktperson: string,
+  email: string,
+
+}
 
 
 export const Cadosch = `Cadosch & Zimmermann GmbH, Zürich`;

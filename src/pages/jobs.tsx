@@ -4,7 +4,7 @@ import Layout from 'src/layouts';
 import Page from 'src/components/Page';
 import { RootStyle } from 'src/components/_Main/RootStyle';
 
-import { JobsCom } from 'src/components/_Dima/JobsCom';
+import { JobsListCom } from 'src/components/_Dima/JobsListCom';
 
 
 export default function Jobs() {
@@ -12,7 +12,7 @@ export default function Jobs() {
     <Layout>
       <Page title="Jobs | Dima & Partner">
         <RootStyle>
-          <JobsCom />
+          <JobsListCom />
         </RootStyle>
       </Page>
     </Layout>
