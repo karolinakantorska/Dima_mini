@@ -118,7 +118,15 @@ export interface Job {
   email: string,
 
 }
-
+export interface News {
+  id: string,
+  photos: string[],
+  video: string,
+  date: Date,
+  title: string,
+  description: string,
+  link: string
+}
 
 export const Cadosch = `Cadosch & Zimmermann GmbH, Zürich`;
 export const Kgp_Immobilien = `KPG Immobilien AG, Wollerau`;

@@ -1,41 +1,50 @@
-
+import React, { useState } from "react";
 // @mui
 import { Box, Grid, Button, Stack, Typography } from '@mui/material';
 import { layoutHeader } from 'src/utils/dima';
-import { team } from 'src/_mock/team/team';
+import { news } from 'src/_mock/news/news';
 
 // hooks
 import useResponsive from '../../hooks/useResponsive';
-import { description } from '../../_mock/referenzen/description';
 import { SiteTitle } from '../_Reusable/SiteTitle';
-import { CardPersonCom } from './CardPersonCom';
+import { NewsCom } from './NewsCom';
+
 
 
 // TODO use location instead use route
-export function TeamListCom() {
+export function NewsListCom() {
   //const initialInputs = { param: "Alle" }
-
+  //const [dark, setDark] = useState(false);
   const isDesktop = useResponsive('up', 'lm');
 
   const isSmall = useResponsive('down', 'sm');
-
+  let dark = true;
   //const { query } = useRouter();
 
   return (
     <>
-      <SiteTitle text={layoutHeader.teams} />
+      <SiteTitle text={layoutHeader.news} />
       <Box
         display="grid"
-        gridTemplateColumns='repeat(4, 1fr)'
+        gridTemplateColumns='repeat(2, 1fr)'
+        gridTemplateRows='1fr'
         //justifyItems='stretch'
-        //gridAutoFlow="dense"
         columnGap="12px"
-        rowGap="20px"
+        rowGap="12px"
         sx={{ mt: 6 }}
       >
-        {team.map((person) => <CardPersonCom key={person.id} person={person} />)}
-      </Box>
+        {news.map((news, i) => {
+          if ((i + 1) % 2 == 0) {
+            dark = !dark;
+          }
+          return (<NewsCom key={news.id} news={news} dark={dark} />)
 
+
+        })}
+      </Box>
     </>
   )
 }
+/*
+
+*/

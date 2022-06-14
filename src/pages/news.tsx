@@ -3,7 +3,7 @@ import Layout from 'src/layouts';
 // components
 import Page from '../components/Page';
 import { RootStyle } from 'src/components/_Main/RootStyle';
-import { NewsCom } from 'src/components/_Dima/NewsCom';
+import { NewsListCom } from 'src/components/_Dima/NewsListCom';
 
 
 
@@ -13,8 +13,7 @@ export default function News() {
     <Layout>
       <Page title="News | Dima & Partner">
         <RootStyle>
-
-          <NewsCom />
+          <NewsListCom />
         </RootStyle>
       </Page>
     </Layout>
