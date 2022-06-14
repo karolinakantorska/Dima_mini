@@ -1,5 +1,7 @@
 export const team = [
     {
+        id: '1',
+
         photo: '/people/p_1.jpg',
         name: 'Stefan',
         surname: 'Creus',
@@ -9,6 +11,7 @@ export const team = [
         email: 'info@dima-partner.ch'
     },
     {
+        id: '2',
         photo: '/people/p_2.jpg',
         name: 'Vito',
         surname: 'Pantelana',
@@ -18,6 +21,7 @@ export const team = [
         email: 'info@dima-partner.ch'
     },
     {
+        id: '3',
         photo: '/people/p_3.jpg',
         name: 'Frantz',
         surname: 'Noser',
@@ -27,6 +31,7 @@ export const team = [
         email: 'info@dima-partner.ch'
     },
     {
+        id: '4',
         photo: '/people/p_4.jpg',
         name: 'Hansruedi',
         surname: 'Dürst',
@@ -36,6 +41,7 @@ export const team = [
         email: 'info@dima-partner.ch'
     },
     {
+        id: '5',
         photo: '/people/p_5.jpg',
         name: 'Karin',
         surname: 'Fischli',
@@ -45,6 +51,7 @@ export const team = [
         email: 'info@dima-partner.ch'
     },
     {
+        id: '6',
         photo: '/people/p_6.jpg',
         name: 'Jürg',
         surname: 'Fischli',
@@ -54,6 +61,7 @@ export const team = [
         email: 'info@dima-partner.ch'
     },
     {
+        id: '7',
         photo: '/people/p_7.jpg',
         name: 'Melanie',
         surname: 'Lutschiger',

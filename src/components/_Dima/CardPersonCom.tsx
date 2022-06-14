@@ -58,9 +58,6 @@ export function CardPersonCom({ person }: { person: Person }) {
                         </Typography>
                         {title.map((title) => <Typography key={title} variant="subtitle1" component="p" >{title}</Typography>)}
                     </Grid>
-                    {openAlert && <Alert severity="success">
-                        Copied: {email}
-                    </Alert>}
                     <Grid item sx={{ width: '100%' }}>
                         <Stack
                             direction="row"
