@@ -54,7 +54,7 @@ export function CardJobCom({ job }: { job: Job }) {
                             container
                             direction="column"
                             justifyContent="space-between"
-                            sx={{ pt: 8, height: '100%'/*height: 180*/ }}
+                            sx={{ pt: 8, height: '100%' }}
                         >
                             <Grid item>
                                 <Typography

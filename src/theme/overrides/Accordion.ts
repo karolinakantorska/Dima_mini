@@ -7,6 +7,7 @@ export default function Accordion(theme: Theme) {
     MuiAccordion: {
       styleOverrides: {
         root: {
+           position :'static',
           '&.Mui-expanded': {
             boxShadow: theme.customShadows.z8,
             borderRadius: theme.shape.borderRadius
