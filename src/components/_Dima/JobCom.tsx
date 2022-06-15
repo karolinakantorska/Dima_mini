@@ -65,7 +65,6 @@ export function JobCom({ job }: { job: Job }) {
             component="div"
           >
             {`Haben wir Ihre Interesse geweckt?`}
-
           </Typography>
           <Typography
             variant="body1"

@@ -7,7 +7,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Mail } from "src/components/_Reusable/Mail";
 import { Job, News } from "src/utils/TS/interface";
 
-
 // TODO use location instead use route
 export function NewsCom({ news, dark }: { news: News, dark: boolean }) {
   const { id,
@@ -20,14 +19,12 @@ export function NewsCom({ news, dark }: { news: News, dark: boolean }) {
 
   return (
     <Card sx={dark ? { backgroundColor: 'background.between' } : { backgroundColor: 'background.paper' }}>
-
       <Stack
         direction="column"
         spacing={2}
-        justifyContent="flex-end"
+        justifyContent="space-between"
         sx={{ height: '100%' }}
       ><CardContent>
-
           <Typography
             variant="body2"
             component="div"
@@ -43,7 +40,7 @@ export function NewsCom({ news, dark }: { news: News, dark: boolean }) {
           </Typography>
 
         </CardContent>
-        <Accordion
+        {description && <Accordion
           disableGutters={true}
           sx={dark ? { backgroundColor: 'background.between' } : { backgroundColor: 'background.paper' }}
           elevation={0}
@@ -60,13 +57,13 @@ export function NewsCom({ news, dark }: { news: News, dark: boolean }) {
               MEHR LESEN
             </Typography>
           </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-              malesuada lacus ex, sit amet blandit leo lobortis eget.
+          <AccordionDetails sx={{ pl: 3, pr: 3, }}>
+            <Typography variant="body1"
+              component="p">
+              {parse(description)}
             </Typography>
           </AccordionDetails>
-        </Accordion>
+        </Accordion>}
       </Stack>
     </Card>
   )

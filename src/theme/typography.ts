@@ -1,15 +1,29 @@
 import { pxToRem, responsiveFontSizes } from '../utils/getFontValue';
+//import BG_Regular_woff2 from './fonts/univers_bq_regular-webfont.woff2';
 
 // ----------------------------------------------------------------------
-const FONT_PRIMARY = 'Open Sans, Roboto, Arial, sans-serif'; // Google Font
+const FONT_PRIMARY = ' Univers BQ Regular,Open Sans, Roboto, Arial, sans-serif'; // Google Font
 
 // const FONT_SECONDARY = 'CircularStd, sans-serif'; // Local Font
+/*
+const BG_Regular = {
+  fontFamily: 'Univers',
+  fontStyle: 'normal',
+  fontDisplay: 'swap',
+  fontWeight: 400,
+  src: `
+    local('Univers'),
+    local('Univers-Regular'),
+    url(${BG_Regular_woff2}) format('woff2')
+  `,
+};*/
 
 const typography = {
-  fontFamily: FONT_PRIMARY,
+  fontFamily: 'Univers,Open Sans, Arial,sans-serif',
   fontWeightRegular: 400,
   fontWeightMedium: 600,
   fontWeightBold: 700,
+
   h1: {
     fontWeight: 700,
     lineHeight: 80 / 64,

@@ -36,9 +36,9 @@ export const news = [
         title: 'Grundsteinlegung Wohn- & Pflegezentrum Tertianum, Richterswil',
         description: `
         <div>
-        <p>Bauherr:<a href= 'https://sps.swiss/de/immobilien/home' >Swiss Prime Site Immobilien</a></p>
-        <p>Totalunternehmer:<span style="color: rgb(232, 123, 69);">dima & partner ag</span></p>
-        <p>Bauleitung:<span style="color: rgb(232, 123, 69);">Anjuscha Sutter, dima & partner ag</span></p>
+        <p>Bauherr: <a href= 'https://sps.swiss/de/immobilien/home' >Swiss Prime Site Immobilien</a></p>
+        <p>Totalunternehmer: <span style="color: rgb(232, 123, 69);">dima & partner ag</span></p>
+        <p>Bauleitung: <span style="color: rgb(232, 123, 69);">Anjuscha Sutter, dima & partner ag</span></p>
         </div>
         `,
         link: 'https://lnkd.in/ePFRZ2CF'
