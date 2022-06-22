@@ -16,6 +16,7 @@ import { menuConfigSecond, menuConfigAdmin } from './MenuConfig';
 import PhoneNrCom from './PhoneNrCom';
 
 import DimaLogoCom from 'src/components/DimaLogoCom';
+import useAuth from 'src/utils/firebaseAuth/useAuth';
 
 
 // ----------------------------------------------------------------------
@@ -53,9 +54,10 @@ export default function MainHeader({ logo = true }: { logo?: boolean }) {
   const isHome = pathname === '/';
   const isDesktop = useResponsive('up', 'lm');
   const isSmall = useResponsive('down', 'sm');
+  const { isAuthenticated } = useAuth();
   const gtc = isDesktop ? 'repeat(3, 1fr)' : isSmall ? '1fr' : 'repeat(2, 1fr)';
   const gc = isDesktop ? '3/4' : '2/3';
-
+  const menuItems = isAuthenticated ? [...menuConfigSecond, ...menuConfigAdmin] : [...menuConfigSecond]
   return (
     <AppBar sx={{
       boxShadow: 0,
@@ -97,8 +99,7 @@ export default function MainHeader({ logo = true }: { logo?: boolean }) {
           }}>
 
             {!isSmall && <PhoneNrCom />}
-
-            <MenuMobile navConfig={[...menuConfigSecond, ...menuConfigAdmin]} />
+            <MenuMobile navConfig={menuItems} />
           </Box>
         </Container>
       </ToolbarStyle>

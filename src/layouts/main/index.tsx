@@ -22,13 +22,15 @@ export default function MainLayout({ children }: Props) {
       <Container >
         <Stack sx={{ minHeight: 1 }}>
           <MainHeader />
-
           {children}
-
           <Box sx={{ flexGrow: 1 }} />
         </Stack>
       </Container>
     </>
   );
 }
-
+/*
+<AuthGuard>
+      <DashboardLayout> {children} </DashboardLayout>
+    </AuthGuard>
+    */

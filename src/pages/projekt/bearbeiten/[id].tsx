@@ -7,6 +7,7 @@ import ProjectNewEditForm from "src/components/_Projekte/ProjectNewEditForm";
 // layouts
 import Layout from "src/layouts"
 import { getCollectionId, getCollectionDocument } from "src/utils/apis/apis";
+import AuthGuard from "src/guards/AuthGuard";
 // components
 
 export default function NeuesProjekt({ data }: any) {
@@ -16,13 +17,16 @@ export default function NeuesProjekt({ data }: any) {
   console.log('id:', id);
   console.log('data:', data);
   return (
-    <Layout>
-      <Page title={`${isEdit ? 'Edit' : 'Neues'} Projekt | Dima & Partner`}>
-        <RootStyle>
-          <ProjectNewEditForm isEdit={isEdit} currentProject={data} />
-        </RootStyle>
-      </Page>
-    </Layout>
+    <AuthGuard>
+      <Layout>
+        <Page title={`${isEdit ? 'Edit' : 'Neues'} Projekt | Dima & Partner`}>
+          <RootStyle>
+            <ProjectNewEditForm isEdit={isEdit} currentProject={data} />
+          </RootStyle>
+        </Page>
+      </Layout>
+    </AuthGuard>
+
   );
 }
 export const getStaticPaths: GetStaticPaths = async () => {

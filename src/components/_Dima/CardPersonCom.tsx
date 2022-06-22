@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 // @mui
-import { Box, Grid, Button, Stack, Typography, Card, CardMedia, CardHeader, CardContent, CardActions, Popover, Alert } from '@mui/material';
+import { Grid, Stack, Typography, Card, CardMedia, } from '@mui/material';
 import { Person } from 'src/utils/TS/interface';
-import MailOutlineSharpIcon from '@mui/icons-material/MailOutlineSharp';
 // hooks
 import useResponsive from '../../hooks/useResponsive';
 import { Mail } from "../_Reusable/Mail";
@@ -34,44 +33,45 @@ export function CardPersonCom({ person }: { person: Person }) {
 
     return (
 
-        <Card>
+        <Card >
             <CardMedia
                 component="img"
                 image={photo}
                 alt={`${name} ${surname} ${job}`}
-            />
-            <CardContent  >
-                <Grid
-                    container
-                    direction="column"
-                    justifyContent="space-between"
-                    alignItems="flex-start"
-                    sx={{ height: 180 }}
-                >
-                    <Grid item>
-                        <Typography
-                            variant="h6"
-                            component="h2"
-                            sx={{ color: 'dima' }}
-                        >
-                            {`${name.toUpperCase()} ${surname.toUpperCase()}`}
-                        </Typography>
-                        {title.map((title) => <Typography key={title} variant="subtitle1" component="p" >{title}</Typography>)}
-                    </Grid>
-                    <Grid item sx={{ width: '100%' }}>
-                        <Stack
-                            direction="row"
-                            justifyContent="space-between"
-                            alignItems="flex-end"
-                        >
-                            {job.map((job) => <Typography key={job} variant="body1" component="p" >{job}</Typography>)}
-                            <Mail email={email} />
 
-                        </Stack>
-                    </Grid>
+            />
+
+            <Grid
+                container
+                direction="column"
+                justifyContent="space-between"
+                alignItems="flex-start"
+                sx={{ p: 3.25, pb: 4, height: '195px' }}
+            >
+                <Grid item>
+                    <Typography
+                        variant="h5"
+                        component="h2"
+                        sx={{ color: 'dima' }}
+                    >
+                        {`${name.toUpperCase()} ${surname.toUpperCase()}`}
+                    </Typography>
+                    {title.map((title) => <Typography key={title} variant="body2" component="p" sx={{ pt: '2px' }} >{title}</Typography>)}
                 </Grid>
-            </CardContent>
-        </Card>
+                <Grid item sx={{ width: '100%' }}>
+                    <Stack
+                        direction="row"
+                        justifyContent="space-between"
+                        alignItems="flex-end"
+                    >
+                        {job.map((job) => <Typography key={job} variant="body2" component="p" >{job}</Typography>)}
+                        <Mail email={email} />
+
+                    </Stack>
+                </Grid>
+            </Grid>
+
+        </Card >
 
 
     )

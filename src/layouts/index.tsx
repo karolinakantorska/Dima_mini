@@ -11,7 +11,7 @@ import { styled } from '@mui/material/styles';
 
 type Props = {
   children: ReactNode;
-  variant?: 'main' | 'dashboard';
+  variant?: 'main' | 'animatedExit' | 'animatedEnter';
 };
 const ContainerStyle = styled(Container)(({ theme }) => ({
   paddingTop: HEADER.MIDDLE_HEIGHT,
@@ -22,7 +22,7 @@ const ContainerStyle = styled(Container)(({ theme }) => ({
     paddingTop: HEADER.MOBILE_HEIGHT,
   },
 }));
-export default function Layout({ variant = 'dashboard', children }: Props) {
+export default function Layout({ variant = 'main', children }: Props) {
 
   return (
     <Container >
@@ -36,8 +36,4 @@ export default function Layout({ variant = 'dashboard', children }: Props) {
     </Container>
   )
 }
-/*
-<AuthGuard>
-      <DashboardLayout> {children} </DashboardLayout>
-    </AuthGuard>
-    */
+

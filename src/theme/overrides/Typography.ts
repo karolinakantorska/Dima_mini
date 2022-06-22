@@ -21,6 +21,3 @@ export default function Typography(theme: Theme) {
     }
   };
 }
- /*
- '&[font-size=small]'
- */

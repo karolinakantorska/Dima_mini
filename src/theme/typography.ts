@@ -1,5 +1,5 @@
 import { pxToRem, responsiveFontSizes } from '../utils/getFontValue';
-import BG_Regular_woff2 from './../../public/fonts/univers_bq_regular.woff2';
+import BG_Regular_woff2 from '/public/fonts/univers_bq_regular.woff2';
 
 // ----------------------------------------------------------------------
 const FONT_PRIMARY = ' Univers BQ Regular,Open Sans, Roboto, Arial, sans-serif'; // Google Font
@@ -38,33 +38,33 @@ const typography = {
   },
   h2: {
     fontWeight: 400,
-    lineHeight: 64 / 48,
-    fontSize: pxToRem(32),
-    ...responsiveFontSizes({ sm: 40, md: 44, lg: 48 }),
+    lineHeight: 52 / 44,
+    fontSize: pxToRem(38),
+    ...responsiveFontSizes({ sm: 40, md: 40, lg: 44 }),
   },
   h3: {
     fontWeight: 400,
-    lineHeight: 55 / 35,
-    fontSize: pxToRem(28),
-    ...responsiveFontSizes({ sm: 30, md: 32, lg: 35 }),
+    lineHeight: 54 / 37,
+    fontSize: pxToRem(30),
+    ...responsiveFontSizes({ sm: 33, md: 33, lg: 37 }),
   },
   h4: {
     fontWeight: 400,
-    lineHeight: 52 / 44,
-    fontSize: pxToRem(38),
-    ...responsiveFontSizes({ sm: 40, md: 42, lg: 44 }),
+    lineHeight: 52 / 35,
+    fontSize: pxToRem(31),
+    ...responsiveFontSizes({ sm: 33, md: 33, lg: 35 }),
   },
   h5: {
     fontWeight: 400,
-    lineHeight: 40 / 37,
-    fontSize: pxToRem(28),
-    ...responsiveFontSizes({ sm: 30, md: 33, lg: 37 }),
+    lineHeight: 32 / 27,
+    fontSize: pxToRem(20),
+    ...responsiveFontSizes({ sm: 22, md: 22, lg: 27 }),
   },
   h6: {
     fontWeight: 400,
-    lineHeight: 23 / 20,
-    fontSize: pxToRem(18),
-    ...responsiveFontSizes({ sm: 18, md: 18, lg: 20 }),
+    lineHeight: 30 / 25,
+    fontSize: pxToRem(20),
+    ...responsiveFontSizes({ sm: 22, md: 22, lg: 25 }),
   },
   subtitle1: {
     fontWeight: 400,
@@ -78,9 +78,10 @@ const typography = {
   },
   body1: {
     fontWeight: 400,
-    lineHeight: 30 / 25,
+    
+    lineHeight: 28 / 24,
     fontSize: pxToRem(20),
-    ...responsiveFontSizes({ sm: 22, md: 22, lg: 25 }),
+    ...responsiveFontSizes({ sm: 22, md: 22, lg: 24 }),
   },
   body2: {
     fontWeight: 400,

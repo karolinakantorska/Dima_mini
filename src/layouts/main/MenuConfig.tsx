@@ -6,11 +6,25 @@ import { PATH_DIMA, PATH_JOBS, PATH_KONTAKT, PATH_NEWS, PATH_PROJEKTE, PATH_WEBC
 
 // ----------------------------------------------------------------------
 
+export const menuConfigAuth = [
+  {
+    title: 'Anmelden',
+    path: PATH_PROJEKTE.addProject,
+  },
+  {
+    title: 'Abmelden',
+    path: PATH_DIMA.neueMitarbeiter
+  },
+];
 
 export const menuConfigAdmin = [
   {
-    title: '+ Projekt',
+    title: 'Neues Projekt',
     path: PATH_PROJEKTE.addProject,
+  },
+  {
+    title: 'Neue Mitarbeiter',
+    path: PATH_DIMA.neueMitarbeiter
   },
 ];
 

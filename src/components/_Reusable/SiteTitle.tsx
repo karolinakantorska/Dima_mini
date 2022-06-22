@@ -1,15 +1,18 @@
 import { Stack, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-
+import useResponsive from '../../hooks/useResponsive';
 interface LayoutHeader { text: { title: string, untertitle: string, description: string } };
 
 export const SiteTitle = ({ text }: LayoutHeader) => {
-
+    const isDesktop = useResponsive('up', 'lm');
+    const isMiddle = useResponsive('up', 'md');
+    const isSmall = useResponsive('down', 'sm');
     const { title, untertitle, description } = text;
+    const gtc = isSmall ? '1fr' : '56fr 43fr'
     return (
         <Box
             display="grid"
-            gridTemplateColumns='56fr 43fr'
+            gridTemplateColumns={gtc}
         >
             <Box>
                 <Typography variant="h5" component="h2" sx={{ color: 'text.primary' }}>

@@ -3,7 +3,7 @@ import { dimaContact } from "src/utils/dima";
 import { pxToRem } from 'src/utils/getFontValue';
 // ----------------------------------------------------------------------
 const textProps = {
-    fontSize: pxToRem(20),
+    pt: .87,
 
 }
 const Adress = ({ text }: any) => {

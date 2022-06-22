@@ -26,6 +26,9 @@ import { NavSectionVertical } from '../../components/nav-section';
 import MenuIcon from '@mui/icons-material/Menu';
 //
 import { MenuProps, MenuItemProps } from './type';
+import useAuth from 'src/utils/firebaseAuth/useAuth';
+import { PATH_DIMA } from 'src/routes/paths';
+import { PATH_LOGIN } from '../../routes/paths';
 
 // ----------------------------------------------------------------------
 
@@ -64,6 +67,7 @@ export default function MenuMobile({ navConfig }: MenuProps) {
   const [open, setOpen] = useState(true);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  const { logout, isAuthenticated } = useAuth();
   useEffect(() => {
     if (drawerOpen) {
       handleDrawerClose();
@@ -106,6 +110,17 @@ export default function MenuMobile({ navConfig }: MenuProps) {
               <MenuMobileItem key={link.title} item={link} isOpen={open} onOpen={handleOpen} />
             ))}
           </List>
+          {!isAuthenticated &&
+            <MenuMobileItem
+              item={{ title: 'Anmelden', path: PATH_LOGIN.login }}
+              isOpen={open}
+              onOpen={handleOpen}
+            />
+          }
+          {isAuthenticated &&
+            <ListItemStyle onClick={() => logout()} dense>
+              <ListItemText disableTypography primary={'Ausnmelden'} />
+            </ListItemStyle>}
         </Scrollbar>
       </Drawer>
     </>

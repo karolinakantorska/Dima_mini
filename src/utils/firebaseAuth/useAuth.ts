@@ -3,10 +3,6 @@ import { AuthContext } from 'src/contexts/FirebaseContext';
 //
 
 
-
-
-// ----------------------------------------------------------------------
-
 const useAuth = () => {
   const context = useContext(AuthContext);
 

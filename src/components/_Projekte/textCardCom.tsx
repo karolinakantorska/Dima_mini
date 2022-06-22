@@ -14,6 +14,7 @@ import { IconButton, Container, Grid, CardActions, CardContent, CardActionArea, 
 import { deleteProjectFromFirestore } from 'src/utils/apis/deleteFromFirestore';
 import { useRouter } from 'next/router';
 import { PATH_PROJEKTE } from '../../routes/paths';
+import useAuth from 'src/utils/firebaseAuth/useAuth';
 
 
 export function TextCardCom({ project, big, rewerseBig, }: {
@@ -27,6 +28,8 @@ export function TextCardCom({ project, big, rewerseBig, }: {
   const { title, location, id } = project;
   const isDesktop = useResponsive('up', 'lm');
   const isMiddle = useResponsive('down', 'md');
+  const { isAuthenticated } = useAuth();
+  console.log('isAuthenticated: ', isAuthenticated)
   const cardPadding = {
     pl: isMiddle ? 2 : 3,
     pr: isMiddle ? 2 : 3,
@@ -87,9 +90,9 @@ export function TextCardCom({ project, big, rewerseBig, }: {
           {firstLettersBig(location)}
         </Typography>
       </CardContent>
-      <CardActions sx={{ p: 0 }}>
+      {isAuthenticated && <CardActions sx={{ p: 0 }}>
         <Icons />
-      </CardActions>
+      </CardActions>}
     </Grid>
   )
 

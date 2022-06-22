@@ -34,6 +34,9 @@ export function ProjektCardCom({
   //console.log('photoAuthor', photoAuthor)
   const isDesktop = useResponsive('up', 'lm');
   const isSmall = useResponsive('down', 'sm');
+
+
+
   const gridAutoRows = isSmall ? '' : '1fr';
 
   const propsPhotoAuthor = {
