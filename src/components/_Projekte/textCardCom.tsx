@@ -16,9 +16,9 @@ import { useRouter } from 'next/router';
 import { PATH_PROJEKTE } from '../../routes/paths';
 
 
-export function TextCardCom({ project, big, rewerseBig, authorPhoto }: {
+export function TextCardCom({ project, big, rewerseBig, }: {
   project: ProjectType, big: boolean, rewerseBig: boolean
-  , authorPhoto: string
+  ,
 }) {
 
   const { push } = useRouter();
@@ -27,18 +27,15 @@ export function TextCardCom({ project, big, rewerseBig, authorPhoto }: {
   const { title, location, id } = project;
   const isDesktop = useResponsive('up', 'lm');
   const cardProps = {
-    p: isDesktop ? 4 : 1.2,
+    p: isDesktop ? 3 : 1.2,
+    pt: isDesktop ? 4.6 : 1.2,
   }
   const cardPropsBig = {
     gridColumn: rewerseBig ? '1 / span 2' : '4 / span 2',
     gridRow: 'span 2',
     backgroundColor: 'background.default'
   }
-  const PhotoAuthorTypography = styled(Typography)(({ theme }) => ({
-    position: 'relative',
-    right: isDesktop ? '30px' : '0px',
-    top: isDesktop ? '-30px' : '-5px'
-  }));
+
   function handleOpen() {
     setOpen(true);
   }
@@ -77,13 +74,10 @@ export function TextCardCom({ project, big, rewerseBig, authorPhoto }: {
       sx={big ? { backgroundColor: 'background.paper', p: 4, minHeight: '300px' } : { height: '100%' }}
     >
       <CardContent sx={{ p: 0 }}>
-        {authorPhoto && <PhotoAuthorTypography variant="caption" display="p">{authorPhoto} </PhotoAuthorTypography>}
-        <Typography variant="h6" component="h2" sx={{
-          mt: 2, mb: 0.5,
-        }}>
+        <Typography variant="h6" component="h2" sx={{ color: 'text.secondary' }} >
           {title.toUpperCase()}
         </Typography>
-        <Typography variant="body2" component="h6" sx={{ mb: 2, color: 'text.secondary', }}>
+        <Typography variant="body1" component="h6" sx={{ mb: 2, color: 'text.secondary' }}>
           {firstLettersBig(location)}
         </Typography>
       </CardContent>
@@ -110,7 +104,6 @@ export function TextCardCom({ project, big, rewerseBig, authorPhoto }: {
           {big &&
             <Card sx={big ? { ...cardPropsBig } : { ...cardProps }} >
               <Box
-                className='outside'
                 sx={{
                   display: 'grid',
                   gridTemplateColumns: rewerseBig ? '1fr 12px' : '12px 1fr',

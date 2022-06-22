@@ -1,18 +1,22 @@
 //import { useState, ReactNode, useEffect } from 'react';
 //import { m, useAnimation } from 'framer-motion';
 // @mui
-import { Box, Grid, Table, TableBody, TableRow, TableCell, Typography, } from '@mui/material';
+import { Box, Grid, Table, TableBody, TableRow, TableCell, Typography, Stack, } from '@mui/material';
 // React Parser
 import parse from 'html-react-parser';
 // _mock_
-
+import useResponsive from '../../hooks/useResponsive';
 import { ProjectType } from '../../utils/TS/interface';
 import { firstLettersBig, writeObiektTypeInGerman, writeServiceInGerman } from '../../utils/Text/textUtils';
 import CarouselBasic3 from '../carousel/CarouselBasic3';
-import Logo from '../Logo';
 
 
 export function OneProjectCom({ project }: { project: ProjectType }) {
+  const isDesktop = useResponsive('up', 'lm');
+  const isSmall = useResponsive('down', 'sm');
+  const isMobile = useResponsive('down', 'mobile');
+
+
   const row2 = () => {
     const arr = [
       { name: 'realisation', data: project.generalConstr },
@@ -26,62 +30,111 @@ export function OneProjectCom({ project }: { project: ProjectType }) {
     }
     return arr
   }
+  const TableRowMobile = ({ row }: any) => (
+    <TableRow
+      key={row.name}
+      sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+    >
+      <TableCell component="td" sx={{ pr: 0, pt: 5, pb: 5, width: '100%' }}>
+        <Typography sx={{ pl: 1, }} variant="caption" component="p" color="dima" >
+          {row.name.toUpperCase()}
+        </Typography>
+        <Typography sx={{ pl: 1, pt: 2, }} variant="caption" component="p" color="text.primary">
+          {row.data}
+        </Typography>
+      </TableCell>
+    </TableRow>
+  )
+  const TableRowDesktop = ({ row }: any) => (
+    <TableRow
+      key={row.name}
+      sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+    >
+      <TableCell component="td" sx={{ pr: 0, pt: 5, pb: 5, }}>
+        <Typography sx={{ pl: 1, }} variant="caption" component="p" color="dima" >
+          {row.name.toUpperCase()}
+        </Typography>
+      </TableCell>
+      <TableCell align="left" >
+        <Typography variant="caption" component="p" color="text.primary">
+          {row.data}
+        </Typography>
+      </TableCell>
+    </TableRow>
+  )
+
   if (project) {
     const photosCarusel = [project.photo, ...project.photos]
     return (
       <>
-
-        <Logo sx={{ mt: -13 }} />
-        <Box >
+        <Stack spacing={isDesktop ? 20 : isSmall ? 5 : 8}>
           <CarouselBasic3 photos={photosCarusel} />
-        </Box>
-        <Grid
-          container
-          direction="row"
-          justifyContent="space-around"
-        >
-          <Grid item sx={{ pr: 12, maxWidth: 800, mt: 9 }} >
-            <Table >
-              <TableBody>
-                {row2().map((row) => (
-                  <TableRow
-                    key={row.name}
-                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                  >
-                    <TableCell component="td" sx={{ pr: 17, pt: 3.5, pb: 2.5 }} >
-                      <Typography variant="body1" component="p" color="dima">
-                        {row.name.toUpperCase()}
-                      </Typography>
-                    </TableCell>
-                    <TableCell align="left" >
-                      <Typography variant="body1" component="p" color="text.primary">
-                        {row.data}
-                      </Typography>
-                    </TableCell>
-                  </TableRow>
-                ))}
-
-              </TableBody>
-            </Table>
-          </Grid>
-          <Grid item sx={{ pl: 0, pt: 3.5, maxWidth: 800, mt: 9 }}            >
-            <Typography variant="h5" component="h2" paragraph color="dima">
-              {firstLettersBig(project.title)}
-              <Typography variant="caption" component="p" paragraph color="text.secondary">
-                {project.objektType.map((type, i) =>
-                  `${writeObiektTypeInGerman(type)}${(i + 1 === project.objektType.length)
-                    ? ', '
-                    : ' und '}`)}
-                {project.objektAlter}, {project.size}&#13217;
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: isDesktop ? '1fr 1fr' : '1fr ',
+              columnGap: '53px',
+            }}
+          >
+            <Box sx={isSmall ? { pl: 0 } : { pl: 5 }}>
+              <Table >
+                <TableBody>
+                  {isMobile && row2().map((row) => (<TableRowMobile key={row.name} row={row} />))}
+                  {!isMobile && row2().map((row) => (<TableRowDesktop key={row.name} row={row} />))}
+                </TableBody>
+              </Table>
+            </Box>
+            <Box sx={isSmall ? { pl: 0, pt: 0, } : { pl: 5, pt: 5, }}>
+              <Typography variant="h4" component="h2" paragraph color="dima">
+                {firstLettersBig(project.title)}
               </Typography>
-            </Typography>
-            <Typography variant="body1" component="p" paragraph color="text.primary">
-              {parse(project.description)}
-            </Typography>
-          </Grid>
-        </Grid>
+
+              <Typography variant="body1" component="div" paragraph color="text.primary">
+                {parse(project.description)}
+              </Typography>
+            </Box>
+
+          </Box>
+        </Stack>
+
+
+
+
+
+
+
+
       </>
     )
 
   } else { return <p>whats up?</p> }
 }
+/*<Stack direction="row">
+      <TableCell component="td" sx={{ pr: 0, pt: 5, pb: 5, }}>
+        <Typography sx={{ pl: 1, }} variant="caption" component="p" color="dima" >
+          {row.name.toUpperCase()}
+        </Typography>
+      </TableCell>
+
+      <TableCell align="left" sx={{ pr: 0, pt: 5, pb: 5, }}>
+        <Typography variant="caption" component="p" color="text.primary">
+          {row.data}
+        </Typography>
+      </TableCell>
+  </Stack>*/
+
+/* <TableRow
+        key={row.name}
+        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+      >
+        <TableCell component="td" sx={{ pr: 0, pt: 5, pb: 5, }}>
+          <Typography sx={{ pl: 1, }} variant="caption" component="p" color="dima" >
+            {row.name.toUpperCase()}
+          </Typography>
+        </TableCell>
+        <TableCell align="left" >
+          <Typography variant="caption" component="p" color="text.primary">
+            {row.data}
+          </Typography>
+        </TableCell>
+    </TableRow>*/

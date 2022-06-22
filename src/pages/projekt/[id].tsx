@@ -21,9 +21,9 @@ export default function Referenz({ data }: any) {
   return (
     <AnimatedIntroLayout>
       <Page title={`Dima & Partner`}>
-        <RootStyle>
-          <OneProjectCom project={data} />
-        </RootStyle>
+
+        <OneProjectCom project={data} />
+
       </Page>
     </AnimatedIntroLayout>
   );

@@ -9,13 +9,13 @@ export const SiteTitle = ({ text }: LayoutHeader) => {
     return (
         <Box
             display="grid"
-            gridTemplateColumns='1fr 1fr'
+            gridTemplateColumns='56fr 43fr'
         >
             <Box>
-                <Typography variant="h6" component="h2" sx={{ color: 'text.primary' }}>
+                <Typography variant="h5" component="h2" sx={{ color: 'text.primary' }}>
                     {title.toUpperCase()}
                 </Typography>
-                <Typography variant="body1" component="h2" sx={{ color: 'dima' }}>
+                <Typography variant="h3" component="h2" sx={{ color: 'dima' }}>
                     {untertitle}
                 </Typography>
             </Box>
@@ -24,7 +24,7 @@ export const SiteTitle = ({ text }: LayoutHeader) => {
                 columnGap="12px"
             >
                 <Box sx={{ backgroundColor: 'dima' }} />
-                <Typography variant="body2" component="h2" align='justify' sx={{ color: 'text.primary' }} >
+                <Typography variant="body1" component="h2" align='justify' sx={{ color: 'text.primary' }} >
                     {description}
                 </Typography>
             </Box>

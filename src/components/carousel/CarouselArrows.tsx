@@ -43,9 +43,10 @@ export default function CarouselArrows({
     height: '100%',
     width: '100%',
     padding: 0,
-    color: 'text.opacity',
+    color: 'text.disabled',
     '&:hover': {
-      backgroundColor: 'background.opacity',
+      //backgroundColor: 'background.opacity',
+      backgroundColor: 'transparent',
       color: 'text.white',
     },
   }

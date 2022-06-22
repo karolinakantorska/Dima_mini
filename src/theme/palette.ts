@@ -27,6 +27,7 @@ interface ChartPaletteOptions {
 declare module '@mui/material/styles/createPalette' {
   interface TypeBackground {
     neutral: string;
+    opacity: string;
   }
   interface SimplePaletteColorOptions {
     lighter: string;
@@ -40,6 +41,7 @@ declare module '@mui/material/styles/createPalette' {
     gradients: GradientsPaletteOptions;
     chart: ChartPaletteOptions;
     dima:PaletteColor
+    dimaGrey:PaletteColor
   }
   interface PaletteOptions {
     gradients: GradientsPaletteOptions;
@@ -107,11 +109,11 @@ const ERROR = {
 
 const GREY = {
   0: '#fffaf2',
-  0o6: alpha('#fff', 0.56),
+  0o6: alpha('#fff', 0.32),
   0o7: alpha('#fff', 0.08),
   100: '#fdf5ed',
   200: '#f8f0e8',
-  300: '#eee5dd',
+  300: '#eee5dd',//'#eee5dd''#DADADA'
   400: '#cbc3bb',
   500: '#ada59d',// shadows from this color
   600: '#837b74',
@@ -183,14 +185,14 @@ const palette = {
     text: { 
       white:'#fff' ,
       primary: GREY[0], 
-      secondary: GREY[500], 
+      secondary: GREY[300], 
       disabled: GREY[600],
       opacity:GREY[0o6]
     },
-    background: { paper: GREY[800], default: GREY[900],between: GREY[850],neutral: GREY[500_16], opacity: GREY[0o7],},
+    background: { paper: GREY[800], default: GREY[900],between: GREY[850],neutral: GREY[500_16], opacity: GREY[0o6],},
     action: { active: GREY[500], ...COMMON.action },
     dima:PRIMARY.main ,
-
+    dimaGrey:GREY[700] ,
     
   },//
 } as const;

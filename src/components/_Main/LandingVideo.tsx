@@ -5,11 +5,10 @@ export default function LandingVideo() {
     return (
         <video
             style={{
-                objectFit: 'cover',
                 width: "100vw",
-                //height: "100vh"
-                maxHeight: "100vh",
-                minHeight: "40vh",
+                height: "100vh",
+                objectFit: "cover",
+
             }}
             controls={false}
             autoPlay
@@ -21,10 +20,5 @@ export default function LandingVideo() {
             <source src={'/video/DIMA_IntroMovie.mp4'} type="video/mp4" />
             Your browser does not support the video tag.
         </video>
-
     )
 }
-
-/*
-
-        */

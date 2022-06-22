@@ -3,37 +3,31 @@ import { dimaContact } from "src/utils/dima";
 import { pxToRem } from 'src/utils/getFontValue';
 // ----------------------------------------------------------------------
 const textProps = {
-    fontSize: pxToRem(13),
+    fontSize: pxToRem(20),
+
 }
 const Adress = ({ text }: any) => {
     const { town, phone } = text;
     return (
         <Grid
-            container direction='row' justifyContent="space-between">
+            container direction='row'
+            justifyContent="space-between"
 
+        >
             <Typography
                 variant="body2"
                 component="span"
+                color=" text.secondary"
                 sx={{ ...textProps }}
             >
-                {town}
+                {`${town} ${phone}`}
             </Typography>
-
-
-            <Typography
-                variant="body2"
-                component="span"
-                sx={{ ...textProps }}
-            >
-                {phone}
-            </Typography>
-
         </Grid>)
 }
 export default function PhoneNrCom() {
 
     return (
-        <Stack sx={{ maxWidth: '200px' }}  >
+        <Stack spacing={1} sx={{ maxWidth: '280px' }}  >
             <Adress text={dimaContact.glarus} />
             <Adress text={dimaContact.zurich} />
         </Stack>

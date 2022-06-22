@@ -5,7 +5,9 @@ import { useState, ReactNode, useEffect } from 'react';
 import { Box, Container, Stack } from '@mui/material';
 
 //
-import MainHeader from './MainHeader';
+import { HEADER } from '../../config';
+import MainHeader from '../main/MainHeader';
+import { styled } from '@mui/material/styles';
 
 
 // ----------------------------------------------------------------------
@@ -20,7 +22,9 @@ export default function MainLayout({ children }: Props) {
       <Container >
         <Stack sx={{ minHeight: 1 }}>
           <MainHeader />
+
           {children}
+
           <Box sx={{ flexGrow: 1 }} />
         </Stack>
       </Container>

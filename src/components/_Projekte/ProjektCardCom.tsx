@@ -14,6 +14,9 @@ import { ProjectType } from 'src/utils/TS/interface';
 import { TextCardCom } from './textCardCom';
 import { CardActionArea } from '@mui/material';
 import { PATH_PROJEKTE } from 'src/routes/paths';
+import Typography from '@mui/material/Typography';
+import { styled } from '@mui/material/styles';
+
 
 export function ProjektCardCom({
   project,
@@ -32,6 +35,11 @@ export function ProjektCardCom({
   const isDesktop = useResponsive('up', 'lm');
   const isSmall = useResponsive('down', 'sm');
   const gridAutoRows = isSmall ? '' : '1fr';
+
+  const PhotoAuthorTypography = styled(Typography)(({ theme }) => ({
+    position: 'absolute',
+    bottom: 0
+  }));
 
   const gridColumn = () => (rewerseBig ? '3/span 3' : '1/span 3');
   const boxSmallProps = {
@@ -74,10 +82,11 @@ export function ProjektCardCom({
           <Link href={`${PATH_PROJEKTE.projekt}/${id}`}  >
             <CardActionArea >
               <Image src={photo.url} alt={photo.alt} ratio="16/9" />
+              {photoAuthor && <PhotoAuthorTypography variant="caption" display="span">{photoAuthor} </PhotoAuthorTypography>}
             </CardActionArea>
           </Link>
         </Card>
-        <TextCardCom project={project} big={big} rewerseBig={rewerseBig} authorPhoto={photoAuthor ? photoAuthor : ''} />
+        <TextCardCom project={project} big={big} rewerseBig={rewerseBig} />
       </Box>
 
     )
@@ -99,10 +108,13 @@ export function ProjektCardCom({
               ...cardBigProps
             } : { ...cardSmallProps }}
           >
-            <CardActionArea ><Image src={photo.url} alt={photo.alt} ratio="16/9" /></CardActionArea>
+            <CardActionArea >
+              <Image src={photo.url} alt={photo.alt} ratio="16/9" />
+              {photoAuthor && <PhotoAuthorTypography variant="caption" display="span">{photoAuthor} </PhotoAuthorTypography>}
+            </CardActionArea>
           </Card>
         </Link>
-        <TextCardCom project={project} big={big} rewerseBig={rewerseBig} authorPhoto={photoAuthor ? photoAuthor : ''} />
+        <TextCardCom project={project} big={big} rewerseBig={rewerseBig} />
       </Box>
     )
   );

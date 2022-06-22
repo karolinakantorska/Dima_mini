@@ -6,29 +6,27 @@ import { Box, AppBar, Toolbar, Container, Stack, Typography, Grid } from '@mui/m
 // hooks
 import useOffSetTop from '../../hooks/useOffSetTop';
 import useResponsive from '../../hooks/useResponsive';
-// utils
-import cssStyles from '../../utils/cssStyles';
+
 // config
 import { HEADER } from '../../config';
 // components
 
-//
 import MenuMobile from './MenuMobile';
-import { menuConfigSecond } from './MenuConfig';
+import { menuConfigSecond, menuConfigAdmin } from './MenuConfig';
 import PhoneNrCom from './PhoneNrCom';
-import Logo from 'src/components/Logo';
+
+import DimaLogoCom from 'src/components/DimaLogoCom';
 
 
 // ----------------------------------------------------------------------
 
 const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
-  height: HEADER.MOBILE_HEIGHT,
-  transition: theme.transitions.create(['height', 'background-color'], {
-    easing: theme.transitions.easing.easeInOut,
-    duration: theme.transitions.duration.shorter,
-  }),
-  [theme.breakpoints.up('md')]: {
+  height: HEADER.MIDDLE_HEIGHT,
+  [theme.breakpoints.up('lm')]: {
     height: HEADER.MAIN_DESKTOP_HEIGHT,
+  },
+  [theme.breakpoints.down('sm')]: {
+    height: HEADER.MOBILE_HEIGHT,
   },
 }));
 
@@ -52,27 +50,28 @@ export default function MainHeader({ logo = true }: { logo?: boolean }) {
   const isOffset = useOffSetTop(HEADER.MAIN_DESKTOP_HEIGHT);
   const theme = useTheme();
   const { pathname } = useRouter();
-
-
   const isHome = pathname === '/';
   const isDesktop = useResponsive('up', 'lm');
   const isSmall = useResponsive('down', 'sm');
   const gtc = isDesktop ? 'repeat(3, 1fr)' : isSmall ? '1fr' : 'repeat(2, 1fr)';
-
   const gc = isDesktop ? '3/4' : '2/3';
 
   return (
-    <AppBar sx={{ boxShadow: 0, bgcolor: 'transparent' }}>
+    <AppBar sx={{
+      boxShadow: 0,
+      bgcolor: isHome ? 'transparent' : 'background.default'
+    }}>
       <ToolbarStyle
-        disableGutters
+        //disableGutters
         sx={{
           ...(isOffset && {
-            ...cssStyles(theme).bgBlur(),
+            //...cssStyles(theme).bgBlur(),
             height: { md: HEADER.MAIN_DESKTOP_HEIGHT - 16 },
           }),
         }}
       >
         <Container
+          className='Hallo'
           sx={{
             alignItems: 'center',
             display: "grid",
@@ -82,17 +81,24 @@ export default function MainHeader({ logo = true }: { logo?: boolean }) {
             rowGap: "20px",
           }}
         >
-          {logo && <Logo />}
+
+          {logo &&
+            <DimaLogoCom
+              x={isDesktop ? 263 : isSmall ? 211 : 237}
+              y={isDesktop ? 64 : isSmall ? 52 : 58}
+            />}
           <Box sx={{
             grid: 'item',
             display: "grid",
             gridColumn: gc,
             gridAutoFlow: 'column',
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
+            alignItems: 'center',
           }}>
 
             {!isSmall && <PhoneNrCom />}
-            <MenuMobile isOffset={isOffset} isHome={isHome} navConfig={[...menuConfigSecond]} />
+
+            <MenuMobile navConfig={[...menuConfigSecond, ...menuConfigAdmin]} />
           </Box>
         </Container>
       </ToolbarStyle>

@@ -23,6 +23,7 @@ import Iconify from '../../components/Iconify';
 import Scrollbar from '../../components/Scrollbar';
 import { IconButtonAnimate } from '../../components/animate';
 import { NavSectionVertical } from '../../components/nav-section';
+import MenuIcon from '@mui/icons-material/Menu';
 //
 import { MenuProps, MenuItemProps } from './type';
 
@@ -34,9 +35,20 @@ interface ListItemStyleProps extends StyleProps {
   component?: ReactNode;
 }
 
+const IconStyle = styled(MenuIcon)(({ theme }) => ({
+  fontSize: 35,
+  pr: 0,
+
+  [theme.breakpoints.up('lm')]: {
+    fontSize: 44,
+  },
+  [theme.breakpoints.down('sm')]: {
+    fontSize: 25,
+  },
+}));
+
 const ListItemStyle = styled(ListItemButton)<ListItemStyleProps>(({ theme }) => ({
   ...theme.typography.body2,
-
   marginTop: 0,
   height: NAVBAR.DASHBOARD_ITEM_ROOT_HEIGHT,
   textTransform: 'capitalize',
@@ -45,7 +57,7 @@ const ListItemStyle = styled(ListItemButton)<ListItemStyleProps>(({ theme }) => 
 
 // ----------------------------------------------------------------------
 
-export default function MenuMobile({ isOffset, isHome, navConfig }: MenuProps) {
+export default function MenuMobile({ navConfig }: MenuProps) {
   const { pathname } = useRouter();
   const [open, setOpen] = useState(true);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -71,17 +83,9 @@ export default function MenuMobile({ isOffset, isHome, navConfig }: MenuProps) {
 
   return (
     <>
-      <IconButtonAnimate
+      <IconStyle
         onClick={handleDrawerOpen}
-        sx={{
-          ml: 1,
-          pr: 0,
-          ...(isHome && { color: 'common.white' }),
-          ...(isOffset && { color: 'text.primary' }),
-        }}
-      >
-        <Iconify icon={'eva:menu-2-fill'} />
-      </IconButtonAnimate>
+      />
 
       <Drawer
         open={drawerOpen}

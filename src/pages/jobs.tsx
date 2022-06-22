@@ -11,9 +11,7 @@ export default function Jobs() {
   return (
     <Layout>
       <Page title="Jobs | Dima & Partner">
-        <RootStyle>
-          <JobsListCom />
-        </RootStyle>
+        <JobsListCom />
       </Page>
     </Layout>
   );

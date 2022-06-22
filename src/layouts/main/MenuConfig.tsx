@@ -6,14 +6,14 @@ import { PATH_DIMA, PATH_JOBS, PATH_KONTAKT, PATH_NEWS, PATH_PROJEKTE, PATH_WEBC
 
 // ----------------------------------------------------------------------
 
-/*
-export const menuConfigMain = [
+
+export const menuConfigAdmin = [
   {
-    title: 'Projekte',
-    path: PATH_PROJEKTE.projekte,
+    title: '+ Projekt',
+    path: PATH_PROJEKTE.addProject,
   },
 ];
-*/
+
 export const menuConfigSecond = [
   {
     title: 'Dima',
@@ -22,14 +22,16 @@ export const menuConfigSecond = [
       {
         subheader: '',
         items: [
-          {
-            title: 'Unternehmung',
-            path: PATH_DIMA.unternehmung
-          },
-          {
-            title: 'Philosophie',
-            path: PATH_DIMA.philosophie
-          },
+          /*
+                    {
+                      title: 'Unternehmung',
+                      path: PATH_DIMA.unternehmung
+                    },
+                    {
+                      title: 'Philosophie',
+                      path: PATH_DIMA.philosophie
+                    },
+                    */
           {
             title: 'Teams',
             path: PATH_DIMA.teams
@@ -42,21 +44,25 @@ export const menuConfigSecond = [
     title: 'Projekte',
     path: PATH_PROJEKTE.projekte,
   },
-  {
-    title: 'News',
-    path: PATH_NEWS.news,
-  },
-  {
-    title: 'Jobs',
-    path: PATH_JOBS.jobs,
-  },
+  /*
+    {
+      title: 'News',
+      path: PATH_NEWS.news,
+    },
+  
+    {
+      title: 'Jobs',
+      path: PATH_JOBS.jobs,
+    },
+    */
   {
     title: 'Kontakt',
     path: PATH_KONTAKT.kontakt,
   },
+  /*
   {
     title: 'Webcams',
     path: PATH_WEBCAMS.webcams,
   },
-
+*/
 ];

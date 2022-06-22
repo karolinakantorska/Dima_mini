@@ -26,7 +26,7 @@ export default function Accordion(theme: Theme) {
           '&.Mui-disabled': {
             opacity: 1,
             color: theme.palette.action.disabled,
-            '& .MuiTypography-root': {
+            '&.MuiTypography-root': {
               color: 'inherit'
             }
           }

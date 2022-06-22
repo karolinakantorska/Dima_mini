@@ -8,7 +8,7 @@ export default function Typography(theme: Theme) {
       styleOverrides: {
         root: {
           'a':{color: theme.palette.info.light,},
-          'ul':{paddingLeft:theme.spacing(2) }
+          'ul':{paddingLeft:theme.spacing(4) }
         },
         
         paragraph: {

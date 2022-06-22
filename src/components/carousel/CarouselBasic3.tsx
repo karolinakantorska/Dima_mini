@@ -27,7 +27,7 @@ const RootStyle = styled(Box)(({ theme }) => ({
 export default function CarouselBasic3({ photos }: { photos: ImagesType }) {
   const carouselRef = useRef<Slider | null>(null);
   const settings = {
-    dots: false,
+    dots: true,
     arrows: false,
     autoplay: true,
     slidesToShow: 1,
