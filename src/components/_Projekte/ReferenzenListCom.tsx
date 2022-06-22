@@ -59,7 +59,7 @@ export function ReferenzenListCom(
                     />
                   );
                 }
-                else return (<></>)
+                else return (<p>Hallo</p>)
               })}
             </Box>
           </Grid>
