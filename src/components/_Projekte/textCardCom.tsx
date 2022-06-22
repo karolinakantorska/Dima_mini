@@ -26,9 +26,11 @@ export function TextCardCom({ project, big, rewerseBig, }: {
   const [error, setError] = useState<null | { code: string, message: string }>(null);
   const { title, location, id } = project;
   const isDesktop = useResponsive('up', 'lm');
-  const cardProps = {
-    p: isDesktop ? 3 : 1.2,
-    pt: isDesktop ? 4.6 : 1.2,
+  const isMiddle = useResponsive('down', 'md');
+  const cardPadding = {
+    pl: isMiddle ? 2 : 3,
+    pr: isMiddle ? 2 : 3,
+    pt: isMiddle ? 3 : 4.6,
   }
   const cardPropsBig = {
     gridColumn: rewerseBig ? '1 / span 2' : '4 / span 2',
@@ -68,16 +70,20 @@ export function TextCardCom({ project, big, rewerseBig, }: {
   )
   const TextBox = () => (
     <Grid
+      className="big"
       container
       direction='column'
       justifyContent="space-between"
-      sx={big ? { backgroundColor: 'background.paper', p: 4, minHeight: '300px' } : { height: '100%' }}
+      sx={big ? { backgroundColor: 'background.paper', minHeight: '300px' } : { height: '100%' }}
     >
-      <CardContent sx={{ p: 0 }}>
-        <Typography variant="h6" component="h2" sx={{ color: 'text.secondary' }} >
+      <CardContent
+        sx={{ ...cardPadding }}
+        className='HalloPadding'
+      >
+        <Typography variant="body2" component="h2" sx={{ color: 'text.secondary' }} >
           {title.toUpperCase()}
         </Typography>
-        <Typography variant="body1" component="h6" sx={{ mb: 2, color: 'text.secondary' }}>
+        <Typography variant="body2" component="h6" sx={{ mb: 2, pt: '9px', color: 'text.secondary' }}>
           {firstLettersBig(location)}
         </Typography>
       </CardContent>
@@ -91,25 +97,25 @@ export function TextCardCom({ project, big, rewerseBig, }: {
     <>
       {error && <Alert severity="error" onClose={() => { setError(null) }} >Fehler:{error.message} </Alert>}
       {!isDesktop
-        ? <Card sx={{ ...cardProps }}  >
+        ? <Card  >
           <TextBox />
         </Card>
         :
         <>
           {!big &&
-            <Card sx={{ ...cardProps }}  >
+            <Card   >
               <TextBox />
             </Card>
           }
           {big &&
-            <Card sx={big ? { ...cardPropsBig } : { ...cardProps }} >
+            <Card sx={big && { ...cardPropsBig }} >
               <Box
                 sx={{
                   display: 'grid',
                   gridTemplateColumns: rewerseBig ? '1fr 12px' : '12px 1fr',
                 }}
               >
-                <Box className='inside' sx={{
+                <Box className='between' sx={{
                   backgroundColor: 'background.default',
                   gridRow: 'span 2',
                   gridColumn: rewerseBig ? '2' : '1',

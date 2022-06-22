@@ -36,10 +36,10 @@ export function ProjektCardCom({
   const isSmall = useResponsive('down', 'sm');
   const gridAutoRows = isSmall ? '' : '1fr';
 
-  const PhotoAuthorTypography = styled(Typography)(({ theme }) => ({
+  const propsPhotoAuthor = {
     position: 'absolute',
     bottom: 0
-  }));
+  }
 
   const gridColumn = () => (rewerseBig ? '3/span 3' : '1/span 3');
   const boxSmallProps = {
@@ -82,7 +82,14 @@ export function ProjektCardCom({
           <Link href={`${PATH_PROJEKTE.projekt}/${id}`}  >
             <CardActionArea >
               <Image src={photo.url} alt={photo.alt} ratio="16/9" />
-              {photoAuthor && <PhotoAuthorTypography variant="caption" display="span">{photoAuthor} </PhotoAuthorTypography>}
+              {photoAuthor &&
+                <Typography
+                  variant="body2"
+                  display="span"
+                  sx={{ ...propsPhotoAuthor }}
+                >
+                  {photoAuthor}
+                </Typography>}
             </CardActionArea>
           </Link>
         </Card>
@@ -110,7 +117,14 @@ export function ProjektCardCom({
           >
             <CardActionArea >
               <Image src={photo.url} alt={photo.alt} ratio="16/9" />
-              {photoAuthor && <PhotoAuthorTypography variant="caption" display="span">{photoAuthor} </PhotoAuthorTypography>}
+              {photoAuthor &&
+                <Typography
+                  variant="body2"
+                  display="span"
+                  sx={{ ...propsPhotoAuthor }}
+                >
+                  {photoAuthor}
+                </Typography>}
             </CardActionArea>
           </Card>
         </Link>

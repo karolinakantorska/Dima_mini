@@ -36,6 +36,7 @@ interface ListItemStyleProps extends StyleProps {
 }
 
 const IconStyle = styled(MenuIcon)(({ theme }) => ({
+  cursor: 'pointer',
   fontSize: 35,
   pr: 0,
 
@@ -49,6 +50,7 @@ const IconStyle = styled(MenuIcon)(({ theme }) => ({
 
 const ListItemStyle = styled(ListItemButton)<ListItemStyleProps>(({ theme }) => ({
   ...theme.typography.body2,
+
   marginTop: 0,
   height: NAVBAR.DASHBOARD_ITEM_ROOT_HEIGHT,
   textTransform: 'capitalize',

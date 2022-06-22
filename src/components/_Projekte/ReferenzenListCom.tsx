@@ -24,17 +24,13 @@ export function ReferenzenListCom(
     projectsList: ProjectsListType,
 
   }) {
-  //const initialInputs = { param: "Alle" }
-  const [sorted, setSorted] = useState(false);
+
+
   const isDesktop = useResponsive('up', 'lm');
 
   const isSmall = useResponsive('down', 'sm');
   const gtc = isDesktop ? 'repeat(3, 1fr)' : isSmall ? '1fr' : 'repeat(2, 1fr)';
-  //const { query } = useRouter();
-  const { inputs, handleInputChange, } = useForm({ param: "Alle" });
-  //const filteredProjects = filter(projectsList, inputs);
 
-  const filteredProjects = projectsList;
 
   return (
     <>
@@ -42,11 +38,7 @@ export function ReferenzenListCom(
       <Grid container direction="column" justifyContent="center" spacing={2} >
 
         <Grid item>
-          {false && <FilterReferenzenCom
-            sorted={sorted}
-            inputs={inputs}
-            handleInputChange={handleInputChange}
-          />}
+
           <Box
             display="grid"
             gridTemplateColumns={gtc}
@@ -55,7 +47,7 @@ export function ReferenzenListCom(
             columnGap="12px"
             rowGap="20px"
           >
-            {filteredProjects.map((project, i) => {
+            {projectsList.map((project, i) => {
               const divideIn2 = i % 2 == 0 ? true : false;
               const divideIn4 = (i + 1) % 4 == 0 ? true : false;
               const divideIn8 = (i + 1) % 8 == 0 ? true : false;
