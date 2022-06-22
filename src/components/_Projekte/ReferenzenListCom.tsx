@@ -23,7 +23,7 @@ export function ReferenzenListCom(
   { projectsList }: {
     projectsList: ProjectsListType,
   }) {
-  let projekte: ProjectsListType = [];
+  const projekte: ProjectsListType = [];
   projectsList.map((project) => {
     if (project) {
       projekte.push(project)
