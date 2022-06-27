@@ -61,7 +61,7 @@ export function ReferenzenListCom(
             const divideIn4 = (i + 1) % 4 == 0 ? true : false;
             const divideIn8 = (i + 1) % 8 == 0 ? true : false;
             return (
-              <p>Project Card</p>
+              <p key={project.id}>Project Card</p>
             );
           })}
         </Box>
