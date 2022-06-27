@@ -1,6 +1,7 @@
 
 // @mui
 import { Box, Grid, Button, Stack, Typography } from '@mui/material';
+import React from 'react';
 import { layoutHeader } from 'src/utils/dima';
 import { jobs } from 'src/_mock/jobs/jobs';
 
@@ -35,11 +36,12 @@ export function JobsListCom() {
         sx={{ mt: 6 }}
       >
 
-        {jobs.map((job) => (
-          <>
-            <CardJobCom key={job.id} job={job} />
+        {jobs.map((job, i) => (
+          <React.Fragment key={job.id}>
+            <CardJobCom job={job} />
             <CardEmptyJobCom />
-          </>
+          </React.Fragment>
+
         ))}
         <CardEmptyJobCom />
         <CardEmptyJobCom />

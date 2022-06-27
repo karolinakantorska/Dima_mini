@@ -2,9 +2,9 @@ import * as React from 'react';
 // next
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 // emotion
-import { CacheProvider } from '@emotion/react';
-import createCache from '@emotion/cache';
-import createEmotionServer from '@emotion/server/create-instance';
+//import { CacheProvider } from '@emotion/react';
+//import createCache from '@emotion/cache';
+//import createEmotionServer from '@emotion/server/create-instance';
 
 
 // ----------------------------------------------------------------------

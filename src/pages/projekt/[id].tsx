@@ -14,7 +14,7 @@ import AnimatedIntroLayout from "src/layouts/animated/AnimatetLayoutEnter";
 
 export default function Referenz({ data }: any) {
   const router = useRouter();
-  const { id } = router.query;
+  //const { id } = router.query;
   //console.log('id:', id);
   //const project = _mockProjekts.filter((project) => project.id === id);
   //console.log('project', project);

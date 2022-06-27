@@ -1,9 +1,9 @@
-import type { GetStaticPaths, GetStaticProps } from "next";
+//import type { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from 'next/router';
 // layouts
 // components
 import Page from '../../components/Page';
-import { RootStyle } from '../../components/_Main/RootStyle';
+
 import { _mockProjekts } from '../../_mock/referenzen/referenzen';
 //import AnimatedStartLayout from '../../layouts/animated/AnimatedStartLayout';
 
@@ -17,17 +17,24 @@ export default function Job({ data }: any) {
   const router = useRouter();
   const { id } = router.query;
 
-  //console.log('id:', id);
+  console.log('router.query:', router.query);
   const job = jobs.filter((job) => job.id === id);
-  //console.log('job', job[0]);
+  console.log('job', job[0]);
+  if (id) {
+    return (
+      <Layout>
+        <Page title={`Dima & Partner`}>
 
-  return (
-    <Layout>
-      <Page title={`Dima & Partner`}>
-        <RootStyle>
           <JobCom job={job[0]} />
-        </RootStyle>
-      </Page>
-    </Layout>
-  );
+
+        </Page>
+      </Layout>
+    );
+  } else {
+    return (
+      <p>wait...</p>
+    )
+
+  }
+
 }
