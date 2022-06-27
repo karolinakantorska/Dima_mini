@@ -81,10 +81,20 @@ export function ProjektCardCom({
           //transition={varTranHover()}
           sx={{ ...cardBigProps }}
         >
-
+          <Link href={`${PATH_PROJEKTE.projekt}/${id}`} >
+            <CardActionArea >
+              <Image src={photo.url} alt={photo.alt} ratio="16/9" />
+              {photoAuthor &&
+                <Typography
+                  variant="body2"
+                  display="span"
+                  sx={{ ...propsPhotoAuthor }}
+                >
+                  {photoAuthor}
+                </Typography>}
+            </CardActionArea>
+          </Link>
         </Card>
-
-
       </Box>
     </>
   );
