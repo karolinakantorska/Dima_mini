@@ -85,7 +85,7 @@ export default function MyApp(props: MyAppProps) {
 }
 
 // ----------------------------------------------------------------------
-
+/*
 MyApp.getInitialProps = async (context: AppContext) => {
   const appProps = await App.getInitialProps(context);
 
@@ -100,3 +100,4 @@ MyApp.getInitialProps = async (context: AppContext) => {
     settings,
   };
 };
+*/

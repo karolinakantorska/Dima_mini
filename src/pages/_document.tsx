@@ -8,11 +8,11 @@ import createEmotionServer from '@emotion/server/create-instance';
 
 
 // ----------------------------------------------------------------------
-
+/*
 function createEmotionCache() {
   return createCache({ key: 'css' });
 }
-
+*/
 export default class MyDocument extends Document {
   render() {
     return (
@@ -49,7 +49,7 @@ export default class MyDocument extends Document {
 }
 
 // ----------------------------------------------------------------------
-
+/*
 MyDocument.getInitialProps = async (ctx) => {
   const originalRenderPage = ctx.renderPage;
 
@@ -83,3 +83,4 @@ MyDocument.getInitialProps = async (ctx) => {
     styles: [...React.Children.toArray(initialProps.styles), ...emotionStyleTags],
   };
 };
+*/
