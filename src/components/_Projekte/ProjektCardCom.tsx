@@ -40,8 +40,6 @@ export function ProjektCardCom({
     bottom: 0
   };
 
-
-
   const boxSmallProps = {
     minWidth: '20px',
     display: 'grid',
@@ -78,12 +76,10 @@ export function ProjektCardCom({
 
       >
         <Card
-          component={m.div}
-          variants={varHover(1.05)}
-          transition={varTranHover()}
-          sx={{
-            ...cardBigProps
-          }}
+          ///component={m.div}
+          //variants={varHover(1.05)}
+          //transition={varTranHover()}
+          sx={{ ...cardBigProps }}
         >
 
         </Card>
