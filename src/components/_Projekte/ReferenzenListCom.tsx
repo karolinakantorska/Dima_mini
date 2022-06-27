@@ -40,6 +40,13 @@ export function ReferenzenListCom(
   };
 
   return (
+    <p>List</p>
+  );
+
+
+
+}
+/*
     <Grid
       component={m.div}
       {...variant}
@@ -54,15 +61,18 @@ export function ReferenzenListCom(
           columnGap="12px"
           rowGap="20px"
         >
-
+          {projekte.map((project, i) => {
+            const divideIn2 = i % 2 == 0 ? true : false;
+            const divideIn4 = (i + 1) % 4 == 0 ? true : false;
+            const divideIn8 = (i + 1) % 8 == 0 ? true : false;
+            return (
+              <p key={project.id}>Card</p>
+            );
+          })}
         </Box>
       </Grid>
     </Grid >
-  );
-
-
-
-}
+    */
 /*
 <ProjektCardCom
                 key={project.id}
