@@ -15,7 +15,7 @@ import { TextCardCom } from './textCardCom';
 import { CardActionArea } from '@mui/material';
 import { PATH_PROJEKTE } from 'src/routes/paths';
 import Typography from '@mui/material/Typography';
-import { styled } from '@mui/material/styles';
+
 
 
 export function ProjektCardCom({
@@ -30,7 +30,7 @@ export function ProjektCardCom({
   rewerseBig: boolean;
 }) {
   //console.log('project', project)
-  const { id, photo, photoAuthor } = project;
+  const { id, photo, photoAuthor, title } = project;
   //console.log('photoAuthor', photoAuthor)
   const isDesktop = useResponsive('up', 'lm');
   const isSmall = useResponsive('down', 'sm');
@@ -82,7 +82,7 @@ export function ProjektCardCom({
           transition={varTranHover()}
           sx={{ ...cardSmallProps }}
         >
-          <Link href={`${PATH_PROJEKTE.projekt}/${id}`}  >
+          <Link scroll={false} href={`${PATH_PROJEKTE.projekt}/${id}`}  >
             <CardActionArea >
               <Image src={photo.url} alt={photo.alt} ratio="16/9" />
               {photoAuthor &&
@@ -98,7 +98,6 @@ export function ProjektCardCom({
         </Card>
         <TextCardCom project={project} big={big} rewerseBig={rewerseBig} />
       </Box>
-
     )
     :
     (

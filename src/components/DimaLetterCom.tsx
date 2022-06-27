@@ -28,10 +28,7 @@ export default function DimaLetterCom({ x, y }: { x: number, y: number }) {
                     viewBox="0 0 150 80"
 
                 >
-                    {/*<style type="text/css">
-          .st0{fill:#69614E;}
-          .st1{fill:#EF7B10;}
-  </style>*/}
+
                     <g>
                         <g  >
 

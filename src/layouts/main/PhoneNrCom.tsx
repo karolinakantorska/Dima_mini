@@ -1,13 +1,17 @@
 import { Grid, Stack, Typography } from "@mui/material";
 import { dimaContact } from "src/utils/dima";
-import { pxToRem } from 'src/utils/getFontValue';
-// ----------------------------------------------------------------------
-const textProps = {
-    pt: .87,
 
-}
+import useResponsive from '../../hooks/useResponsive';
+// ----------------------------------------------------------------------
+
 const Adress = ({ text }: any) => {
     const { town, phone } = text;
+
+    const isMiddle = useResponsive('down', 'md');
+    const textProps = {
+        pt: .87,
+        pl: isMiddle ? 2 : 3,
+    }
     return (
         <Grid
             container direction='row'

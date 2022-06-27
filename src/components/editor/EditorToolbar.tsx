@@ -3,7 +3,7 @@ import EditorToolbarStyle from './EditorToolbarStyle';
 // ----------------------------------------------------------------------
 
 const HEADINGS = ['Heading 1', 'Heading 2', 'Heading 3', 'Heading 4', 'Heading 5', 'Heading 6'];
-
+const SIMPLE_HEADINGS = ['Heading 6'];
 export const formats = [
   'align',
   'background',
@@ -41,7 +41,12 @@ export default function EditorToolbar({ id, isSimple, ...other }: EditorToolbarP
       <div id={id}>
         <div className="ql-formats">
           <select className="ql-header" defaultValue="">
-            {HEADINGS.map((heading, index) => (
+            {!isSimple && HEADINGS.map((heading, index) => (
+              <option key={heading} value={index + 1}>
+                {heading}
+              </option>
+            ))}
+            {isSimple && SIMPLE_HEADINGS.map((heading, index) => (
               <option key={heading} value={index + 1}>
                 {heading}
               </option>

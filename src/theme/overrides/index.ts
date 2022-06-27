@@ -44,6 +44,7 @@ import ControlLabel from './ControlLabel';
 import LoadingButton from './LoadingButton';
 import Container from './Container';
 
+
 // ----------------------------------------------------------------------
 
 export default function ComponentsOverrides(theme: Theme) {
@@ -90,6 +91,7 @@ export default function ComponentsOverrides(theme: Theme) {
     ControlLabel(theme),
     ToggleButton(theme),
     LoadingButton(theme),
-    Container(theme)
+    Container(theme),
+
   );
 }

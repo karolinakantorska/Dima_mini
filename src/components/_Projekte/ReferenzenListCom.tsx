@@ -1,20 +1,16 @@
 
 import { m, } from 'framer-motion';
-// next
 
-// @mui
 import { Box, Grid, } from '@mui/material';
 
-// hooks
 import useResponsive from '../../hooks/useResponsive';
 
-// components
 import { ProjektCardCom } from './ProjektCardCom';
-// _mock_
-//import { _mockProjekts } from '../../_mock/referenzen/referenzen';
-// utils
 
 import { ProjectsListType } from '../../utils/TS/interface';
+import Link from 'next/link';
+import { PATH_PROJEKTE } from '../../routes/paths';
+import { useRouter } from 'next/router';
 
 
 
@@ -28,23 +24,23 @@ export function ReferenzenListCom(
       projekte.push(project)
     }
   })
+  const router = useRouter();
   const isDesktop = useResponsive('up', 'lm');
   const isSmall = useResponsive('down', 'sm');
   const gtc = isDesktop ? 'repeat(3, 1fr)' : isSmall ? '1fr' : 'repeat(2, 1fr)';
   const transition = {
     type: 'tween',
     ease: 'linear',
-    duration: 0.5,
+    duration: router.query.id && 1,
   }
   const variant = {
     initial: { opacity: 1 },
-    exit: { opacity: 0 },
+    exit: router.query.id && { opacity: 0 },
     transition: transition,
   };
+
   return (
-
     <Grid
-
       component={m.div}
       {...variant}
       container
@@ -64,7 +60,6 @@ export function ReferenzenListCom(
             const divideIn2 = i % 2 == 0 ? true : false;
             const divideIn4 = (i + 1) % 4 == 0 ? true : false;
             const divideIn8 = (i + 1) % 8 == 0 ? true : false;
-
             return (
               <ProjektCardCom
                 key={project.id}
@@ -75,15 +70,15 @@ export function ReferenzenListCom(
                 rewerseBig={divideIn8 ? true : false}
               />
             );
-
-
           })}
         </Box>
       </Grid>
     </Grid >
-
   );
 
 
 
 }
+/*
+
+    */

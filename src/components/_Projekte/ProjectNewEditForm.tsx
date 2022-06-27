@@ -117,7 +117,7 @@ export default function ProjectNewEditForm({ isEdit, currentProject }: Props) {
       architect: currentProject?.architect || '',
       cooperation_company: currentProject?.cooperation?.company || '',
       cooperation_service: currentProject?.cooperation?.service || '',
-      location: currentProject?.client || '',
+      location: currentProject?.location || '',
       //constructionVideo: currentProject?.constructionVideo || '',
       //video: currentProject?.video || '',
     }),
@@ -258,7 +258,18 @@ export default function ProjectNewEditForm({ isEdit, currentProject }: Props) {
           <Grid item xs={12} md={8}  >
             <Stack spacing={3}>
               <Card sx={{ p: 3 }} >
-                <RHFTextField name="title" label="Projekttitle" />
+                <Stack spacing={3}>
+                  <RHFRadioGroup
+                    name="objektAlter"
+                    options={OBJECT_ALTER}
+                    sx={{
+                      '& .MuiFormControlLabel-root': { mr: 4 },
+                    }}
+                  />
+                  <RHFTextField name="title" label="Projekttitle" />
+                  <RHFTextField name="location" label="Ort" />
+                </Stack>
+
               </Card>
 
               <Card sx={{ p: 3 }}>
@@ -333,7 +344,7 @@ export default function ProjectNewEditForm({ isEdit, currentProject }: Props) {
                       }}
                     />
                   </div>
-                  <RHFTextField name="location" label="Ort" />
+
                   <LabelStyle>Zusamearbeit mit</LabelStyle>
                   <RHFTextField name="cooperation_company" label="Unternehmen" />
                   <RHFTextField name="cooperation_service" label="Leistungen" />
@@ -344,13 +355,7 @@ export default function ProjectNewEditForm({ isEdit, currentProject }: Props) {
                 <Stack spacing={3} mt={2}>
                   <div>
                     <LabelStyle>Newbau / Sanierung / Wettbewerb</LabelStyle>
-                    <RHFRadioGroup
-                      name="objektAlter"
-                      options={OBJECT_ALTER}
-                      sx={{
-                        '& .MuiFormControlLabel-root': { mr: 4 },
-                      }}
-                    />
+
                   </div>
                   <RHFTextField
                     name="size"

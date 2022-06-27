@@ -9,8 +9,7 @@ import { ProjectType } from '../../utils/TS/interface';
 import useResponsive from '../../hooks/useResponsive';
 import { firstLettersBig } from '../../utils/Text/textUtils';
 import { Box } from '@mui/system';
-import { styled } from '@mui/material/styles';
-import { IconButton, Container, Grid, CardActions, CardContent, CardActionArea, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button, Alert } from '@mui/material';
+import { IconButton, Container, Grid, CardActions, CardContent, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button, Alert } from '@mui/material';
 import { deleteProjectFromFirestore } from 'src/utils/apis/deleteFromFirestore';
 import { useRouter } from 'next/router';
 import { PATH_PROJEKTE } from '../../routes/paths';
@@ -25,11 +24,12 @@ export function TextCardCom({ project, big, rewerseBig, }: {
   const { push } = useRouter();
   const [open, setOpen] = useState(false);
   const [error, setError] = useState<null | { code: string, message: string }>(null);
-  const { title, location, id } = project;
+  const { title, location, id, objektAlter, } = project;
+
   const isDesktop = useResponsive('up', 'lm');
   const isMiddle = useResponsive('down', 'md');
   const { isAuthenticated } = useAuth();
-  console.log('isAuthenticated: ', isAuthenticated)
+
   const cardPadding = {
     pl: isMiddle ? 2 : 3,
     pr: isMiddle ? 2 : 3,
@@ -40,7 +40,6 @@ export function TextCardCom({ project, big, rewerseBig, }: {
     gridRow: 'span 2',
     backgroundColor: 'background.default'
   }
-
   function handleOpen() {
     setOpen(true);
   }
@@ -58,7 +57,7 @@ export function TextCardCom({ project, big, rewerseBig, }: {
   };
   const Icons = () => (
     <>
-      <Link href={`${PATH_PROJEKTE.projekt}/edit/${id}`}  >
+      <Link href={`${PATH_PROJEKTE.editProject}/${id}`}  >
         <IconButton aria-label={'edit'}>
           <EditRoundedIcon />
         </IconButton>
@@ -71,6 +70,7 @@ export function TextCardCom({ project, big, rewerseBig, }: {
       </IconButton>
     </>
   )
+
   const TextBox = () => (
     <Grid
       className="big"
@@ -81,9 +81,11 @@ export function TextCardCom({ project, big, rewerseBig, }: {
     >
       <CardContent
         sx={{ ...cardPadding }}
-        className='HalloPadding'
       >
-        <Typography variant="body2" component="h2" sx={{ color: 'text.secondary' }} >
+        <Typography variant="body2" component="h2" sx={{ color: 'text.secondary' }}        >
+          {objektAlter.toUpperCase()}
+        </Typography>
+        <Typography variant="body2" component="h2" sx={{ color: 'text.secondary' }}        >
           {title.toUpperCase()}
         </Typography>
         <Typography variant="body2" component="h6" sx={{ mb: 2, pt: '9px', color: 'text.secondary' }}>

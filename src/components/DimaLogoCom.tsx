@@ -25,7 +25,7 @@ export default function DimaLogoCom({ x, y }: { x: number, y: number }) {
 
                     width="100%"
                     height="100%"
-                    viewBox="0 7 361 85"
+                    viewBox="0 0 375.17 103.01"
 
                 >
                     {/*<style type="text/css">

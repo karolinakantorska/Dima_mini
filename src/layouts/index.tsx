@@ -11,24 +11,30 @@ import { styled } from '@mui/material/styles';
 
 type Props = {
   children: ReactNode;
-  variant?: 'main' | 'animatedExit' | 'animatedEnter';
+
 };
 const ContainerStyle = styled(Container)(({ theme }) => ({
   paddingTop: HEADER.MIDDLE_HEIGHT,
+  //position: 'absolute',
+  backgroundColor: 'transparent',
   [theme.breakpoints.up('lm')]: {
     paddingTop: HEADER.MAIN_DESKTOP_HEIGHT,
+    marginTop: '5px'
   },
   [theme.breakpoints.down('sm')]: {
     paddingTop: HEADER.MOBILE_HEIGHT,
   },
 }));
-export default function Layout({ variant = 'main', children }: Props) {
+export default function Layout({ children }: Props) {
 
   return (
-    <Container >
-      <Stack sx={{ minHeight: 1 }}>
+    <Container sx={{
+      position: 'absolute', marginLeft: 'auto', marginRight: 'auto', left: 0,
+      right: 0,
+    }}>
+      <Stack sx={{ minHeight: 1, }}>
         <MainHeader />
-        <ContainerStyle disableGutters={true} >
+        <ContainerStyle disableGutters={true}  >
           {children}
         </ContainerStyle>
         <Box sx={{ flexGrow: 1 }} />
@@ -36,4 +42,3 @@ export default function Layout({ variant = 'main', children }: Props) {
     </Container>
   )
 }
-

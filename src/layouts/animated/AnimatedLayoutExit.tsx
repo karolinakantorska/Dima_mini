@@ -5,6 +5,8 @@ import { Box, Container, Stack } from '@mui/material';
 import { HEADER } from '../../config';
 import MainHeader from '../main/MainHeader';
 import { styled } from '@mui/material/styles';
+import { ContainerStyle } from './AnimatetLayoutEnter';
+import { useRouter } from 'next/router';
 
 // ----------------------------------------------------------------------
 
@@ -12,37 +14,31 @@ type Props = {
     children: ReactNode;
 };
 
-const ContainerStyle = styled(Container)(({ theme }) => ({
-    paddingTop: HEADER.MIDDLE_HEIGHT,
-    [theme.breakpoints.up('lm')]: {
-        paddingTop: HEADER.MAIN_DESKTOP_HEIGHT,
-    },
-    [theme.breakpoints.down('sm')]: {
-        paddingTop: HEADER.MOBILE_HEIGHT,
-    },
-}));
+
 
 export default function AnimatedExitLayout({ children }: Props) {
 
     const transition = {
         type: 'tween',
         ease: 'linear',
-        duration: 0.5,
+        duration: 5,
     }
     const variant = {
-        initial: { opacity: 1 },
-        exit: { opacity: 0 },
+        initial: { opacity: 1, },
+        exit: { opacity: 0, },
         transition: transition,
     };
 
     return (
-        <Container component={m.div} {...variant}  >
-            <Stack sx={{ minHeight: 1 }}>
+        <Container
+            //component={m.div} 
+            //{...variant} 
+            sx={{ backgroundColor: 'transparent' }} >
+            <Stack sx={{ minHeight: 1, backgroundColor: 'transparent' }}  >
                 <MainHeader />
-                <ContainerStyle disableGutters={true} >
+                <ContainerStyle disableGutters={true}  >
                     {children}
                 </ContainerStyle>
-                <Box sx={{ flexGrow: 1 }} />
             </Stack>
         </Container>
     );
