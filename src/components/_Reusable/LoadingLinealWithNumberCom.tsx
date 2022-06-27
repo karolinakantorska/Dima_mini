@@ -12,8 +12,3 @@ export default function LoadingLinealWithNumberCom(props: { progress: number }) 
         </Box>
     );
 }
-/*
-<Typography variant="body2"  >
-                loading {progress} %
-            </Typography>
-*/
