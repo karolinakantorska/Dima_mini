@@ -33,7 +33,7 @@ export function ProjektCardCom({
   const isDesktop = useResponsive('up', 'lm');
   const isSmall = useResponsive('down', 'sm');
   const isBig = isDesktop ? big : false;
-  const gridAutoRows = isSmall ? '' : '1fr';
+
 
   const propsPhotoAuthor = {
     position: 'absolute',
@@ -46,8 +46,7 @@ export function ProjektCardCom({
     minWidth: '20px',
     display: 'grid',
     overflow: 'hidden',
-
-    gridAutoRows: { gridAutoRows },
+    gridAutoRows: isSmall ? '' : '1fr',
 
   };
   const boxBigProps = {
@@ -73,11 +72,12 @@ export function ProjektCardCom({
   return (
     <>
       <Box
+        //component={m.div}
+        //whileHover="hover"
         sx={isBig ? {
           ...boxBigProps
         } : { ...boxSmallProps }}
-        component={m.div}
-        whileHover="hover"
+
       >
 
 
