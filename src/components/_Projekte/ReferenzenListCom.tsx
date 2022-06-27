@@ -83,29 +83,16 @@ export function ReferenzenListCom(
             const divideIn4 = (i + 1) % 4 == 0 ? true : false;
             const divideIn8 = (i + 1) % 8 == 0 ? true : false;
             return (
-              <p key={project.id}>Card</p>
-            );
-          })}
-        </Box>
-      </Grid>
-    </Grid >
-    */
-/*
-<ProjektCardCom
+              <ProjektCardCom
                 key={project.id}
                 project={project}
                 gridRow={divideIn2 ? '1' : '2'}
                 big={divideIn4 ? true : false}
                 rewerseBig={divideIn8 ? true : false}
               />
+            );
+          })}
+        </Box>
+      </Grid>
+    </Grid >
     */
-/*
-{projekte.map((project, i) => {
-         const divideIn2 = i % 2 == 0 ? true : false;
-         const divideIn4 = (i + 1) % 4 == 0 ? true : false;
-         const divideIn8 = (i + 1) % 8 == 0 ? true : false;
-         return (
-           <p key={project.id}>Card</p>
-         );
-       })}
-*/

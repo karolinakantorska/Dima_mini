@@ -45,18 +45,22 @@ export function ProjektCardCom({
   const boxSmallProps = {
     minWidth: '20px',
     display: 'grid',
-    gridAutoRows: { gridAutoRows },
     overflow: 'hidden',
+
+    gridAutoRows: { gridAutoRows },
+
   };
   const boxBigProps = {
     minWidth: '20px',
     display: 'grid',
+    overflow: 'hidden',
+
     gridColumn: 'span 3',
     gridAutoFlow: 'column',
     gridTemplateColumns: ' 1fr 12px 1fr 12px 1fr',
     columnGap: '0px',
     gridAutoRows: 'repeat(2, 1fr)',
-    overflow: 'hidden',
+
   };
   const cardSmallProps = {
     gridRow: { gridRow },
@@ -75,16 +79,9 @@ export function ProjektCardCom({
         component={m.div}
         whileHover="hover"
       >
-        <Card
-          component={m.div}
-          variants={varHover(1.05)}
-          transition={varTranHover()}
-          sx={isBig ? {
-            ...cardBigProps
-          } : { ...cardSmallProps }}
-        >
 
-        </Card>
+
+
       </Box>
     </>
   );
