@@ -72,8 +72,8 @@ export function ProjektCardCom({
   return (
     <>
       <Box
-        //component={m.div}
-        //whileHover="hover"
+        component={m.div}
+        whileHover="hover"
         sx={{ ...boxBigProps }}
 
       >
