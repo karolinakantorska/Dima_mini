@@ -1,11 +1,11 @@
 
 // @mui
-import { Box, Grid, Button, Stack, Typography } from '@mui/material';
+
 import { layoutHeader } from 'src/utils/dima';
 
 // hooks
 import useResponsive from '../../hooks/useResponsive';
-import { description } from '../../_mock/referenzen/description';
+
 import { SiteTitle } from '../_Reusable/SiteTitle';
 
 

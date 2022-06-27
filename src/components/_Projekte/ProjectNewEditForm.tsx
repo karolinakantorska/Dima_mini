@@ -34,7 +34,6 @@ import { objektAlterArray, ProjectType, regionenArray, ServicesArray, objektType
 import { RHFMultiCheckboxCom } from '../hook-form/RHFMultiCheckboxCom';
 
 // utils
-import { fData } from '../../utils/formatNumber';
 import { deleteImage, uploadOnePhoto, uploadPhotos } from 'src/utils/apis/uploadPhoto';
 import { ImagesType } from '../../utils/TS/interface';
 import { addProjestToFirestore, editProjectInFirestore } from 'src/utils/apis/addToFirestore';

@@ -9,7 +9,7 @@ import { ProjectType } from '../../utils/TS/interface';
 import useResponsive from '../../hooks/useResponsive';
 import { firstLettersBig } from '../../utils/Text/textUtils';
 import { Box } from '@mui/system';
-import { IconButton, Container, Grid, CardActions, CardContent, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button, Alert } from '@mui/material';
+import { IconButton, Grid, CardActions, CardContent, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button, Alert } from '@mui/material';
 import { deleteProjectFromFirestore } from 'src/utils/apis/deleteFromFirestore';
 import { useRouter } from 'next/router';
 import { PATH_PROJEKTE } from '../../routes/paths';

@@ -32,7 +32,7 @@ export function ReferenzenListCom(
     type: 'tween',
     ease: 'linear',
     duration: router.query.id && 1,
-  }
+  };
   const variant = {
     initial: { opacity: 1 },
     exit: router.query.id && { opacity: 0 },
@@ -51,19 +51,10 @@ export function ReferenzenListCom(
         <Box
           display="grid"
           gridTemplateColumns={gtc}
-          //justifyItems='stretch'
-          //gridAutoFlow="dense"
           columnGap="12px"
           rowGap="20px"
         >
-          {projekte.map((project, i) => {
-            const divideIn2 = i % 2 == 0 ? true : false;
-            const divideIn4 = (i + 1) % 4 == 0 ? true : false;
-            const divideIn8 = (i + 1) % 8 == 0 ? true : false;
-            return (
-              <p key={project.id}>Card</p>
-            );
-          })}
+
         </Box>
       </Grid>
     </Grid >
@@ -81,3 +72,13 @@ export function ReferenzenListCom(
                 rewerseBig={divideIn8 ? true : false}
               />
     */
+/*
+{projekte.map((project, i) => {
+         const divideIn2 = i % 2 == 0 ? true : false;
+         const divideIn4 = (i + 1) % 4 == 0 ? true : false;
+         const divideIn8 = (i + 1) % 8 == 0 ? true : false;
+         return (
+           <p key={project.id}>Card</p>
+         );
+       })}
+*/
