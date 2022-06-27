@@ -61,14 +61,7 @@ export function ReferenzenListCom(
             const divideIn4 = (i + 1) % 4 == 0 ? true : false;
             const divideIn8 = (i + 1) % 8 == 0 ? true : false;
             return (
-              <ProjektCardCom
-                key={project.id}
-                project={project}
-                gridRow={divideIn2 ? '1' : '2'}
-                big={divideIn4 ? true : false}
-                //big={false}
-                rewerseBig={divideIn8 ? true : false}
-              />
+              <p>Project Card</p>
             );
           })}
         </Box>
@@ -80,5 +73,12 @@ export function ReferenzenListCom(
 
 }
 /*
-
+<ProjektCardCom
+                key={project.id}
+                project={project}
+                gridRow={divideIn2 ? '1' : '2'}
+                big={divideIn4 ? true : false}
+                //big={false}
+                rewerseBig={divideIn8 ? true : false}
+              />
     */
