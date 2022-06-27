@@ -75,7 +75,16 @@ export function ProjektCardCom({
         component={m.div}
         whileHover="hover"
       >
+        <Card
+          component={m.div}
+          variants={varHover(1.05)}
+          transition={varTranHover()}
+          sx={isBig ? {
+            ...cardBigProps
+          } : { ...cardSmallProps }}
+        >
 
+        </Card>
       </Box>
     </>
   );
