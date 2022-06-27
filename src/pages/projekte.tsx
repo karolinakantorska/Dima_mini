@@ -6,7 +6,7 @@ import Page from '../components/Page';
 
 import { ReferenzenListCom } from '../components/_Projekte/ReferenzenListCom';
 import { getOrderedCollection } from "src/utils/apis/apis";
-import AnimatedExitLayout from '../layouts/animated/AnimatedLayoutExit';
+
 
 export default function Projekte(props: any) {
 
@@ -19,15 +19,9 @@ export default function Projekte(props: any) {
     </Layout>
   );
 }
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
 
   const data = await getOrderedCollection("projects", "year");
-
-  if (!data) {
-    return {
-      notFound: true,
-    };
-  }
   return {
     props: { data },
     revalidate: 10,
