@@ -68,7 +68,15 @@ export function ProjektCardCom({
 
   return (
     <>
-      <p>ProjectCard</p>
+      <Box
+        sx={isBig ? {
+          ...boxBigProps
+        } : { ...boxSmallProps }}
+        component={m.div}
+        whileHover="hover"
+      >
+
+      </Box>
     </>
   );
 }

@@ -40,9 +40,7 @@ export function ReferenzenListCom(
   };
 
   return (
-
     <Box
-
       display="grid"
       gridTemplateColumns={gtc}
       columnGap="12px"
