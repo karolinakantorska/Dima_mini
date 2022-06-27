@@ -11,10 +11,9 @@ export default function ResetPass() {
   return (
     <Layout>
       <Page title="Dima & Partner">
-        <RootStyle>
 
-          <PassResetFormCom />
-        </RootStyle>
+        <PassResetFormCom />
+
       </Page>
     </Layout>
   );

@@ -12,7 +12,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 import 'react-lazy-load-image-component/src/effects/black-and-white.css';
 
-import cookie from 'cookie';
+//import cookie from 'cookie';
 import { ReactElement, ReactNode } from 'react';
 // next
 import { NextPage } from 'next';
@@ -29,7 +29,7 @@ import { AuthProvider } from '../contexts/FirebaseContext';
 import { AnimatePresence } from 'framer-motion';
 
 // utils
-import { getSettings } from '../utils/getSettings';
+
 // contexts
 import { CollapseDrawerProvider } from '../contexts/CollapseDrawerContext';
 // theme
@@ -54,7 +54,7 @@ interface MyAppProps extends AppProps {
 export default function MyApp(props: MyAppProps) {
   const { Component, pageProps, } = props;
   const router = useRouter();
-
+  //TODO Animate presence in Component not in App 
   return (
     <>
       <Head>
@@ -64,19 +64,19 @@ export default function MyApp(props: MyAppProps) {
       <AuthProvider>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <CollapseDrawerProvider>
-
             <MotionLazyContainer>
               <ThemeProvider>
                 <ProgressBar />
+
                 <AnimatePresence
-                  exitBeforeEnter
-                //onExitComplete={handleExitComplete}
+                  exitBeforeEnter={false}
+
                 >
                   <Component {...pageProps} key={router.route} />
                 </AnimatePresence>
+
               </ThemeProvider>
             </MotionLazyContainer>
-
           </CollapseDrawerProvider>
         </LocalizationProvider>
       </AuthProvider>

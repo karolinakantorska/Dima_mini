@@ -5,7 +5,6 @@ import Page from 'src/components/Page';
 
 
 import { TeamListCom } from 'src/components/_Dima/TeamListCom';
-import AnimatedExitLayout from 'src/layouts/animated/AnimatedLayoutExit';
 
 
 export default function Teams() {

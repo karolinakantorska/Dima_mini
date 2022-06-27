@@ -11,11 +11,11 @@ import AnimatedExitLayout from '../layouts/animated/AnimatedLayoutExit';
 export default function Projekte(props: any) {
   const { data } = props;
   return (
-    <AnimatedExitLayout>
+    <Layout>
       <Page title="Projekte | Dima & Partner">
         <ReferenzenListCom projectsList={data} />
       </Page>
-    </AnimatedExitLayout>
+    </Layout>
   );
 }
 export const getStaticProps: GetStaticProps = async (context) => {

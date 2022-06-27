@@ -12,9 +12,9 @@ export default function News() {
   return (
     <Layout>
       <Page title="News | Dima & Partner">
-        <RootStyle>
-          <NewsListCom />
-        </RootStyle>
+
+        <NewsListCom />
+
       </Page>
     </Layout>
 

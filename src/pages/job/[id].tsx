@@ -17,9 +17,9 @@ export default function Job({ data }: any) {
   const router = useRouter();
   const { id } = router.query;
 
-  console.log('router.query:', router.query);
+
   const job = jobs.filter((job) => job.id === id);
-  console.log('job', job[0]);
+
   if (id) {
     return (
       <Layout>

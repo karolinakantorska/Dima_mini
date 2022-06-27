@@ -48,7 +48,6 @@ export function JobsListCom() {
         <CardEmptyJobCom />
         <CardEmptyJobCom color='background.default' />
         <CardEmptyJobCom />
-
       </Box>
     </>
   )
