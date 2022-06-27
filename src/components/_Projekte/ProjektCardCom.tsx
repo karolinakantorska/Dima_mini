@@ -33,14 +33,14 @@ export function ProjektCardCom({
   const isDesktop = useResponsive('up', 'lm');
   const isSmall = useResponsive('down', 'sm');
   const isBig = isDesktop ? big : false;
-
+  const isReverseBig = isDesktop ? rewerseBig : false;
 
   const propsPhotoAuthor = {
     position: 'absolute',
     bottom: 0
   };
 
-  const gridColumn = () => (rewerseBig ? '3/span 3' : '1/span 3');
+
 
   const boxSmallProps = {
     minWidth: '20px',
@@ -65,19 +65,28 @@ export function ProjektCardCom({
     gridRow: { gridRow },
   };
   const cardBigProps = {
-    gridColumn: gridColumn,
-    gridRow: 'span 2',
+    gridColumn: isBig ? rewerseBig ? '3/span 3' : '1/span 3' : '',
+    gridRow: isBig ? 'span 2' : { gridRow },
   };
 
   return (
     <>
       <Box
-        component={m.div}
-        whileHover="hover"
+        //component={m.div}
+        //whileHover="hover"
         sx={{ ...boxBigProps }}
 
       >
+        <Card
+          component={m.div}
+          variants={varHover(1.05)}
+          transition={varTranHover()}
+          sx={{
+            ...cardBigProps
+          }}
+        >
 
+        </Card>
 
 
       </Box>
