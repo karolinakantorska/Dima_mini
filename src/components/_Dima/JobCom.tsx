@@ -1,7 +1,7 @@
 import { _mockProjekts } from '../../_mock/referenzen/referenzen';
 //import AnimatedStartLayout from '../../layouts/animated/AnimatedStartLayout';
 
-import { Box, Card, CardContent, Container, Paper, Stack, Typography } from "@mui/material";
+import { Card, CardContent, Stack, Typography } from "@mui/material";
 import parse from 'html-react-parser';
 
 import { Mail } from "src/components/_Reusable/Mail";

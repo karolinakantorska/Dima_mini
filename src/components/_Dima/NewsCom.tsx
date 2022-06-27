@@ -1,11 +1,10 @@
 import { _mockProjekts } from '../../_mock/referenzen/referenzen';
 //import AnimatedStartLayout from '../../layouts/animated/AnimatedStartLayout';
 
-import { Accordion, AccordionDetails, AccordionSummary, Box, Card, CardContent, Container, Paper, Stack, Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Card, CardContent, Stack, Typography } from "@mui/material";
 import parse from 'html-react-parser';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Mail } from "src/components/_Reusable/Mail";
-import { Job, News } from "src/utils/TS/interface";
+import { News } from "src/utils/TS/interface";
 
 // TODO use location instead use route
 export function NewsCom({ news, dark }: { news: News, dark: boolean }) {

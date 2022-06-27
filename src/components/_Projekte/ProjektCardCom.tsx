@@ -16,8 +16,6 @@ import { CardActionArea } from '@mui/material';
 import { PATH_PROJEKTE } from 'src/routes/paths';
 import Typography from '@mui/material/Typography';
 
-
-
 export function ProjektCardCom({
   project,
   gridRow,
@@ -106,15 +104,15 @@ export function ProjektCardCom({
           component={m.div}
           whileHover="hover"
         >
-          <Link href={`${PATH_PROJEKTE.projekt}/${id}`} >
-            <Card
-              component={m.div}
-              variants={varHover(1.05)}
-              transition={varTranHover()}
-              sx={big ? {
-                ...cardBigProps
-              } : { ...cardSmallProps }}
-            >
+          <Card
+            component={m.div}
+            variants={varHover(1.05)}
+            transition={varTranHover()}
+            sx={big ? {
+              ...cardBigProps
+            } : { ...cardSmallProps }}
+          >
+            <Link href={`${PATH_PROJEKTE.projekt}/${id}`} >
               <CardActionArea >
                 <Image src={photo.url} alt={photo.alt} ratio="16/9" />
                 {photoAuthor &&
@@ -126,8 +124,8 @@ export function ProjektCardCom({
                     {photoAuthor}
                   </Typography>}
               </CardActionArea>
-            </Card>
-          </Link>
+            </Link>
+          </Card>
           <TextCardCom project={project} big={big} rewerseBig={rewerseBig} />
         </Box>
       )}

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 // @mui
-import { Box, Grid, Button, Stack, Typography, Card, CardMedia, CardHeader, CardContent, CardActions, Popover, Alert, CardActionArea } from '@mui/material';
-import { Job, Person } from 'src/utils/TS/interface';
-import MailOutlineSharpIcon from '@mui/icons-material/MailOutlineSharp';
+import { Grid, Stack, Typography, Card, CardContent, CardActionArea } from '@mui/material';
+import { Job, } from 'src/utils/TS/interface';
+
 // hooks
 import useResponsive from '../../hooks/useResponsive';
 import { useRouter } from "next/router";
@@ -13,8 +13,7 @@ import Link from "next/link";
 
 export function CardJobCom({ job }: { job: Job }) {
 
-    const isDesktop = useResponsive('up', 'lm');
-    const isSmall = useResponsive('down', 'sm');
+
     const { id,
         announcment,
         dedline,
@@ -32,7 +31,6 @@ export function CardJobCom({ job }: { job: Job }) {
 
         <Card
             sx={{ height: 300 }}
-
         >
             <Link href={`${PATH_JOBS.job}/${id}`}  >
                 <CardActionArea

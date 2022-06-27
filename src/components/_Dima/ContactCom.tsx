@@ -1,11 +1,6 @@
-
-// @mui
-
-
-// hooks
 import useResponsive from '../../hooks/useResponsive';
 import Glarus from '/public/location/Glarus.jpg';
-import { Grid, Stack, Typography, Card, CardMedia, } from '@mui/material';
+import { Card, CardMedia, } from '@mui/material';
 
 console.log('Glarus:', Glarus)
 // TODO use location instead use route
@@ -25,12 +20,7 @@ export function ContactCom() {
         <CardMedia
           component="img"
           image={Glarus.src}
-
-
         />
-
-
-
       </Card >
     </>
   )

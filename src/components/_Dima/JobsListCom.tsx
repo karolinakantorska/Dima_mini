@@ -1,6 +1,6 @@
 
 // @mui
-import { Box, Grid, Button, Stack, Typography } from '@mui/material';
+import { Box, } from '@mui/material';
 import React from 'react';
 import { layoutHeader } from 'src/utils/dima';
 import { jobs } from 'src/_mock/jobs/jobs';
