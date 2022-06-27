@@ -1,4 +1,4 @@
-import React, { useEffect, useState, SyntheticEvent, ReactEventHandler } from 'react';
+import React from 'react';
 
 export default function LandingVideo() {
     //console.log('DIMA_IntroMovie', DIMA_IntroMovie)

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, SyntheticEvent, ReactEventHandler } from 'react';
+import React from 'react';
 import { Container, Stack, ButtonGroup, Button, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import useResponsive from '../../hooks/useResponsive';

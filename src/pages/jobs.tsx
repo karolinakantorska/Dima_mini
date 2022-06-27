@@ -2,7 +2,7 @@
 import Layout from 'src/layouts';
 // components
 import Page from 'src/components/Page';
-import { RootStyle } from 'src/components/_Main/RootStyle';
+
 
 import { JobsListCom } from 'src/components/_Dima/JobsListCom';
 

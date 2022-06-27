@@ -2,7 +2,7 @@
 import Layout from 'src/layouts';
 // components
 import Page from '../components/Page';
-import { RootStyle } from 'src/components/_Main/RootStyle';
+
 import { NewsListCom } from 'src/components/_Dima/NewsListCom';
 
 
