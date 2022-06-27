@@ -75,6 +75,19 @@ export function ProjektCardCom({
         component={m.div}
         whileHover="hover"
       >
+
+      </Box>
+    </>
+  );
+}
+/*
+      <Box
+        sx={isBig ? {
+          ...boxBigProps
+        } : { ...boxSmallProps }}
+        component={m.div}
+        whileHover="hover"
+      >
         <Card
           component={m.div}
           variants={varHover(1.05)}
@@ -99,9 +112,8 @@ export function ProjektCardCom({
         </Card>
         <TextCardCom project={project} big={isBig} rewerseBig={rewerseBig} />
       </Box>
-    </>
-  );
-}
+*/
+
 /*
 <Image src={avatar} alt={name} ratio="16/9" />
 */
