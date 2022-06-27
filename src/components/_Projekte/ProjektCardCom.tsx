@@ -32,7 +32,7 @@ export function ProjektCardCom({
   //console.log('photoAuthor', photoAuthor)
   const isDesktop = useResponsive('up', 'lm');
   const isSmall = useResponsive('down', 'sm');
-
+  const isBig = isDesktop ? big : false;
   const gridAutoRows = isSmall ? '' : '1fr';
 
   const propsPhotoAuthor = {
@@ -68,10 +68,8 @@ export function ProjektCardCom({
 
   return (
     <>
-
-
       <Box
-        sx={big ? {
+        sx={isBig ? {
           ...boxBigProps
         } : { ...boxSmallProps }}
         component={m.div}
@@ -81,7 +79,7 @@ export function ProjektCardCom({
           component={m.div}
           variants={varHover(1.05)}
           transition={varTranHover()}
-          sx={big ? {
+          sx={isBig ? {
             ...cardBigProps
           } : { ...cardSmallProps }}
         >
@@ -99,9 +97,8 @@ export function ProjektCardCom({
             </CardActionArea>
           </Link>
         </Card>
-        <TextCardCom project={project} big={big} rewerseBig={rewerseBig} />
+        <TextCardCom project={project} big={isBig} rewerseBig={rewerseBig} />
       </Box>
-
     </>
   );
 }
