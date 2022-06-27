@@ -41,6 +41,7 @@ export function ProjektCardCom({
   };
 
   const gridColumn = () => (rewerseBig ? '3/span 3' : '1/span 3');
+
   const boxSmallProps = {
     minWidth: '20px',
     display: 'grid',
@@ -49,8 +50,8 @@ export function ProjektCardCom({
   };
   const boxBigProps = {
     minWidth: '20px',
-    gridColumn: 'span 3',
     display: 'grid',
+    gridColumn: 'span 3',
     gridAutoFlow: 'column',
     gridTemplateColumns: ' 1fr 12px 1fr 12px 1fr',
     columnGap: '0px',
@@ -67,6 +68,47 @@ export function ProjektCardCom({
 
   return (
     <>
+
+
+      <Box
+        sx={big ? {
+          ...boxBigProps
+        } : { ...boxSmallProps }}
+        component={m.div}
+        whileHover="hover"
+      >
+        <Card
+          component={m.div}
+          variants={varHover(1.05)}
+          transition={varTranHover()}
+          sx={big ? {
+            ...cardBigProps
+          } : { ...cardSmallProps }}
+        >
+          <Link href={`${PATH_PROJEKTE.projekt}/${id}`} >
+            <CardActionArea >
+              <Image src={photo.url} alt={photo.alt} ratio="16/9" />
+              {photoAuthor &&
+                <Typography
+                  variant="body2"
+                  display="span"
+                  sx={{ ...propsPhotoAuthor }}
+                >
+                  {photoAuthor}
+                </Typography>}
+            </CardActionArea>
+          </Link>
+        </Card>
+        <TextCardCom project={project} big={big} rewerseBig={rewerseBig} />
+      </Box>
+
+    </>
+  );
+}
+/*
+<Image src={avatar} alt={name} ratio="16/9" />
+*/
+/*
       {!isDesktop && (
         <Box
           sx={{ ...boxSmallProps }}
@@ -96,42 +138,4 @@ export function ProjektCardCom({
           <TextCardCom project={project} big={big} rewerseBig={rewerseBig} />
         </Box>
       )}
-      {isDesktop && (
-        <Box
-          sx={big ? {
-            ...boxBigProps
-          } : { ...boxSmallProps }}
-          component={m.div}
-          whileHover="hover"
-        >
-          <Card
-            component={m.div}
-            variants={varHover(1.05)}
-            transition={varTranHover()}
-            sx={big ? {
-              ...cardBigProps
-            } : { ...cardSmallProps }}
-          >
-            <Link href={`${PATH_PROJEKTE.projekt}/${id}`} >
-              <CardActionArea >
-                <Image src={photo.url} alt={photo.alt} ratio="16/9" />
-                {photoAuthor &&
-                  <Typography
-                    variant="body2"
-                    display="span"
-                    sx={{ ...propsPhotoAuthor }}
-                  >
-                    {photoAuthor}
-                  </Typography>}
-              </CardActionArea>
-            </Link>
-          </Card>
-          <TextCardCom project={project} big={big} rewerseBig={rewerseBig} />
-        </Box>
-      )}
-    </>
-  );
-}
-/*
-<Image src={avatar} alt={name} ratio="16/9" />
-*/
+      */
