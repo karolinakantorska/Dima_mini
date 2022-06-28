@@ -28,7 +28,9 @@ const ContentStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 console.log('in 404 component');
 
-
+Page404.getLayout = function getLayout(page: React.ReactElement) {
+  return <Layout>{page}</Layout>;
+};
 // ----------------------------------------------------------------------
 
 export default function Page404() {
