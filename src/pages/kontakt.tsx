@@ -5,7 +5,6 @@ import Page from '../components/Page';
 import { ContactCom } from 'src/components/_Dima/ContactCom';
 
 export default function Kontakt() {
-  //const { themeStretch } = useSettings();
   return (
     <Layout>
       <Page title="Kontakt | Dima & Partner">

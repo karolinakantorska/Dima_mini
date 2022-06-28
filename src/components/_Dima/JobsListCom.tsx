@@ -29,8 +29,6 @@ export function JobsListCom() {
       <Box
         display="grid"
         gridTemplateColumns='repeat(3, 1fr)'
-        //justifyItems='stretch'
-        //gridAutoFlow="dense"
         columnGap="12px"
         rowGap="12px"
         sx={{ mt: 6 }}

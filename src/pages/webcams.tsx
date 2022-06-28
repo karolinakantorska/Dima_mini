@@ -4,7 +4,7 @@ import Layout from 'src/layouts';
 import Page from 'src/components/Page';
 
 
-import { WebcamsCom } from 'src/components/_Projekte/WebcamsCom';
+import { WebcamsListCom } from 'src/components/_Projekte/WebcamsListCom';
 
 
 export default function Webcams() {
@@ -12,7 +12,7 @@ export default function Webcams() {
     <Layout>
       <Page title="Webcams | Dima & Partner">
 
-        <WebcamsCom />
+        <WebcamsListCom />
 
       </Page>
     </Layout>

@@ -6,7 +6,8 @@ export const dimaContact = {
         kanton: 'Glarus',
         street: 'gewerbezentrum holenstein',
         numer: '19',
-        post: '8750'
+        post: '8750',
+        email: 'info(at)dima-partner.ch'
     },
     zurich: {
         phone: ' + 41 44 461 89 89',
@@ -14,7 +15,8 @@ export const dimaContact = {
         kanton: 'Zürich',
         street: 'Grubenstrasse',
         numer: '38',
-        post: '8045'
+        post: '8045',
+        email: 'info(at)dima-partner.ch'
     }
 
 }
