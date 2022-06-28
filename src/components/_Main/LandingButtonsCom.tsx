@@ -38,10 +38,14 @@ export default function LandingButtonsCom() {
                             </Typography>
                         </ButtonStyle>
                     </a>
-
-
-
-                    <NextLink href={PATH_PROJEKTE.projekte} >
+                    <NextLink href={'/404'} passHref >
+                        <ButtonStyle size="large" >
+                            <Typography variant="button" component="h2" sx={{ fontSize: 30, borderWidth: 5 }} >
+                                Vision
+                            </Typography>
+                        </ButtonStyle>
+                    </NextLink>
+                    <NextLink href={PATH_PROJEKTE.projekte} passHref >
                         <ButtonStyle size="large">
                             <Typography variant="button" component="h2" sx={{ fontSize: 30, color: "dima" }} >
                                 Projekte
@@ -55,11 +59,3 @@ export default function LandingButtonsCom() {
         </Container>
     )
 }
-/*
--moz-box-pack: center;
-justify-content: center;
--moz-box-align: center;
-align-items: center;
-width: 100%;
-height: 100%;
-*/
