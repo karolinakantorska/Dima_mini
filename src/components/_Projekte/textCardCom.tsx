@@ -113,7 +113,6 @@ export function TextCardCom({ project, big, rewerseBig, }: {
       </DialogActions>
     </Dialog>
   )
-
   return (
     <>
       {error && <Alert severity="error" onClose={() => { setError(null) }} >Fehler:{error.message} </Alert>}

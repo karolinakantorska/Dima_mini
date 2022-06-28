@@ -62,9 +62,9 @@ export function ProjektCardCom({
     >
       <Link href={`${PATH_PROJEKTE.projekt}/${id}`} >
         <Card
-          //component={m.div}
-          //variants={varHover(1.05)}
-          //transition={varTranHover()}
+          component={m.div}
+          variants={varHover(1.05)}
+          transition={varTranHover()}
           sx={{ ...cardProps }}
         >
           <CardActionArea >
