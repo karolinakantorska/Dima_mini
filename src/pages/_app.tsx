@@ -49,9 +49,9 @@ interface MyAppProps extends AppProps {
 }
 
 export default function MyApp(props: MyAppProps) {
-  const { Component, pageProps, router } = props;
-  console.log(router);
-  //const router = useRouter();
+  const { Component, pageProps } = props;
+
+  const router = useRouter();
   //TODO Animate presence in Component not in App 
   return (
     <>
@@ -64,11 +64,11 @@ export default function MyApp(props: MyAppProps) {
             <MotionLazyContainer>
               <ThemeProvider>
                 <ProgressBar />
-                {/*<AnimatePresence
+                <AnimatePresence
                 //exitBeforeEnter={false}
-  >*/}
-                <Component {...pageProps} key={router.pathname} />
-                {/*</AnimatePresence>*/}
+                >
+                  <Component {...pageProps} key={router.asPath} />
+                </AnimatePresence>
               </ThemeProvider>
             </MotionLazyContainer>
           </CollapseDrawerProvider>
