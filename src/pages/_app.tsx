@@ -26,19 +26,17 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 
 //Auth
 import { AuthProvider } from '../contexts/FirebaseContext';
+// Animation
+import MotionLazyContainer from '../components/animate/MotionLazyContainer';
 import { AnimatePresence } from 'framer-motion';
-
-// utils
 
 // contexts
 import { CollapseDrawerProvider } from '../contexts/CollapseDrawerContext';
 // theme
 import ThemeProvider from '../theme';
 // components
-
-
 import ProgressBar from '../components/ProgressBar';
-import MotionLazyContainer from '../components/animate/MotionLazyContainer';
+
 
 // ----------------------------------------------------------------------
 
