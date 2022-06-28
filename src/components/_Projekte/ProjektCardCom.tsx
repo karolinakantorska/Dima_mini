@@ -4,7 +4,8 @@ import { m } from 'framer-motion';
 import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
 // components
-import { varHover, varTranHover } from '../animate';
+
+import { MotionContainer, varHover, varTranHover } from '../animate';
 import Image from '../Image';
 // hooks
 import useResponsive from '../../hooks/useResponsive';
@@ -57,14 +58,15 @@ export function ProjektCardCom({
   return (
     <Box
       sx={{ ...boxProps }}
-      component={m.div}
-      whileHover="hover"
+      component={MotionContainer}
+    //component={m.div}
+    //whileHover="hover"
     >
       <Link href={`${PATH_PROJEKTE.projekt}/${id}`} >
         <Card
-          component={m.div}
-          variants={varHover(1.05)}
-          transition={varTranHover()}
+          //component={m.div}
+          //variants={varHover(1.05)}
+          //transition={varTranHover()}
           sx={{ ...cardProps }}
         >
           <CardActionArea >
