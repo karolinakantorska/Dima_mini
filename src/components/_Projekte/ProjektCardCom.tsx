@@ -58,7 +58,6 @@ export function ProjektCardCom({
   return (
     <Box
       sx={{ ...boxProps }}
-      component={MotionContainer}
     //component={m.div}
     //whileHover="hover"
     >

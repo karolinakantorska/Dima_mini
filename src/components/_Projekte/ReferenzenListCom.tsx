@@ -34,6 +34,27 @@ export function ReferenzenListCom(
 
   return (
     <Box
+      component={m.div}
+      animate={{
+        scale: [1.2, 1, 1, 1.2, 1.2],
+        rotate: [270, 0, 0, 270, 270],
+        opacity: [0.25, 1, 1, 1, 0.25],
+        borderRadius: ['25%', '25%', '50%', '50%', '25%'],
+      }}
+      transition={{ ease: 'linear', duration: 3.2, repeat: Infinity }}
+      sx={{
+        width: 100,
+        height: 100,
+        borderRadius: '25%',
+        position: 'absolute',
+        border: (theme) => `solid 3px red`,
+      }}
+    />
+  );
+}
+
+/*
+    <Box
       //component={m.div}
       //{...variant}
       display="grid"
@@ -56,6 +77,4 @@ export function ReferenzenListCom(
         );
       })}
     </Box>
-  );
-}
-
+    */
