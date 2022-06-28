@@ -1,5 +1,5 @@
 
-import { m } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import { Box, Grid, } from '@mui/material';
 import useResponsive from '../../hooks/useResponsive';
@@ -36,7 +36,7 @@ export function ReferenzenListCom(
   };
 
   return (
-    <m.div>
+    <motion.div>
       <Box
         //component={m.div}
         //{...variant}
@@ -60,7 +60,7 @@ export function ReferenzenListCom(
           );
         })}
       </Box>
-    </m.div>
+    </motion.div>
 
   );
 }
