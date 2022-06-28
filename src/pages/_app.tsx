@@ -60,21 +60,17 @@ export default function MyApp(props: MyAppProps) {
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
-
       <AuthProvider>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <CollapseDrawerProvider>
             <MotionLazyContainer>
               <ThemeProvider>
                 <ProgressBar />
-
                 <AnimatePresence
-                  exitBeforeEnter={false}
-
+                //exitBeforeEnter={false}
                 >
                   <Component {...pageProps} key={router.route} />
                 </AnimatePresence>
-
               </ThemeProvider>
             </MotionLazyContainer>
           </CollapseDrawerProvider>
