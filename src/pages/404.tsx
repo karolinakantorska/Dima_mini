@@ -26,12 +26,13 @@ const ContentStyle = styled('div')(({ theme }) => ({
 }));
 
 // ----------------------------------------------------------------------
-
+console.log('in 404 component');
 
 
 // ----------------------------------------------------------------------
 
 export default function Page404() {
+  console.log('page 404 starting');
   return (
     <Layout>
       <Page title="404 Page Not Found">

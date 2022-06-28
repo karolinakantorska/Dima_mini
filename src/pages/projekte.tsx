@@ -8,7 +8,6 @@ import { ReferenzenListCom } from '../components/_Projekte/ReferenzenListCom';
 import { getOrderedCollection } from "src/utils/apis/apis";
 import LoadingScreen from "src/components/LoadingScreen";
 
-
 export default function Projekte(props: any) {
 
   const { data } = props;
