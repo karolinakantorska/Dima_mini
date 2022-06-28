@@ -15,8 +15,8 @@ export default function Projekte(props: any) {
   return (
     <Layout>
       <Page title="Projekte | Dima & Partner">
-        <LoadingScreen />
-        {/*<ReferenzenListCom projectsList={data} />*/}
+        {/*<LoadingScreen />*/}
+        <ReferenzenListCom projectsList={data} />
       </Page>
     </Layout>
   );

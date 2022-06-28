@@ -11,6 +11,7 @@ type Props = {
 };
 
 export default function MotionLazyContainer({ children }: Props) {
+  console.log('lazy motion wil be loading');
   return (
     <LazyMotion strict features={loadFeatures}>
       {children}
