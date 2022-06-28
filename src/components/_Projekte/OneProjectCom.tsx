@@ -78,8 +78,8 @@ export function OneProjectCom({ project }: { project: ProjectType }) {
     const photosCarusel = [project.photo, ...project.photos]
     return (
       <Stack
-        //component={m.div}
-        //{...variant}
+        component={m.div}
+        {...variant}
         spacing={isDesktop ? 20 : isSmall ? 5 : 8}
       >
         <CarouselBasic3 photos={photosCarusel} />
@@ -102,7 +102,6 @@ export function OneProjectCom({ project }: { project: ProjectType }) {
             <Typography variant="h2" component="h2" paragraph color="dima">
               {firstLettersBig(project.title)}
             </Typography>
-
             <Typography variant="h6" component="div" paragraph color="text.primary">
               {parse(project.description)}
             </Typography>

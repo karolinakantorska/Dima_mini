@@ -58,7 +58,7 @@ export default function MainHeader({ logo = true }: { logo?: boolean }) {
   const gtc = isDesktop ? 'repeat(3, 1fr)' : isSmall ? '1fr' : 'repeat(2, 1fr)';
   const gc = isDesktop ? '3/4' : '2/3';
   const menuItems = isAuthenticated ? [...menuConfigSecond, ...menuConfigAdmin] : [...menuConfigSecond]
-  console.log('isOffset: ', isOffset)
+  //console.log('isOffset: ', isOffset);
   return (
     <AppBar sx={{
       boxShadow: 0,
