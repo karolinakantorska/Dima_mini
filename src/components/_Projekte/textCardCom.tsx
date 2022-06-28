@@ -29,7 +29,7 @@ export function TextCardCom({ project, big, rewerseBig, }: {
   const isDesktop = useResponsive('up', 'lm');
   const isMiddle = useResponsive('down', 'md');
   const { isAuthenticated } = useAuth();
-
+  const isBigAndDisplaysDesktop = isDesktop && big;
   const cardPadding = {
     pl: isMiddle ? 2 : 3,
     pr: isMiddle ? 2 : 3,
@@ -97,55 +97,50 @@ export function TextCardCom({ project, big, rewerseBig, }: {
       </CardActions>}
     </Grid>
   )
+  const MyDialog = () => (
+    <Dialog open={open} onClose={() => handleClose()}>
+      <DialogTitle >Bist du siecher, dass du das Projekt löschen willst?</DialogTitle>
+      <DialogContent>
+        <DialogContentText id="alert-dialog-description">
+          Das {title.toUpperCase()} Projekt wird unwiederbringlich gelösched.
+        </DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={handleDelete}>Löschen</Button>
+        <Button onClick={handleClose} autoFocus variant="outlined">
+          Nein!
+        </Button>
+      </DialogActions>
+    </Dialog>
+  )
 
   return (
     <>
       {error && <Alert severity="error" onClose={() => { setError(null) }} >Fehler:{error.message} </Alert>}
-      {!isDesktop
-        ? <Card  >
+      {!isBigAndDisplaysDesktop
+        && <Card  >
           <TextBox />
+        </Card>}
+      {isBigAndDisplaysDesktop &&
+        <Card sx={big && { ...cardPropsBig }} >
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: rewerseBig ? '1fr 12px' : '12px 1fr',
+            }}
+          >
+            <Box className='between' sx={{
+              backgroundColor: 'background.default',
+              gridRow: 'span 2',
+              gridColumn: rewerseBig ? '2' : '1',
+            }}>
+            </Box>
+            <TextBox />
+          </Box>
         </Card>
-        :
-        <>
-          {!big &&
-            <Card   >
-              <TextBox />
-            </Card>
-          }
-          {big &&
-            <Card sx={big && { ...cardPropsBig }} >
-              <Box
-                sx={{
-                  display: 'grid',
-                  gridTemplateColumns: rewerseBig ? '1fr 12px' : '12px 1fr',
-                }}
-              >
-                <Box className='between' sx={{
-                  backgroundColor: 'background.default',
-                  gridRow: 'span 2',
-                  gridColumn: rewerseBig ? '2' : '1',
-                }}>
-                </Box>
-                <TextBox />
-              </Box>
-            </Card>
-          }
-        </>}
+      }
+      <MyDialog />
 
-      <Dialog open={open} onClose={() => handleClose()}>
-        <DialogTitle >Bist du siecher, dass du das Projekt löschen willst?</DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Das {title.toUpperCase()} Projekt wird unwiederbringlich gelösched.
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleDelete}>Löschen</Button>
-          <Button onClick={handleClose} autoFocus variant="outlined">
-            Schliessen
-          </Button>
-        </DialogActions>
-      </Dialog>
     </>
   )
 }
