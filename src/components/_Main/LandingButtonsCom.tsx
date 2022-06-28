@@ -52,8 +52,6 @@ export default function LandingButtonsCom() {
                             </Typography>
                         </ButtonStyle>
                     </NextLink>
-
-
                 </ButtonGroup>
             </Stack>
         </Container>

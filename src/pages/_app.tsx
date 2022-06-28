@@ -45,13 +45,13 @@ type NextPageWithLayout = NextPage & {
 };
 
 interface MyAppProps extends AppProps {
-
   Component: NextPageWithLayout;
 }
 
 export default function MyApp(props: MyAppProps) {
-  const { Component, pageProps, } = props;
-  const router = useRouter();
+  const { Component, pageProps, router } = props;
+  console.log(router);
+  //const router = useRouter();
   //TODO Animate presence in Component not in App 
   return (
     <>
@@ -67,7 +67,7 @@ export default function MyApp(props: MyAppProps) {
                 <AnimatePresence
                 //exitBeforeEnter={false}
                 >
-                  <Component {...pageProps} key={router.route} />
+                  <Component {...pageProps} key={router.pathname} />
                 </AnimatePresence>
               </ThemeProvider>
             </MotionLazyContainer>
