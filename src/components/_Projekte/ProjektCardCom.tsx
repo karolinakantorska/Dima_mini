@@ -3,7 +3,6 @@ import { m } from 'framer-motion';
 // @mui
 import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
-
 // components
 import { varHover, varTranHover } from '../animate';
 import Image from '../Image';
@@ -28,142 +27,63 @@ export function ProjektCardCom({
   rewerseBig: boolean;
 }) {
   //console.log('project', project)
-  const { id, photo, photoAuthor, } = project;
+  const { id, photo, photoAuthor } = project;
   //console.log('photoAuthor', photoAuthor)
   const isDesktop = useResponsive('up', 'lm');
   const isSmall = useResponsive('down', 'sm');
   const isBig = isDesktop ? big : false;
-  const isReverseBig = isDesktop ? rewerseBig : false;
+  const isBigAndDisplaysDesktop = isDesktop && big;
 
   const propsPhotoAuthor = {
     position: 'absolute',
     bottom: 0
-  };
+  }
 
-  const boxSmallProps = {
+  const boxProps = {
     minWidth: '20px',
     display: 'grid',
     overflow: 'hidden',
-    gridAutoRows: isSmall ? '' : '1fr',
-
-  };
-  const boxBigProps = {
-    minWidth: '20px',
-    display: 'grid',
-    overflow: 'hidden',
-
-    gridColumn: isBig ? 'span 3' : 'span 1',
-    gridAutoFlow: isBig ? 'column' : 'row',
-    gridTemplateColumns: isBig ? ' 1fr 12px 1fr 12px 1fr' : '1fr',
-    columnGap: isBig ? '0px' : '0px',
-    gridAutoRows: isBig ? 'repeat(2, 1fr)' : '1fr',
-
-  };
-  const cardSmallProps = {
-    gridRow: { gridRow },
-  };
-  const cardBigProps = {
-    gridColumn: isBig ? rewerseBig ? '3/span 3' : '1/span 3' : '',
-    gridRow: isBig ? 'span 2' : { gridRow },
-  };
+    gridAutoRows: '1fr',
+    gridAutoFlow: isBigAndDisplaysDesktop ? 'column' : 'row',
+    gridColumn: isBigAndDisplaysDesktop ? 'span 3' : 'span 1',
+    gridTemplateColumns: isBigAndDisplaysDesktop ? '1fr 12px 1fr 12px 1fr' : '1fr',
+    columnGap: '0px',
+  }
+  const cardProps = {
+    gridRow: isBigAndDisplaysDesktop ? 'span 2' : gridRow,
+    gridColumn: isBigAndDisplaysDesktop ? rewerseBig ? '3/span 3' : '1/span 3' : 'span 1',
+  }
 
   return (
-    <>
-      <Box
-        //component={m.div}
-        //whileHover="hover"
-        sx={{ ...boxBigProps }}
-
-      >
+    <Box
+      sx={{ ...boxProps }}
+    //component={m.div}
+    //whileHover="hover"
+    >
+      <Link href={`${PATH_PROJEKTE.projekt}/${id}`} >
         <Card
-          ///component={m.div}
+          //component={m.div}
           //variants={varHover(1.05)}
           //transition={varTranHover()}
-          sx={{ ...cardBigProps }}
+          sx={{ ...cardProps }}
         >
-          <Link href={`${PATH_PROJEKTE.projekt}/${id}`} >
-            <CardActionArea >
-              <Image src={photo.url} alt={photo.alt} ratio="16/9" />
-              {photoAuthor &&
-                <Typography
-                  variant="body2"
-                  display="span"
-                  sx={{ ...propsPhotoAuthor }}
-                >
-                  {photoAuthor}
-                </Typography>}
-            </CardActionArea>
-          </Link>
+          <CardActionArea >
+            <Image src={photo.url} alt={photo.alt} ratio="16/9" />
+            {photoAuthor &&
+              <Typography
+                variant="body2"
+                display="span"
+                sx={{ ...propsPhotoAuthor }}
+              >
+                {photoAuthor}
+              </Typography>}
+          </CardActionArea>
         </Card>
-      </Box>
-    </>
+      </Link>
+      <TextCardCom project={project} big={isBig} rewerseBig={rewerseBig} />
+    </Box>
   );
 }
 /*
-      <Box
-        sx={isBig ? {
-          ...boxBigProps
-        } : { ...boxSmallProps }}
-        component={m.div}
-        whileHover="hover"
-      >
-        <Card
-          component={m.div}
-          variants={varHover(1.05)}
-          transition={varTranHover()}
-          sx={isBig ? {
-            ...cardBigProps
-          } : { ...cardSmallProps }}
-        >
-          <Link href={`${PATH_PROJEKTE.projekt}/${id}`} >
-            <CardActionArea >
-              <Image src={photo.url} alt={photo.alt} ratio="16/9" />
-              {photoAuthor &&
-                <Typography
-                  variant="body2"
-                  display="span"
-                  sx={{ ...propsPhotoAuthor }}
-                >
-                  {photoAuthor}
-                </Typography>}
-            </CardActionArea>
-          </Link>
-        </Card>
-        <TextCardCom project={project} big={isBig} rewerseBig={rewerseBig} />
-      </Box>
-*/
-
-/*
 <Image src={avatar} alt={name} ratio="16/9" />
 */
-/*
-      {!isDesktop && (
-        <Box
-          sx={{ ...boxSmallProps }}
-          component={m.div}
-          whileHover="hover"
-        >
-          <Card
-            component={m.div}
-            variants={varHover(1.05)}
-            transition={varTranHover()}
-            sx={{ ...cardSmallProps }}
-          >
-            <Link scroll={false} href={`${PATH_PROJEKTE.projekt}/${id}`}  >
-              <CardActionArea >
-                <Image src={photo.url} alt={photo.alt} ratio="16/9" />
-                {photoAuthor &&
-                  <Typography
-                    variant="body2"
-                    display="span"
-                    sx={{ ...propsPhotoAuthor }}
-                  >
-                    {photoAuthor}
-                  </Typography>}
-              </CardActionArea>
-            </Link>
-          </Card>
-          <TextCardCom project={project} big={big} rewerseBig={rewerseBig} />
-        </Box>
-      )}
-      */
