@@ -2,14 +2,9 @@
 import { m, } from 'framer-motion';
 
 import { Box, Grid, } from '@mui/material';
-
 import useResponsive from '../../hooks/useResponsive';
-
 import { ProjektCardCom } from './ProjektCardCom';
-
 import { ProjectsListType } from '../../utils/TS/interface';
-import Link from 'next/link';
-import { PATH_PROJEKTE } from '../../routes/paths';
 import { useRouter } from 'next/router';
 
 
@@ -28,6 +23,7 @@ export function ReferenzenListCom(
   const isDesktop = useResponsive('up', 'lm');
   const isSmall = useResponsive('down', 'sm');
   const gtc = isDesktop ? 'repeat(3, 1fr)' : isSmall ? '1fr' : 'repeat(2, 1fr)';
+
   const transition = {
     type: 'tween',
     ease: 'linear',
@@ -42,7 +38,7 @@ export function ReferenzenListCom(
   return (
     <Box
       component={m.div}
-      {...variant}
+      //{...variant}
       display="grid"
       gridTemplateColumns={gtc}
       columnGap="12px"
