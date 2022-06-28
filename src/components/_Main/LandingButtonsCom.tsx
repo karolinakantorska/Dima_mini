@@ -26,7 +26,6 @@ export default function LandingButtonsCom() {
     return (
         <Container sx={{ ...containerProps }}>
             <Stack >
-
                 <ButtonGroup
                     size="large"
                     //variant="contained"
