@@ -6,6 +6,7 @@ import Page from '../components/Page';
 
 import { ReferenzenListCom } from '../components/_Projekte/ReferenzenListCom';
 import { getOrderedCollection } from "src/utils/apis/apis";
+import LoadingScreen from "src/components/LoadingScreen";
 
 
 export default function Projekte(props: any) {
@@ -14,7 +15,8 @@ export default function Projekte(props: any) {
   return (
     <Layout>
       <Page title="Projekte | Dima & Partner">
-        <ReferenzenListCom projectsList={data} />
+        <LoadingScreen />
+        {/*<ReferenzenListCom projectsList={data} />*/}
       </Page>
     </Layout>
   );
