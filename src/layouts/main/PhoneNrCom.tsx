@@ -16,7 +16,6 @@ const Adress = ({ text }: any) => {
         <Grid
             container direction='row'
             justifyContent="space-between"
-
         >
             <Typography
                 variant="body2"

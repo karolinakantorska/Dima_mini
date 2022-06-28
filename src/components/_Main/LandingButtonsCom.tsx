@@ -31,13 +31,13 @@ export default function LandingButtonsCom() {
                     //variant="contained"
                     color="inherit"
                 >
-                    <NextLink href={'/404'} >
+                    <a href={'/404'} >
                         <ButtonStyle size="large" >
                             <Typography variant="button" component="h2" sx={{ fontSize: 30, borderWidth: 5 }} >
                                 Vision
                             </Typography>
                         </ButtonStyle>
-                    </NextLink>
+                    </a>
 
 
 

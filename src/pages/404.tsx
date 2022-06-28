@@ -32,7 +32,6 @@ Page404.getLayout = function getLayout(page: React.ReactElement) {
   return <Layout>{page}</Layout>;
 };
 // ----------------------------------------------------------------------
-
 export default function Page404() {
   console.log('page 404 starting');
   return (
