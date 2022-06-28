@@ -64,11 +64,11 @@ export default function MyApp(props: MyAppProps) {
             <MotionLazyContainer>
               <ThemeProvider>
                 <ProgressBar />
-                <AnimatePresence
+                {/*<AnimatePresence
                 //exitBeforeEnter={false}
-                >
-                  <Component {...pageProps} key={router.pathname} />
-                </AnimatePresence>
+  >*/}
+                <Component {...pageProps} key={router.pathname} />
+                {/*</AnimatePresence>*/}
               </ThemeProvider>
             </MotionLazyContainer>
           </CollapseDrawerProvider>
