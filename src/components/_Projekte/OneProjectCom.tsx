@@ -74,41 +74,41 @@ export function OneProjectCom({ project }: { project: ProjectType }) {
     </TableRow>
   )
 
-  if (project) {
-    const photosCarusel = [project.photo, ...project.photos]
-    return (
-      <Stack
-        //component={m.div}
-        //{...variant}
-        spacing={isDesktop ? 20 : isSmall ? 5 : 8}
-      >
-        <CarouselBasic3 photos={photosCarusel} />
-        <Box
-          sx={{
-            display: 'grid',
-            gridTemplateColumns: isDesktop ? '1fr 1fr' : '1fr ',
-            columnGap: '53px',
-          }}
-        >
-          <Box sx={isSmall ? { pl: 0 } : { pl: 5 }}>
-            <Table >
-              <TableBody>
-                {isMobile && row2().map((row) => (<TableRowMobile key={row.name} row={row} />))}
-                {!isMobile && row2().map((row) => (<TableRowDesktop key={row.name} row={row} />))}
-              </TableBody>
-            </Table>
-          </Box>
-          <Box sx={isSmall ? { pl: 0, pt: 0, } : { pl: 5, pt: 5, }}>
-            <Typography variant="h2" component="h2" paragraph color="dima">
-              {firstLettersBig(project.title)}
-            </Typography>
 
-            <Typography variant="h6" component="div" paragraph color="text.primary">
-              {parse(project.description)}
-            </Typography>
-          </Box>
+  const photosCarusel = [project.photo, ...project.photos]
+  return (
+    <Stack
+      component={m.div}
+      {...variant}
+      spacing={isDesktop ? 20 : isSmall ? 5 : 8}
+    >
+      <CarouselBasic3 photos={photosCarusel} />
+      <Box
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: isDesktop ? '1fr 1fr' : '1fr ',
+          columnGap: '53px',
+        }}
+      >
+        <Box sx={isSmall ? { pl: 0 } : { pl: 5 }}>
+          <Table >
+            <TableBody>
+              {isMobile && row2().map((row) => (<TableRowMobile key={row.name} row={row} />))}
+              {!isMobile && row2().map((row) => (<TableRowDesktop key={row.name} row={row} />))}
+            </TableBody>
+          </Table>
         </Box>
-      </Stack>
-    )
-  } else { return <p>whats up?</p> }
+        <Box sx={isSmall ? { pl: 0, pt: 0, } : { pl: 5, pt: 5, }}>
+          <Typography variant="h2" component="h2" paragraph color="dima">
+            {firstLettersBig(project.title)}
+          </Typography>
+
+          <Typography variant="h6" component="div" paragraph color="text.primary">
+            {parse(project.description)}
+          </Typography>
+        </Box>
+      </Box>
+    </Stack>
+  )
+
 }

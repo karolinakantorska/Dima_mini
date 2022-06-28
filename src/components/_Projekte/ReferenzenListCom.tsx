@@ -1,13 +1,10 @@
 
-import { motion } from 'framer-motion';
-
+import { m } from 'framer-motion';
 import { Box, Grid, } from '@mui/material';
 import useResponsive from '../../hooks/useResponsive';
 import { ProjektCardCom } from './ProjektCardCom';
 import { ProjectsListType } from '../../utils/TS/interface';
 import { useRouter } from 'next/router';
-
-
 
 export function ReferenzenListCom(
   { projectsList }: {
@@ -36,32 +33,29 @@ export function ReferenzenListCom(
   };
 
   return (
-    <motion.div>
-      <Box
-        //component={m.div}
-        //{...variant}
-        display="grid"
-        gridTemplateColumns={gtc}
-        columnGap="12px"
-        rowGap="20px"
-      >
-        {projekte.map((project, i) => {
-          const divideIn2 = i % 2 == 0 ? true : false;
-          const divideIn4 = (i + 1) % 4 == 0 ? true : false;
-          const divideIn8 = (i + 1) % 8 == 0 ? true : false;
-          return (
-            <ProjektCardCom
-              key={project.id}
-              project={project}
-              gridRow={divideIn2 ? '1' : '2'}
-              big={divideIn4 ? true : false}
-              rewerseBig={divideIn8 ? true : false}
-            />
-          );
-        })}
-      </Box>
-    </motion.div>
-
+    <Box
+      //component={m.div}
+      //{...variant}
+      display="grid"
+      gridTemplateColumns={gtc}
+      columnGap="12px"
+      rowGap="20px"
+    >
+      {projekte.map((project, i) => {
+        const divideIn2 = i % 2 == 0 ? true : false;
+        const divideIn4 = (i + 1) % 4 == 0 ? true : false;
+        const divideIn8 = (i + 1) % 8 == 0 ? true : false;
+        return (
+          <ProjektCardCom
+            key={project.id}
+            project={project}
+            gridRow={divideIn2 ? '1' : '2'}
+            big={divideIn4 ? true : false}
+            rewerseBig={divideIn8 ? true : false}
+          />
+        );
+      })}
+    </Box>
   );
 }
 
