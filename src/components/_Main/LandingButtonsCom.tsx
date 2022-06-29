@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import useResponsive from '../../hooks/useResponsive';
 import NextLink from 'next/link';
 import { PATH_DIMA, PATH_PROJEKTE } from 'src/routes/paths';
+import { useRouter } from 'next/router';
 const ButtonStyle = styled(Button)(({ theme }) => ({
 
     backgroundColor: theme.palette.background.opacity,
@@ -15,7 +16,7 @@ const ButtonStyle = styled(Button)(({ theme }) => ({
 export default function LandingButtonsCom() {
     const isDesktop = useResponsive('up', 'lm');
     const isSmall = useResponsive('down', 'sm');
-
+    const router = useRouter();
     const containerProps = {
         position: 'fixed',
         top: isDesktop ? '60%' : '60%',
