@@ -26,7 +26,7 @@ export const SiteTitle = ({ text }: LayoutHeader) => {
                 columnGap="12px"
             >
                 <Box sx={{ backgroundColor: 'dima' }} />
-                <Typography variant="body1" component="h2" align='justify' sx={{ color: 'text.primary' }} >
+                <Typography variant="body2" component="h2" align='justify' sx={{ color: 'text.primary' }} >
                     {description}
                 </Typography>
             </Box>

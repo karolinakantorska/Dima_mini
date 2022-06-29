@@ -49,6 +49,9 @@ export default function CssBaseline(theme: Theme) {
           display: 'block',
           maxWidth: '100%',
         },
+        a:{
+          color: theme.palette.text.disabled
+        }
       },
     },
   };
