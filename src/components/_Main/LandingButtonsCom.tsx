@@ -38,6 +38,16 @@ export default function LandingButtonsCom() {
                             </Typography>
                         </ButtonStyle>
                     </a>
+
+                    <ButtonStyle size="large" onClick={() => router.push({
+                        pathname: '/404',
+
+                    })} >
+                        <Typography variant="button" component="h2" sx={{ fontSize: 30, borderWidth: 5 }} >
+                            Vision
+                        </Typography>
+                    </ButtonStyle>
+
                     <NextLink href={'/404'} passHref >
                         <ButtonStyle size="large" >
                             <Typography variant="button" component="h2" sx={{ fontSize: 30, borderWidth: 5 }} >
