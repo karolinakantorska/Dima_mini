@@ -4,9 +4,6 @@ export const webcams = [
         title: 'Neubau MFH, Forch ',
         end: '2020',
         url: 'http://www.bau-cam.ch/dima/cam1/livebild.php',
-        url2: 'https://www.google.com/search?q=%http://'
-            + 'http://www.bau-cam.ch/dima/cam1/livebild.php'
-            + '.com&btnI=Im+Feeling+Lucky'
     },
     {
         id: '2',
@@ -22,4 +19,3 @@ export const webcams = [
     },
 ]
 
-// https://www.google.com/search?q=%http://yourhttpsite.com&btnI=Im+Feeling+Lucky
