@@ -4,7 +4,6 @@ import { m } from 'framer-motion';
 import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
 // components
-
 import { MotionContainer, varHover, varTranHover } from '../animate';
 import Image from '../Image';
 // hooks
