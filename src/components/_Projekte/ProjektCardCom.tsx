@@ -107,6 +107,4 @@ export function ProjektCardCom({
     )
   );
 }
-/*
-<Image src={avatar} alt={name} ratio="16/9" />
-*/
+
