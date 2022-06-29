@@ -23,7 +23,7 @@ export default function LandingButtonsCom() {
         left: isDesktop ? '30%' : isSmall ? 0 : '20%',
         zIndex: 2,
     }
-    const fontSize = isDesktop ? 30 : isSmall ? 24 : 28
+
     return (
         <Container sx={{ ...containerProps }}>
             <Stack >
