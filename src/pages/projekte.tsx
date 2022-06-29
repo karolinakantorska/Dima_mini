@@ -4,7 +4,7 @@ import Layout from '../layouts';
 // components
 import Page from '../components/Page';
 
-import { ReferenzenListCom } from '../components/_Projekte/ReferenzenListCom';
+import { ProjectsListCom } from '../components/_Projekte/projectsListCom';
 import { getOrderedCollection } from "src/utils/apis/apis";
 
 
@@ -14,7 +14,7 @@ export default function Projekte(props: any) {
   return (
     <Layout>
       <Page title="Projekte | Dima & Partner">
-        <ReferenzenListCom projectsList={data} />
+        <ProjectsListCom projectsList={data} />
       </Page>
     </Layout>
   );

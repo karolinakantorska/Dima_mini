@@ -14,7 +14,7 @@ import { useRouter } from 'next/router';
 
 
 
-export function ReferenzenListCom(
+export function ProjectsListCom(
   { projectsList }: {
     projectsList: ProjectsListType,
   }) {

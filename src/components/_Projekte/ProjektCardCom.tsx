@@ -57,8 +57,8 @@ export function ProjektCardCom({
   return (
     <Box
       sx={{ ...boxProps }}
-      component={m.div}
-      whileHover="hover"
+    //component={m.div}
+    //whileHover="hover"
     >
       <Link href={`${PATH_PROJEKTE.projekt}/${id}`} >
         <Card
