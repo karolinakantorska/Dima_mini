@@ -1,5 +1,5 @@
 import { Theme } from '@mui/material/styles';
-import { BG_Regular } from '../typography';
+//import { BG_Regular } from '../typography';
 
 // ----------------------------------------------------------------------
 
@@ -7,9 +7,11 @@ export default function CssBaseline(theme: Theme) {
  
   return {
     MuiCssBaseline: {
+      /*
  '@global': {
         '@font-face': [ BG_Regular],
       },
+      */
       styleOverrides: {
         '*': {
           margin: 0,
