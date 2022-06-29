@@ -1,13 +1,13 @@
 import { pxToRem, responsiveFontSizes } from '../utils/getFontValue';
-import BG_Regular_woff2 from '/public/fonts/univers_bq_regular.woff2';
+//import BG_Regular_woff2 from '/public/fonts/univers_bq_regular.woff2';
 
 // ----------------------------------------------------------------------
-const FONT_PRIMARY = ' Univers BQ Regular,Open Sans, Roboto, Arial, sans-serif'; // Google Font
+const FONT_PRIMARY = ' BG_Regular, Univers,Open Sans, Arial,sans-serif'; // Google Font
 
 // const FONT_SECONDARY = 'CircularStd, sans-serif'; // Local Font
         
-console.log('BG_Regular_woff2:',BG_Regular_woff2);
-
+//console.log('BG_Regular_woff2:',BG_Regular_woff2);
+/*
 export const BG_Regular = {
   fontFamily: 'univers_bqregular',
   fontStyle: 'normal',
@@ -19,12 +19,12 @@ export const BG_Regular = {
     url(${BG_Regular_woff2}) format('woff2')
   `,
 };
-
+*/
 const typography = {
   /*
   fontFamily: ['BG_Regular, Univers,Open Sans, Arial,sans-serif'].join(','),
   */
- fontFamily: ['BG_Regular, Univers,Open Sans, Arial,sans-serif'].join(','),
+ fontFamily: FONT_PRIMARY,
   fontWeightRegular: 400,
   fontWeightMedium: 500,
   fontWeightBold: 600,

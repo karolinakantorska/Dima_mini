@@ -27,7 +27,7 @@ export function WebcamsCardCom({ wcam }: { wcam: any }) {
         component='iframe'
         src={url}
         title={title}
-        scrolling="no"
+        //scrolling="no"
         sx={{ height: '368px', width: '100%', border: 'none ', mt: '-88px' }}
         className="iFrame Container"
       >
