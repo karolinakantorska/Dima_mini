@@ -39,9 +39,9 @@ export default class MyDocument extends Document {
 
           <meta
             name="description"
-            content="Dima & Partner Generalunternehmen "
+            content="Dima & Partner Generalunternehmen"
           />
-          <meta name="keywords" content="Generalunternehmen, Dima, Architekt,Totalunternehmer" />
+          <meta name="keywords" content="Generalunternehmen, Dima, Architekt, Totalunternehmer" />
           <meta name="Karolina Kantorska" content="Dima & Partner" />
         </Head>
 

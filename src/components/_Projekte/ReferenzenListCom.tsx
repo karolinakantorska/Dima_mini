@@ -5,6 +5,7 @@ import useResponsive from '../../hooks/useResponsive';
 import { ProjektCardCom } from './ProjektCardCom';
 import { ProjectsListType } from '../../utils/TS/interface';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 export function ReferenzenListCom(
   { projectsList }: {
@@ -16,6 +17,9 @@ export function ReferenzenListCom(
       projekte.push(project)
     }
   })
+  useEffect(() => {
+    console.log('effect')
+  }, [])
   const router = useRouter();
   const isDesktop = useResponsive('up', 'lm');
   const isSmall = useResponsive('down', 'sm');
@@ -31,8 +35,14 @@ export function ReferenzenListCom(
     exit: router.query.id && { opacity: 0 },
     transition: transition,
   };
-
+  console.log('before return')
   return (
+    <m.div>
+      <p>hallo</p>
+    </m.div>
+  );
+}
+/*
     <Box
       //component={m.div}
       //{...variant}
@@ -56,5 +66,4 @@ export function ReferenzenListCom(
         );
       })}
     </Box>
-  );
-}
+    */

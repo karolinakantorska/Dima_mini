@@ -50,14 +50,14 @@ export default function LandingButtonsCom() {
                     </ButtonStyle>
 
                     <NextLink href={'/404'} passHref >
-                        <ButtonStyle size="large" >
+                        <ButtonStyle size="large" onClick={() => console.log('linkClicked')}>
                             <Typography variant="button" component="h2" sx={{ fontSize: 30, borderWidth: 5 }} >
                                 Vision
                             </Typography>
                         </ButtonStyle>
                     </NextLink>
                     <NextLink href={PATH_PROJEKTE.projekte} passHref >
-                        <ButtonStyle size="large">
+                        <ButtonStyle size="large" onClick={() => console.log('linkClicked')}>
                             <Typography variant="button" component="h2" sx={{ fontSize: 30, color: "dima" }} >
                                 Projekte
                             </Typography>
