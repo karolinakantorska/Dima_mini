@@ -7,6 +7,7 @@ import { ProjectsListType } from '../../utils/TS/interface';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
+
 export function ReferenzenListCom(
   { projectsList }: {
     projectsList: ProjectsListType,
@@ -37,6 +38,7 @@ export function ReferenzenListCom(
   };
   console.log('before return')
   return (
+
     <m.div>
       <p>hallo</p>
     </m.div>
