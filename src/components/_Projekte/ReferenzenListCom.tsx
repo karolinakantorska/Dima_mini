@@ -38,10 +38,13 @@ export function ReferenzenListCom(
   };
   console.log('before return')
   return (
+    <>
+      <p>Hallo</p>
+      <m.div>
+        <p>hallo</p>
+      </m.div>
+    </>
 
-    <m.div>
-      <p>hallo</p>
-    </m.div>
   );
 }
 /*
